@@ -1,8 +1,11 @@
-import 'dart:developer';
-
+export "./welcome.dart";
 import 'package:flutter/material.dart';
 
+import '../arrange/arrange.dart';
+
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,21 +20,7 @@ class WelcomePage extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () {
-                  showDialog(context: context, builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('古文解释'),
-                      content: const Text("ddd"),
-                      actions: <Widget>[
-                        TextButton(
-                          child: const Text('关闭'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  }
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const ArrangePage()));
                 },
                 child: const Text("排卦"),
               ),
