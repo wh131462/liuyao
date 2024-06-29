@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liuyan_flutter/pages/welcome/welcome.dart';
+import 'package:liuyao_flutter/pages/welcome/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const WelcomePage()
+      home: WelcomePage()
     );
   }
 }

@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.eternalheart" "\0"
-            VALUE "FileDescription", "liuyan_flutter" "\0"
+            VALUE "CompanyName", "com.example" "\0"
+            VALUE "FileDescription", "liuyao_flutter" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "liuyan_flutter" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.eternalheart. All rights reserved." "\0"
-            VALUE "OriginalFilename", "liuyan_flutter.exe" "\0"
-            VALUE "ProductName", "liuyan_flutter" "\0"
+            VALUE "InternalName", "liuyao_flutter" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "liuyao_flutter.exe" "\0"
+            VALUE "ProductName", "liuyao_flutter" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
