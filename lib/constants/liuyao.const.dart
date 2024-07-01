@@ -8,6 +8,14 @@ enum Yao {
   final String key;
   final String title;
   const Yao(this.key,this.title);
+  /// 获取相反的爻
+  Yao getReversedYao(){
+    if(key=="yin") {
+      return Yao.yang;
+    } else {
+      return Yao.yin;
+    }
+  }
 }
 
 // 定义 Gua 枚举
@@ -27,6 +35,10 @@ enum Gua {
   final List<Yao> yaoList;
 
   const Gua(this.key, this.name,this.symbol,this.yaoList);
+  /// 通过爻列表获取卦
+  static Gua getGuaByYaoList(List<Yao> yaoList){
+    return Gua.values.firstWhere((gua)=>gua.yaoList.toString()==yaoList.toString());
+  }
 }
 /// 本卦 === Original Hexagram
 /// 变卦 === Transformed Hexagram
@@ -118,6 +130,10 @@ enum Xiang {
   /// 获取随机象
   static Xiang getRandomXiang(){
     return Xiang.values[Random().nextInt(Xiang.values.length)];
+  }
+  /// 根据爻列表获取象
+  static Xiang getXiangByYaoList(List<Gua> guaList){
+    return Xiang.values.firstWhere((xiang)=>xiang.guaList.toString()==guaList.toString());
   }
   /// 获取卦对应的符号列表
   List<String> getSymbolList(){

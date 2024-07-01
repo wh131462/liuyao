@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:liuyao_flutter/constants/liuyao.const.dart';
+import 'package:liuyao_flutter/utils/liuyao.util.dart';
 
 class ArrangePage extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class ArrangePage extends StatefulWidget {
 class _ArrangePageState extends State<ArrangePage> {
   // 用于存储输入的六位数字
   String _inputNumber = '';
+  String _gua_text = '';
 
   // 随机生成六位数字的方法
   String generateRandomNumber() {
@@ -18,21 +21,35 @@ class _ArrangePageState extends State<ArrangePage> {
     const int length = 6;
     var random = Random();
     return String.fromCharCodes(Iterable.generate(length, (_) {
-      return possibleCharacters.codeUnitAt(random.nextInt(possibleCharacters.length));
+      return possibleCharacters
+          .codeUnitAt(random.nextInt(possibleCharacters.length));
     }));
   }
 
   // 处理开始排盘按钮点击事件
   void _startArrangement() {
     // 这里可以添加开始排盘的逻辑
-    print('开始排盘，输入的数字为: $_inputNumber');
-    // 根据需要添加其他逻辑
+
+    setState(() {
+      print('开始排盘，输入的数字为: $_inputNumber');
+      List<int> numList = LiuYaoUtil.stringToIntList(_inputNumber);
+      Xiang originHex = LiuYaoUtil.getOriginalHexagramByNumber(numList);
+      Xiang transformHex = LiuYaoUtil.getTransformedHexagramByNumber(numList);
+      Xiang mutualHex = LiuYaoUtil.getMutualHexagramByNumber(numList);
+      Xiang reverseHex = LiuYaoUtil.getReversedHexagramByNumber(numList);
+      Xiang oppositeHex = LiuYaoUtil.getOppositeHexagramByNumber(numList);
+      print("${LiuYaoUtil.getYaoListByNumberDsc(numList).map((o) => o.title)}");
+      _gua_text =
+          "本卦: ${originHex.name}\n变卦: ${transformHex.name}\n错卦: ${reverseHex.name}\n互卦: ${mutualHex.name}\n综卦: ${oppositeHex.name}";
+      print(_gua_text);
+    });
   }
 
   // 处理赛博摇卦按钮点击事件
   void _cyberShake() {
     setState(() {
       _inputNumber = generateRandomNumber();
+      print(_inputNumber);
     });
   }
 
@@ -59,6 +76,16 @@ class _ArrangePageState extends State<ArrangePage> {
               });
             },
           ),
+          RichText(
+            text: TextSpan(
+              text: _gua_text,
+              style: TextStyle(
+                background: Paint()..color = Colors.yellow, // 设置背景颜色
+                fontSize: 24,
+                color: Colors.black, // 文本颜色
+              ),
+            ),
+          ),
           SizedBox(height: 20), // 用于添加按钮之间的间距
           // 赛博摇卦按钮
           ElevatedButton(
@@ -84,12 +111,12 @@ class FilteringTextInputFormatter extends TextInputFormatter {
 
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     String filtered = newValue.text;
     for (int i = 0; i < filtered.length; i++) {
-      if (_allowedCharacters.indexOf(filtered[i]) == -1) {
+      if (!_allowedCharacters.contains(filtered[i])) {
         filtered = filtered.replaceRange(i, i + 1, '');
       }
     }
