@@ -12,8 +12,8 @@ class ArrangePage extends StatefulWidget {
 
 class _ArrangePageState extends State<ArrangePage> {
   // 用于存储输入的六位数字
-  String _inputNumber = '';
   String _gua_text = '';
+  final TextEditingController _textEditingController = TextEditingController();
 
   // 随机生成六位数字的方法
   String generateRandomNumber() {
@@ -31,16 +31,12 @@ class _ArrangePageState extends State<ArrangePage> {
     // 这里可以添加开始排盘的逻辑
 
     setState(() {
-      print('开始排盘，输入的数字为: $_inputNumber');
-      List<int> numList = LiuYaoUtil.stringToIntList(_inputNumber);
-      Xiang originHex = LiuYaoUtil.getOriginalHexagramByNumber(numList);
-      Xiang transformHex = LiuYaoUtil.getTransformedHexagramByNumber(numList);
-      Xiang mutualHex = LiuYaoUtil.getMutualHexagramByNumber(numList);
-      Xiang reverseHex = LiuYaoUtil.getReversedHexagramByNumber(numList);
-      Xiang oppositeHex = LiuYaoUtil.getOppositeHexagramByNumber(numList);
-      print("${LiuYaoUtil.getYaoListByNumberDsc(numList).map((o) => o.title)}");
+      print('开始排盘，输入的数字为: ${_textEditingController.text}');
+      Map<Hexagram, Xiang> map =
+          LiuYaoUtil.getHexagramsByText(_textEditingController.text);
+      print("${map.values}");
       _gua_text =
-          "本卦: ${originHex.name}\n变卦: ${transformHex.name}\n错卦: ${reverseHex.name}\n互卦: ${mutualHex.name}\n综卦: ${oppositeHex.name}";
+          "本卦: ${map[Hexagram.original]!.name}\n变卦: ${map[Hexagram.transformed]!.name}\n错卦: ${map[Hexagram.reversed]!.name}\n互卦: ${map[Hexagram.mutual]!.name}\n综卦: ${map[Hexagram.opposite]!.name}";
       print(_gua_text);
     });
   }
@@ -48,17 +44,14 @@ class _ArrangePageState extends State<ArrangePage> {
   // 处理赛博摇卦按钮点击事件
   void _cyberShake() {
     setState(() {
-      _inputNumber = generateRandomNumber();
-      print(_inputNumber);
+      _textEditingController.text = generateRandomNumber();
+      print(_textEditingController.text);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('排盘页面'),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -70,17 +63,13 @@ class _ArrangePageState extends State<ArrangePage> {
               // 限制只能输入数字6789
               FilteringTextInputFormatter.allow('6789')
             ],
-            onChanged: (value) {
-              setState(() {
-                _inputNumber = value;
-              });
-            },
+            controller: _textEditingController,
           ),
           RichText(
             text: TextSpan(
               text: _gua_text,
               style: TextStyle(
-                background: Paint()..color = Colors.yellow, // 设置背景颜色
+                background: Paint()..color = Colors.blueAccent, // 设置背景颜色
                 fontSize: 24,
                 color: Colors.black, // 文本颜色
               ),

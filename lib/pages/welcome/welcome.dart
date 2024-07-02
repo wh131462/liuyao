@@ -1,10 +1,8 @@
 export "./welcome.dart";
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/pages/gua/gua.dart';
-import 'package:liuyao_flutter/pages/my/my.dart';
-import 'package:liuyao_flutter/pages/welcome/custom-page.dart';
-
-import '../arrange/arrange.dart';
+import 'package:liuyao_flutter/pages/welcome/components/custom-bar.dart';
+import 'package:liuyao_flutter/pages/welcome/pages.const.dart';
+import 'package:liuyao_flutter/styles/iconfont.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -13,8 +11,9 @@ class WelcomePage extends StatefulWidget {
   _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin {
-  // 定义Tab控制器
+class _WelcomePageState extends State<WelcomePage>
+    with TickerProviderStateMixin {
+  // 定义page控制器
   final PageController _pageController = PageController(initialPage: 0);
   int _currentIndex = 0;
 
@@ -38,35 +37,34 @@ class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    final List<CustomPage> pages = [
-      CustomPage("排盘", ArrangePage()),
-      CustomPage("六十四卦", GuaPage()),
-      CustomPage("我的", MyPage())
-    ];
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        flexibleSpace: Container(
-          alignment: Alignment.center,
-          child: Text(pages[_currentIndex].title),
-        ),
-      ),
+      appBar: CustomAppBar(
+          title: pages[_currentIndex].title,
+          leftIcon: pages[_currentIndex].leftIcon,
+          onLeftIconPressed: pages[_currentIndex].onLeftIconPressed,
+          rightIcon: pages[_currentIndex].leftIcon,
+          onRightIconPressed: pages[_currentIndex].onRightIconPressed),
       body: PageView(
         controller: _pageController,
-        children: pages.map((o) => o.page).toList(),
+        children: getPages(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
+            icon: Icon(IconFont.arrange, size: 16.0, color: Colors.grey),
+            activeIcon:
+                Icon(IconFont.arrange, size: 16.0, color: Colors.blueAccent),
             label: '排盘',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assessment),
+            icon: Icon(IconFont.read, size: 18.0, color: Colors.grey),
+            activeIcon:
+                Icon(IconFont.read, size: 18.0, color: Colors.blueAccent),
             label: '六十四卦',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: Icon(IconFont.my, size: 16.0, color: Colors.grey),
+            activeIcon: Icon(IconFont.my, size: 16.0, color: Colors.blueAccent),
             label: '我的',
           ),
         ],
@@ -74,7 +72,9 @@ class _WelcomePageState extends State<WelcomePage> with TickerProviderStateMixin
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            _pageController.animateToPage(index, duration:const Duration(milliseconds: 300), curve: Curves.easeInOut);
+            _pageController.animateToPage(index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut);
           });
         },
       ),

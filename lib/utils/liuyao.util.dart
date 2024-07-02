@@ -32,6 +32,23 @@ class LiuYaoUtil {
     return getTransformedYaoListByNumberAsc(numList).reversed.toList();
   }
 
+  /// 获取所有卦列表
+  static Map<Hexagram, Xiang> getHexagramsByText(String text) {
+    List<int> numList = LiuYaoUtil.stringToIntList(text);
+    Map<Hexagram, Xiang> map = {};
+    map.addAll(
+        {Hexagram.original: LiuYaoUtil.getOriginalHexagramByNumber(numList)});
+    map.addAll(
+        {Hexagram.transformed: LiuYaoUtil.getTransformedHexagramByNumber(numList)});
+    map.addAll(
+        {Hexagram.mutual: LiuYaoUtil.getMutualHexagramByNumber(numList)});
+    map.addAll(
+        {Hexagram.reversed: LiuYaoUtil.getReversedHexagramByNumber(numList)});
+    map.addAll(
+        {Hexagram.opposite: LiuYaoUtil.getOppositeHexagramByNumber(numList)});
+    return map;
+  }
+
   // region 本卦
   /// 获取本卦卦列表
   static List<Gua> getOriginalHexagramGuaListByNumber(List<int> numList) {
@@ -67,7 +84,8 @@ class LiuYaoUtil {
   // region 错卦
   /// 获取错卦卦列表
   static List<Gua> getReversedHexagramGuaListByNumber(List<int> numList) {
-    List<Yao> yaoList = getYaoListByNumberDsc(numList).map((o)=>o.getReversedYao()).toList();
+    List<Yao> yaoList =
+        getYaoListByNumberDsc(numList).map((o) => o.getReversedYao()).toList();
     Gua guaUp = Gua.getGuaByYaoList(yaoList.getRange(0, 3).toList());
     Gua guaDown = Gua.getGuaByYaoList(yaoList.getRange(3, 6).toList());
     return [guaUp, guaDown];
@@ -78,6 +96,7 @@ class LiuYaoUtil {
     List<Gua> guaList = getReversedHexagramGuaListByNumber(numList);
     return Xiang.getXiangByYaoList(guaList);
   }
+
   // endregion
   // region 互卦
   /// 获取互卦卦列表
@@ -139,7 +158,6 @@ class LiuYaoUtil {
         return Yao.yin;
     }
   }
-
 
   // region 生成方法
   /// 生成爻

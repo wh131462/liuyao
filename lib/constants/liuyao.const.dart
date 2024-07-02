@@ -2,15 +2,19 @@
 import 'dart:math';
 
 import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+
 enum Yao {
-  yin("yin","阴"),
-  yang("yang","阳");
+  yin("yin", "阴"),
+  yang("yang", "阳");
+
   final String key;
   final String title;
-  const Yao(this.key,this.title);
+
+  const Yao(this.key, this.title);
+
   /// 获取相反的爻
-  Yao getReversedYao(){
-    if(key=="yin") {
+  Yao getReversedYao() {
+    if (key == "yin") {
       return Yao.yang;
     } else {
       return Yao.yin;
@@ -20,26 +24,29 @@ enum Yao {
 
 // 定义 Gua 枚举
 enum Gua {
-  qian("qian","乾","☰",[Yao.yang,Yao.yang,Yao.yang]),
-  kun("kun","坤","☷",[Yao.yin,Yao.yin,Yao.yin]),
-  zhen("zhen","震","☳",[Yao.yin,Yao.yin,Yao.yang]),
-  gen("gen","艮","☶",[Yao.yang,Yao.yin,Yao.yin]),
-  li("li","离","☲",[Yao.yang,Yao.yin,Yao.yang]),
-  kan("kan","坎","☵",[Yao.yin,Yao.yang,Yao.yin]),
-  dui("dui","兑","☱",[Yao.yin,Yao.yang,Yao.yang]),
-  xun("xun","巽","☴",[Yao.yang,Yao.yang,Yao.yin]);
+  qian("qian", "乾", "☰", [Yao.yang, Yao.yang, Yao.yang]),
+  kun("kun", "坤", "☷", [Yao.yin, Yao.yin, Yao.yin]),
+  zhen("zhen", "震", "☳", [Yao.yin, Yao.yin, Yao.yang]),
+  gen("gen", "艮", "☶", [Yao.yang, Yao.yin, Yao.yin]),
+  li("li", "离", "☲", [Yao.yang, Yao.yin, Yao.yang]),
+  kan("kan", "坎", "☵", [Yao.yin, Yao.yang, Yao.yin]),
+  dui("dui", "兑", "☱", [Yao.yin, Yao.yang, Yao.yang]),
+  xun("xun", "巽", "☴", [Yao.yang, Yao.yang, Yao.yin]);
 
   final String key;
   final String name;
   final String symbol;
   final List<Yao> yaoList;
 
-  const Gua(this.key, this.name,this.symbol,this.yaoList);
+  const Gua(this.key, this.name, this.symbol, this.yaoList);
+
   /// 通过爻列表获取卦
-  static Gua getGuaByYaoList(List<Yao> yaoList){
-    return Gua.values.firstWhere((gua)=>gua.yaoList.toString()==yaoList.toString());
+  static Gua getGuaByYaoList(List<Yao> yaoList) {
+    return Gua.values
+        .firstWhere((gua) => gua.yaoList.toString() == yaoList.toString());
   }
 }
+
 /// 本卦 === Original Hexagram
 /// 变卦 === Transformed Hexagram
 /// 错卦 === Reversed Hexagram
@@ -116,32 +123,52 @@ enum Xiang {
   final String name;
   final List<Gua> guaList;
 
-  const Xiang(this.idx, this.name,this.guaList);
+  const Xiang(this.idx, this.name, this.guaList);
+
   /// 通过卦名获取到象
-  static Xiang getXiangByTitle(String name){
-    return Xiang.values.firstWhere((v)=>v.name==name);
+  static Xiang getXiangByTitle(String name) {
+    return Xiang.values.firstWhere((v) => v.name == name);
   }
+
   /// 获取按顺序输出的象列表
-  static List<Xiang>? getXiangList(){
-    const list =  Xiang.values;
-    list.sort((a,b)=>a.idx-b.idx);
+  static List<Xiang>? getXiangList() {
+    const list = Xiang.values;
+    list.sort((a, b) => a.idx - b.idx);
     return list;
   }
+
   /// 获取随机象
-  static Xiang getRandomXiang(){
+  static Xiang getRandomXiang() {
     return Xiang.values[Random().nextInt(Xiang.values.length)];
   }
+
   /// 根据爻列表获取象
-  static Xiang getXiangByYaoList(List<Gua> guaList){
-    return Xiang.values.firstWhere((xiang)=>xiang.guaList.toString()==guaList.toString());
+  static Xiang getXiangByYaoList(List<Gua> guaList) {
+    return Xiang.values
+        .firstWhere((xiang) => xiang.guaList.toString() == guaList.toString());
   }
+
   /// 获取卦对应的符号列表
-  List<String> getSymbolList(){
-    return guaList.map((gua)=>gua.symbol).toList();
+  List<String> getSymbolList() {
+    return guaList.map((gua) => gua.symbol).toList();
   }
+
   /// 获取卦象对应的属性
-  XiangDicItem? getGuaProps(){
+  XiangDicItem? getGuaProps() {
     return xiangDictionary[name];
   }
 }
+/// 卦类型
+enum Hexagram {
+  original("本卦", "代表了占卜问题的当前状态或者初始条件", "原始卦象"),
+  transformed("变卦", "代表事物发展方向和结局", "本卦中的动爻阴阳互变"),
+  mutual("互卦", "代表事物的发展过程", "将本卦的三四五爻作为上卦，二三四爻变为下卦"),
+  reversed("错卦", "代表转机", "将本卦的六个爻全部变为相反的爻"),
+  opposite("综卦", "将本卦的六个爻整个翻转形成的卦", "将本卦的六个爻整个翻转形成的卦");
 
+  final String name;
+  final String description;
+  final String method;
+
+  const Hexagram(this.name, this.description, this.method);
+}
