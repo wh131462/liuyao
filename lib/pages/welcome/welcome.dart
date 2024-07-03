@@ -38,12 +38,6 @@ class _WelcomePageState extends State<WelcomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-          title: pages[_currentIndex].title,
-          leftIcon: pages[_currentIndex].leftIcon,
-          onLeftIconPressed: pages[_currentIndex].onLeftIconPressed,
-          rightIcon: pages[_currentIndex].leftIcon,
-          onRightIconPressed: pages[_currentIndex].onRightIconPressed),
       body: PageView(
         controller: _pageController,
         children: getPages(),
