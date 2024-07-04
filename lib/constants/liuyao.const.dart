@@ -129,7 +129,10 @@ enum Xiang {
   static Xiang getXiangByTitle(String name) {
     return Xiang.values.firstWhere((v) => v.name == name);
   }
-
+  /// 根据index获取象
+  static Xiang getXiangByIndex(int index){
+    return Xiang.values.firstWhere((v) => v.idx == index);
+  }
   /// 获取按顺序输出的象列表
   static List<Xiang>? getXiangList() {
     const list = Xiang.values;
@@ -148,14 +151,25 @@ enum Xiang {
         .firstWhere((xiang) => xiang.guaList.toString() == guaList.toString());
   }
 
+  /**
+   * 卦实例方法
+   */
   /// 获取卦对应的符号列表
   List<String> getSymbolList() {
     return guaList.map((gua) => gua.symbol).toList();
   }
+  /// 获取卦象的符号字符串
+  String getSymbolText(){
+    return getSymbolList().join("\n");
+  }
 
   /// 获取卦象对应的属性
-  XiangDicItem? getGuaProps() {
-    return xiangDictionary[name];
+  XiangDicItem getGuaProps() {
+    return xiangDictionary[name]!;
+  }
+  /// 获取卦对应的字符串
+  String getGuaListText(){
+    return "${guaList.first.name}上${guaList.last.name}下";
   }
 }
 /// 卦类型

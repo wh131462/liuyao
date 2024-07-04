@@ -1,7 +1,6 @@
 export "./welcome.dart";
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/pages/welcome/components/custom-bar.dart';
-import 'package:liuyao_flutter/pages/welcome/pages.const.dart';
+import 'package:liuyao_flutter/navigation/pages.const.dart';
 import 'package:liuyao_flutter/styles/iconfont.dart';
 
 class WelcomePage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/pages/arrange/arrange.dart';
-import 'package:liuyao_flutter/pages/gua/gua.dart';
+import 'package:liuyao_flutter/pages/hexagrams/hexagrams.dart';
 import 'package:liuyao_flutter/pages/my/my.dart';
 import 'package:liuyao_flutter/styles/iconfont.dart';
 
@@ -21,7 +21,7 @@ List<CustomPage> pages = [
   CustomPage("排盘", ArrangePage(), null, null, null, null),
   CustomPage(
       "六十四卦",
-      GuaPage(),
+      HexagramsPage(),
       null,
       null,
       const Icon(

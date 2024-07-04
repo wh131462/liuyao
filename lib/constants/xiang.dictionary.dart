@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:liuyao_flutter/components/image_rich_text.dart';
 import 'package:liuyao_flutter/constants/xiangs/index.dart';
 
 class XiangDicItem {
@@ -31,9 +33,74 @@ class XiangDicItem {
   // 象的上爻
   String uppermostLine;
 
-  XiangDicItem(this.name, this.fullName, this.simpleDescription,
-      this.originalHexagram, this.initialLine, this.secondLine, this.thirdLine,
-      this.fourthLine, this.fifthLine, this.uppermostLine);
+  XiangDicItem(
+      this.name,
+      this.fullName,
+      this.simpleDescription,
+      this.originalHexagram,
+      this.initialLine,
+      this.secondLine,
+      this.thirdLine,
+      this.fourthLine,
+      this.fifthLine,
+      this.uppermostLine);
+
+  /// 获取全文
+  String getFullText() {
+    return '''$name卦($fullName)\n$simpleDescription\n\n$originalHexagram\n\n$initialLine\n\n$secondLine\n\n$thirdLine\n\n$fourthLine\n\n$fifthLine\n\n$uppermostLine\n\n}''';
+  }
+
+  /// 获取全文富文本
+  RichText getFullRichText() {
+    TextStyle nameStyle =
+        const TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0);
+    TextStyle titleStyle =
+        const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold);
+    TextStyle commonStyle = const TextStyle(fontSize: 16.0);
+    return RichText(
+        softWrap: true,
+        text: TextSpan(
+          style: const TextStyle(color: Colors.black),
+          children: <TextSpan>[
+            // 标题样式
+            TextSpan(
+              text: '$name卦($fullName)\n\n',
+              style: nameStyle,
+            ),
+            // 简单描述样式
+            TextSpan(
+              text: '$simpleDescription\n\n',
+              style: commonStyle,
+            ),
+            // 原始卦象样式
+            TextSpan(
+              text: '$originalHexagram\n\n',
+              style: commonStyle,
+            ),
+            ...[
+              initialLine,
+              secondLine,
+              thirdLine,
+              fourthLine,
+              fifthLine,
+              uppermostLine
+            ].map((line) {
+              return TextSpan(
+                children: [
+                  TextSpan(
+                    text: '${line.split("\n").first}\n\n',
+                    style: titleStyle,
+                  ),
+                  TextSpan(
+                    children: getTextSpanWithMixedImages('${line.split("\n").skip(1).join("\n")}\n\n') ,
+                    style: commonStyle,
+                  )
+                ],
+              );
+            }),
+          ],
+        ));
+  }
 }
 
 /// 象表映射字典 象名为键名 象为值
@@ -57,7 +124,7 @@ Map<String, XiangDicItem> xiangDictionary = {
   "大有": tianHuoDaYou,
   "睽": huoZeKui,
   "离": liWeiHuo,
-  "噬嗑":huoLeiSHiKe,
+  "噬嗑": huoLeiSHiKe,
   "鼎": huoFengDing,
   "未济": huoShuiWeiJi,
   "旅": huoShanLv,

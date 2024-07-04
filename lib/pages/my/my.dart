@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/pages/license/license.dart';
-import 'package:liuyao_flutter/pages/welcome/components/custom-bar.dart';
+import 'package:liuyao_flutter/components/custom_bar.dart';
 
 class MyPage extends StatefulWidget {
   @override

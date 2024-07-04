@@ -1,0 +1,27 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+
+import '../../constants/liuyao.const.dart';
+
+class HexagramDetailPage extends StatelessWidget {
+  final Xiang hexagram;
+
+  const HexagramDetailPage({super.key, required this.hexagram});
+
+  @override
+  Widget build(BuildContext context) {
+    XiangDicItem detail = hexagram.getGuaProps();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("第${hexagram.idx}卦 - ${hexagram.name} - ${hexagram.getGuaListText()}"),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: detail.getFullRichText(),
+        ),
+      ),
+    );
+  }
+}

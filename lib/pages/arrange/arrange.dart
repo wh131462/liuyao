@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:liuyao_flutter/constants/liuyao.const.dart';
+import 'package:liuyao_flutter/pages/arrange/arrange.detail.dart';
 import 'package:liuyao_flutter/utils/liuyao.util.dart';
 
 class ArrangePage extends StatefulWidget {
@@ -12,7 +13,8 @@ class ArrangePage extends StatefulWidget {
 
 class _ArrangePageState extends State<ArrangePage> {
   // 用于存储输入的六位数字
-  String _gua_text = '';
+  final TextEditingController _numberEditingController =
+      TextEditingController();
   final TextEditingController _textEditingController = TextEditingController();
 
   // 随机生成六位数字的方法
@@ -26,64 +28,81 @@ class _ArrangePageState extends State<ArrangePage> {
     }));
   }
 
-  // 处理开始排盘按钮点击事件
-  void _startArrangement() {
-    // 这里可以添加开始排盘的逻辑
-
-    setState(() {
-      print('开始排盘，输入的数字为: ${_textEditingController.text}');
-      Map<Hexagram, Xiang> map =
-          LiuYaoUtil.getHexagramsByText(_textEditingController.text);
-      print("${map.values}");
-      _gua_text =
-          "本卦: ${map[Hexagram.original]!.name}\n变卦: ${map[Hexagram.transformed]!.name}\n错卦: ${map[Hexagram.reversed]!.name}\n互卦: ${map[Hexagram.mutual]!.name}\n综卦: ${map[Hexagram.opposite]!.name}";
-      print(_gua_text);
-    });
+  // 在 _ArrangePageState 类中添加一个方法来处理跳转
+  void _navigateToResultPage() {
+    if (_numberEditingController.text.isNotEmpty) {
+      Map<Hexagram, Xiang> map = LiuYaoUtil.getHexagramsByText(_numberEditingController.text);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ArrangeDetailPage(
+            question: _textEditingController.text!,
+            originalHexagram: map[Hexagram.original]!,
+            transformedHexagram: map[Hexagram.transformed]!,
+            reversedHexagram: map[Hexagram.reversed]!,
+            mutualHexagram: map[Hexagram.mutual]!,
+            oppositeHexagram: map[Hexagram.opposite]!,
+          ),
+        ),
+      );
+    }
   }
 
   // 处理赛博摇卦按钮点击事件
   void _cyberShake() {
     setState(() {
-      _textEditingController.text = generateRandomNumber();
-      print(_textEditingController.text);
+      _numberEditingController.text = generateRandomNumber();
+      print(_numberEditingController.text);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('排卦页面'),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // 输入框，限定为6位数字
+          // 新的文本输入框，用于输入“何惑？”
+          TextField(
+            controller: _textEditingController,
+            decoration: InputDecoration(
+              hintText: '何惑？',
+              hintStyle: TextStyle(fontSize: 18),
+              border: OutlineInputBorder(),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 2)),
+            ),
+          ),
+          SizedBox(height: 20), // 用于添加输入框和按钮之间的间距
+
+          // 数字输入框，限定为6位数字
           TextField(
             maxLength: 6,
             keyboardType: TextInputType.number,
-            inputFormatters: [
-              // 限制只能输入数字6789
-              FilteringTextInputFormatter.allow('6789')
-            ],
-            controller: _textEditingController,
-          ),
-          RichText(
-            text: TextSpan(
-              text: _gua_text,
-              style: TextStyle(
-                background: Paint()..color = Colors.blueAccent, // 设置背景颜色
-                fontSize: 24,
-                color: Colors.black, // 文本颜色
-              ),
+            inputFormatters: [FilteringTextInputFormatter.allow('6789')],
+            controller: _numberEditingController,
+            decoration: InputDecoration(
+              hintText: '答案在其中',
+              hintStyle: TextStyle(fontSize: 18),
+              border: OutlineInputBorder(),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 2)),
             ),
           ),
-          SizedBox(height: 20), // 用于添加按钮之间的间距
+          SizedBox(height: 20), // 用于添加输入框和按钮之间的间距
           // 赛博摇卦按钮
           ElevatedButton(
             onPressed: _cyberShake,
             child: Text('赛博摇卦'),
           ),
+          SizedBox(height: 10), // 按钮间距
+
           // 开始排盘按钮
           ElevatedButton(
-            onPressed: _startArrangement,
+            onPressed: _navigateToResultPage,
             child: Text('开始排盘'),
           ),
         ],
