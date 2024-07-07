@@ -49,7 +49,8 @@ XiangDicItem diFengSheng = XiangDicItem("升", "地风升", "柔顺谦虚", """�
 身体：有病即治，不可拖延。
 
 初六变卦
-http://img.fututa.com/bk/yao/46_1.png
+
+[IMG:assets/images/xiang/升-1.png]
  
 初六爻动变得周易第11卦：地天泰。这个卦是异卦（下乾上坤）相叠，乾为天，为阳；坤为地，为阴，阴阳交感，上下互通，天地相交，万物纷纭。反之则凶，万事万物，皆对立，转化，盛极必衰，衰而转盛，故应时而变者泰（通）。
 
@@ -79,7 +80,8 @@ http://img.fututa.com/bk/yao/46_1.png
 身体：最好祈神。
 
 九二变卦
-http://img.fututa.com/bk/yao/46_2.png
+
+[IMG:assets/images/xiang/升-2.png]
  
 九二爻动变得周易第15卦：地山谦。这个卦是异卦（下艮上坤）相叠，艮为山，坤为地。地面有山，地卑（低）而山高，是为内高外低，比喻功高不自居，名高不自誉，位高不自傲。这就是谦。
 
@@ -110,7 +112,8 @@ http://img.fututa.com/bk/yao/46_2.png
 身体：虚弱之症。
 
 九三变卦
-http://img.fututa.com/bk/yao/46_3.png
+
+[IMG:assets/images/xiang/升-3.png]
  
 九三爻动变得周易第7卦：地水师。这个卦是异卦（下坎上坤）相叠。“师”指军队。坎为水、为险；坤为地、为顺，喻寓兵于农。兵凶战危，用兵乃圣人不得已而为之，但它可以顺利无阻碍地解决矛盾，因为顺乎形势，师出有名，故能化凶为吉。
 
@@ -141,7 +144,8 @@ http://img.fututa.com/bk/yao/46_3.png
 身体：虔诚祷告。
 
 六四变卦
-http://img.fututa.com/bk/yao/46_4.png
+
+[IMG:assets/images/xiang/升-4.png]
  
 六四爻动变得周易第32卦：雷风恒。这个卦是异卦（下巽上震）相叠。震为男、为雷；巽为女、为风。震刚在上，巽柔在下。刚上柔下，造化有常，相互助长。阴阳相应，常情，故称为恒。
 
@@ -171,7 +175,8 @@ http://img.fututa.com/bk/yao/46_4.png
 身体：病情升高。
 
 六五变卦
-http://img.fututa.com/bk/yao/46_5.png
+
+[IMG:assets/images/xiang/升-5.png]
  
 六五爻动变得周易第48卦：水风井。这个卦是异卦（下巽上坎）相叠。坎为水；巽为木。树木得水而蓬勃生长。人靠水井生活，水井由人挖掘而成。相互为养，井以水养人，经久不竭，人应取此德而勤劳自勉。
 
@@ -199,7 +204,8 @@ http://img.fututa.com/bk/yao/46_5.png
 身体：可能归天。
 
 上六变卦
-http://img.fututa.com/bk/yao/46_6.png
+
+[IMG:assets/images/xiang/升-6.png]
  
 上六爻动变得周易第18卦：山风蛊。这个卦是异卦（下巽上艮）相叠，与随卦互为综卦。蛊本意为事，引申为多事、混乱。器皿久不用而生虫称“蛊”，喻天下久安而因循、腐败，必须革新创造，治理整顿，挽救危机，重振事业。
 

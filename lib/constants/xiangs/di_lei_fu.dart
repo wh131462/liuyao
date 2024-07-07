@@ -52,7 +52,8 @@ XiangDicItem diLeiFu = XiangDicItem(
 身体：静养可复。
 
 初九变卦
-http://img.fututa.com/bk/yao/24_1.png
+
+[IMG:assets/images/xiang/复-1.png]
  
 初九爻动变得周易第2卦：坤为地。这个卦是同卦（下坤上坤）相叠，阴性。象征地（与乾卦相反），顺从天，承载万物，伸展无穷无尽。坤卦以雌马为象征，表明地道生育抚养万物，而又依天顺时，性情温顺。它以“先迷后得”证明“坤”顺从“乾”，依随“乾”，才能把握正确方向，遵循正道，获取吉利。
 
@@ -79,8 +80,10 @@ http://img.fututa.com/bk/yao/24_1.png
 身体：再请旧医。
 
 六二变卦
-http://img.fututa.com/bk/yao/24_2.png
- 
+
+[IMG:assets/images/xiang/复-2.png]
+
+
 六二爻动变得周易第19卦：地泽临。这个卦是异卦（下兑上坤）相叠。坤为地，兑为泽，地高于泽，泽容于地。喻君主亲临天下，治国安邦，上下融洽。
 
 九二爻的哲学含义
@@ -108,7 +111,8 @@ http://img.fututa.com/bk/yao/24_2.png
 身体：身体屡治屡发，虽危无害。
 
 六三变卦
-http://img.fututa.com/bk/yao/24_3.png
+
+[IMG:assets/images/xiang/复-3.png]
  
 六三爻动变得周易第36卦：地火明夷。这个卦是异卦（下离上坤）相叠。离为明，坤为顺；离为日；坤为地。日没入地，光明受损，前途不明，环境困难，宜遵时养晦，坚守正道，外愚内慧，韬光养晦。
 
@@ -134,7 +138,8 @@ http://img.fututa.com/bk/yao/24_3.png
 身体：宜从初治之医。
 
 六四变卦
-http://img.fututa.com/bk/yao/24_4.png
+
+[IMG:assets/images/xiang/复-4.png]
  
 六四爻动变得周易第51卦：震为雷。这个卦是同卦（下震上震）相叠。震为雷，两震相叠，反响巨大，可消除沉闷之气，亨通畅达。平日应居安思危，怀恐惧心理，不敢有所怠慢，遇到突发事变，也能安然自若，谈笑如常。
 
@@ -162,7 +167,8 @@ http://img.fututa.com/bk/yao/24_4.png
 家宅：光大祖业。
 身体：精气皆老，不必过滤。
 六五变卦
-http://img.fututa.com/bk/yao/24_5.png
+
+[IMG:assets/images/xiang/复-5.png]
  
 六五爻动变得周易第3卦：水雷屯。这个卦是异卦（下震上坎）相叠，震为雷，喻动；坎为雨，喻险。雷雨交加，险象丛生，环境恶劣。“屯”原指植物萌生大地，万物始生，充满艰难险阻，然而顺时应运，必欣欣向荣。
 
@@ -192,7 +198,8 @@ http://img.fututa.com/bk/yao/24_5.png
 身体：难以保全。
 
 上六变卦
-http://img.fututa.com/bk/yao/24_6.png
+
+[IMG:assets/images/xiang/复-6.png]
  
 上六爻动变得周易第27卦：山雷颐。这个卦是异卦（下震上艮）相叠。震为雷，艮为山。山在上而雷在下，外实内虚。春暖万物养育，依时养贤育民。阳实阴虚，实者养人，虚者为人养。自食其力。
 

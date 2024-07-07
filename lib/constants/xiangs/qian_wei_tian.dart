@@ -54,7 +54,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 初九变卦
 
-[IMG:assets/images/xiang/qian-1.png]
+[IMG:assets/images/xiang/乾-1.png]
 
 初九爻动变得周易第44卦：天风姤。这个卦是异卦（下巽上乾）相叠。乾为天，巽为风。天下有风，吹遍大地，阴阳交合，万物茂盛。姤（gǒu）卦与夬卦相反，互为“综卦”。姤即媾，阴阳相遇。但五阳一阴，不能长久相处。
 
@@ -81,7 +81,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 九二变卦
 
-[IMG:assets/images/xiang/qian-2.png]
+[IMG:assets/images/xiang/乾-2.png]
 
 九二爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 
@@ -108,7 +108,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 九三变卦
 
-[IMG:assets/images/xiang/qian-3.png]
+[IMG:assets/images/xiang/乾-3.png]
 
 九三爻动变得周易第10卦：天泽履。这个卦是异卦（下兑上乾）相叠，乾为天，兑为泽，以天喻君，以泽喻民，原文：“履（踩）虎尾，不咥（咬）人”。因此，结果吉利。君上民下，各得其位。兑柔遇乾刚，所履危。履意为实践，卦义是脚踏实地的向前进取的意思。
 
@@ -138,7 +138,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 九四变卦
 
-[IMG:assets/images/xiang/qian-4.png]
+[IMG:assets/images/xiang/乾-4.png]
 
 九四爻动变得周易第9卦：风天小畜。这个卦是异卦（下乾上巽）相叠，乾为天，巽为风。喻风调雨顺，谷物滋长，故卦名小畜（蓄）。力量有限，须待发展到一定程度，才可大有作为。
 
@@ -165,7 +165,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 九五变卦
 
-[IMG:assets/images/xiang/qian-5.png]
+[IMG:assets/images/xiang/乾-5.png]
 
 九五爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 
@@ -191,7 +191,7 @@ XiangDicItem qianWeiTian = XiangDicItem(
 
 上九变卦
 
-[IMG:assets/images/xiang/qian-6.png]
+[IMG:assets/images/xiang/乾-6.png]
 
 上九爻动变得周易第43卦：泽天夬。这个卦是异卦（下乾上兑）相叠。乾为天为健；兑为泽为悦。泽气上升，决注成雨，雨施大地，滋润万物。五阳去一阴，去之不难，决（去之意）即可，故名为夬（guài），夬即决。
 
