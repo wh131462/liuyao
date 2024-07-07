@@ -2,6 +2,7 @@ export "./welcome.dart";
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/navigation/pages.const.dart';
 import 'package:liuyao_flutter/styles/iconfont.dart';
+import 'package:liuyao_flutter/utils/logger.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -19,6 +20,7 @@ class _WelcomePageState extends State<WelcomePage>
   @override
   void initState() {
     super.initState();
+    logger.info("六爻通神: 项目已启动!");
     // 初始化Tab控制器
     _pageController.addListener(() {
       setState(() {

@@ -10,7 +10,6 @@ List<InlineSpan> getTextSpanWithMixedImages(String text) {
   int pos = 0;
   if (urlRegex.hasMatch(text)) {
     spans.addAll(urlRegex.allMatches(text).map((Match match) {
-      print(match.group(0)!);
       WidgetSpan img = WidgetSpan(
         alignment: PlaceholderAlignment.middle, // 垂直居中
         child: Align(
