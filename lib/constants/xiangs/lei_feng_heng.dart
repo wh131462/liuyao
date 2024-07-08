@@ -52,7 +52,8 @@ XiangDicItem leiFengHeng = XiangDicItem(
 身体：运动伤害，操之过急。
 
 初六变卦
-http://img.fututa.com/bk/yao/32_1.png
+
+[IMG:assets/images/xiang/恒-1.png]
  
 初六爻动变得周易第34卦：雷天大壮。这个卦是异卦（下乾上震）相叠。震为雷；乾为天。乾刚震动。天鸣雷，云雷滚，声势宏大，阳气盛壮，万物生长。刚壮有力故曰壮。大而且壮，故名大壮。四阳壮盛，积极而有所作为，上正下正，标正影直。
 
@@ -82,7 +83,8 @@ http://img.fututa.com/bk/yao/32_1.png
 身体：尚称平顺。
 
 九二变卦
-http://img.fututa.com/bk/yao/32_2.png
+
+[IMG:assets/images/xiang/恒-2.png]
  
 九二爻动变得周易第62卦：雷山小过。这个卦是异卦（下艮上震）相叠。艮为山，震为雷，过山雷鸣，不可不畏惧。阳为大，阴为小，卦外四阴超过中二阳，故称“小过”，小有越过。
 
@@ -112,7 +114,8 @@ http://img.fututa.com/bk/yao/32_2.png
 身体：运动无恒，如何健康。
 
 九三变卦
-http://img.fututa.com/bk/yao/32_3.png
+
+[IMG:assets/images/xiang/恒-3.png]
  
 九三爻动变得周易第40卦：雷水解。这个卦是异卦（下坎上震）相叠。震为雷、为动；坎为水、为险。险在内，动在外。严冬天地闭塞，静极而动。万象更新，冬去春来，一切消除，是为解。
 
@@ -145,7 +148,8 @@ http://img.fututa.com/bk/yao/32_3.png
 身体：服药谨慎。
 
 九四变卦
-http://img.fututa.com/bk/yao/32_4.png
+
+[IMG:assets/images/xiang/恒-4.png]
  
 九四爻动变得周易第46卦：地风升。这个卦是异卦（下巽上坤）相叠。坤为地、为顺；巽为木、为逊。大地生长树木，逐渐成长，日渐高大成材，喻事业步步高升，前程远大，故名“升”。
 
@@ -174,7 +178,8 @@ http://img.fututa.com/bk/yao/32_4.png
 身体：男女异命。
 
 六五变卦
-http://img.fututa.com/bk/yao/32_5.png
+
+[IMG:assets/images/xiang/恒-5.png]
  
 六五爻动变得周易第28卦：泽风大过。这个卦是异卦（下巽上兑）相叠。兑为泽、为悦，巽为木、为顺，泽水淹舟，遂成大错。阴阳爻相反，阳大阴小，行动非常，有过度形象，内刚外柔。
 
@@ -201,7 +206,8 @@ http://img.fututa.com/bk/yao/32_5.png
 身体：小心保养。
 
 上六变卦
-http://img.fututa.com/bk/yao/32_6.png
+
+[IMG:assets/images/xiang/恒-6.png]
  
 上六爻动变得周易第50卦：火风鼎。这个卦是异卦（下巽上离）相叠。燃木煮食，化生为熟，除旧布新的意思。鼎为重宝大器，三足稳重之象。煮食，喻食物充足，不再有困难和困扰。在此基础上宜变革，发展事业。
 

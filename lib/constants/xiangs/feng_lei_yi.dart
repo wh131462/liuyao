@@ -53,7 +53,8 @@ XiangDicItem fengLeiYi = XiangDicItem(
 身体：健康无虞。
 
 初九变卦
-http://img.fututa.com/bk/yao/42_1.png
+
+[IMG:assets/images/xiang/益-1.png]
  
 初九爻动变得周易第20卦：风地观。这个卦是异卦（下坤上巽）相叠，风行地上，喻德教遍施。观卦与临卦互为综卦，交相使用。在上者以道义观天下；在下者以敬仰瞻上，人心顺服归从。
 
@@ -85,7 +86,8 @@ http://img.fututa.com/bk/yao/42_1.png
 身体：祈祷可愈。
 
 六二变卦
-http://img.fututa.com/bk/yao/42_2.png
+
+[IMG:assets/images/xiang/益-2.png]
  
 六二爻动变得周易第61卦：风泽中孚。这个卦是异卦（下兑上巽）相叠。孚本义孵，孵卵出壳的日期非常准确，有信的意义。卦形外实内虚，喻心中诚信，所以称中孚卦。这是立身处世的根本。
 
@@ -115,7 +117,8 @@ http://img.fututa.com/bk/yao/42_2.png
 身体：有惊无险。
 
 六三变卦
-http://img.fututa.com/bk/yao/42_3.png
+
+[IMG:assets/images/xiang/益-3.png]
  
 六三爻动变得周易第37卦：风火家人。这个卦是异卦（下离上巽）相叠。离为火；巽为风。火使热气上升，成为风。一切事物皆应以内在为本，然后伸延到外。发生于内，形成于外。喻先治家而后治天下，家道正，天下安乐。
 
@@ -147,7 +150,8 @@ http://img.fututa.com/bk/yao/42_3.png
 身体：外地就医。
 
 六四变卦
-http://img.fututa.com/bk/yao/42_4.png
+
+[IMG:assets/images/xiang/益-4.png]
  
 六四爻动变得周易第25卦：天雷无妄。这个卦是异卦（下震上乾）相叠。乾为天为刚为健；震为雷为刚为动。动而健，刚阳盛，人心振奋，必有所得，但唯循纯正，不可妄行。无妄必有获，必可致福。
 
@@ -177,7 +181,8 @@ http://img.fututa.com/bk/yao/42_4.png
 身体：保养得宜。
 
 九五变卦
-http://img.fututa.com/bk/yao/42_5.png
+
+[IMG:assets/images/xiang/益-5.png]
  
 九五爻动变得周易第27卦：山雷颐。这个卦是异卦（下震上艮）相叠。震为雷，艮为山。山在上而雷在下，外实内虚。春暖万物养育，依时养贤育民。阳实阴虚，实者养人，虚者为人养。自食其力。
 
@@ -208,7 +213,8 @@ http://img.fututa.com/bk/yao/42_5.png
 身体：无恒之凶。
 
 上九变卦
-http://img.fututa.com/bk/yao/42_6.png
+
+[IMG:assets/images/xiang/益-6.png]
  
 上九爻动变得周易第3卦：水雷屯。这个卦是异卦（下震上坎）相叠，震为雷，喻动；坎为雨，喻险。雷雨交加，险象丛生，环境恶劣。“屯”原指植物萌生大地，万物始生，充满艰难险阻，然而顺时应运，必欣欣向荣。
 

@@ -47,7 +47,8 @@ XiangDicItem leiHuoFeng = XiangDicItem("丰", "雷火丰", "日中则斜", """�
 身体：不良于行。
 
 初九变卦
-http://img.fututa.com/bk/yao/54_1.png
+
+[IMG:assets/images/xiang/丰-1.png]
  
 初九爻动变得周易第40卦：雷水解。这个卦是异卦（下坎上震）相叠。震为雷、为动；坎为水、为险。险在内，动在外。严冬天地闭塞，静极而动。万象更新，冬去春来，一切消除，是为解。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/54_1.png
 身体：狭心之症，需要开导。
 
 六二变卦
-http://img.fututa.com/bk/yao/55_2.png
+
+[IMG:assets/images/xiang/丰-2.png]
  
 六二爻动变得周易第34卦：雷天大壮。这个卦是异卦（下乾上震）相叠。震为雷；乾为天。乾刚震动。天鸣雷，云雷滚，声势宏大，阳气盛壮，万物生长。刚壮有力故曰壮。大而且壮，故名大壮。四阳壮盛，积极而有所作为，上正下正，标正影直。
 
@@ -103,7 +105,8 @@ http://img.fututa.com/bk/yao/55_2.png
 身体：右臂受伤。
 
 九三变卦
-http://img.fututa.com/bk/yao/55_3.png
+
+[IMG:assets/images/xiang/丰-3.png]
  
 九三爻动变得周易第51卦：震为雷。这个卦是同卦（下震上震）相叠。震为雷，两震相叠，反响巨大，可消除沉闷之气，亨通畅达。平日应居安思危，怀恐惧心理，不敢有所怠慢，遇到突发事变，也能安然自若，谈笑如常。
 
@@ -131,7 +134,8 @@ http://img.fututa.com/bk/yao/55_3.png
 身体：眼疾待良医。
 
 九四变卦
-http://img.fututa.com/bk/yao/55_4.png
+
+[IMG:assets/images/xiang/丰-4.png]
  
 九四爻动变得周易第36卦：地火明夷。这个卦是异卦（下离上坤）相叠。离为明，坤为顺；离为日；坤为地。日没入地，光明受损，前途不明，环境困难，宜遵时养晦，坚守正道，外愚内慧，韬光养晦。
 
@@ -159,7 +163,8 @@ http://img.fututa.com/bk/yao/55_4.png
 身体：名医治之。
 
 六五变卦
-http://img.fututa.com/bk/yao/55_5.png
+
+[IMG:assets/images/xiang/丰-5.png]
  
 六五爻动变得周易第49卦：泽火革。这个卦是异卦（下离上兑）相叠。离为火、兑为泽，泽内有水。水在上而下浇，火在下而上升。火旺水干，水大火熄。二者相生亦相克，必然出现变革。变革是宇宙的基本规律。
 
@@ -186,7 +191,8 @@ http://img.fututa.com/bk/yao/55_5.png
 身体：大限将至。
 
 上六变卦
-http://img.fututa.com/bk/yao/55_6.png
+
+[IMG:assets/images/xiang/丰-6.png]
  
 上六爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。
 

@@ -48,7 +48,8 @@ XiangDicItem huoFengDing = XiangDicItem("鼎", "火风鼎", "稳重图变", """�
 身体：腹下泻症，即可痊愈。
 
 初六变卦
-http://img.fututa.com/bk/yao/50_1.png
+
+[IMG:assets/images/xiang/鼎-1.png]
  
 初六爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/50_1.png
 身体：实热之症。
 
 九二变卦
-http://img.fututa.com/bk/yao/50_2.png
+
+[IMG:assets/images/xiang/鼎-2.png]
  
 九二爻动变得周易第56卦：火山旅。这个卦是异卦（下艮上离）相叠。此卦与丰卦相反，互为“综卦”。山中燃火，烧而不止，火势不停地向前蔓延，如同途中行人，急于赶路。因而称旅卦。
 
@@ -105,7 +107,8 @@ http://img.fututa.com/bk/yao/50_2.png
 身体：小心失聪。
 
 九三变卦
-http://img.fututa.com/bk/yao/50_3.png
+
+[IMG:assets/images/xiang/鼎-3.png]
  
 九三爻动变得周易第64卦：火水未济。这个卦是异卦（下坎上离）相叠。离为火，坎为水。火上水下，火势压倒水势，救火大功未成，故称未济。《周易》以乾坤二卦为始，以既济、未济二卦为终，充分反映了变化发展的思想。
 
@@ -135,7 +138,8 @@ http://img.fututa.com/bk/yao/50_3.png
 身体：足上生疮，难保完整。
 
 九四变卦
-http://img.fututa.com/bk/yao/50_4.png
+
+[IMG:assets/images/xiang/鼎-4.png]
  
 九四爻动变得周易第18卦：山风蛊。这个卦是异卦（下巽上艮）相叠，与随卦互为综卦。蛊本意为事，引申为多事、混乱。器皿久不用而生虫称“蛊”，喻天下久安而因循、腐败，必须革新创造，治理整顿，挽救危机，重振事业。
 
@@ -167,7 +171,8 @@ http://img.fututa.com/bk/yao/50_4.png
 身体：保护胸耳。
 
 六五变卦
-http://img.fututa.com/bk/yao/50_5.png
+
+[IMG:assets/images/xiang/鼎-5.png]
  
 六五爻动变得周易第44卦：天风姤。这个卦是异卦（下巽上乾）相叠。乾为天，巽为风。天下有风，吹遍大地，阴阳交合，万物茂盛。姤（gǒu）卦与夬卦相反，互为“综卦”。姤即媾，阴阳相遇。但五阳一阴，不能长久相处。
 
@@ -198,7 +203,8 @@ http://img.fututa.com/bk/yao/50_5.png
 身体：耳痛之症。
 
 上九变卦
-http://img.fututa.com/bk/yao/50_6.png
+
+[IMG:assets/images/xiang/鼎-6.png]
  
 上九爻动变得周易第32卦：雷风恒。这个卦是异卦（下巽上震）相叠。震为男、为雷；巽为女、为风。震刚在上，巽柔在下。刚上柔下，造化有常，相互助长。阴阳相应，常情，故称为恒。
 

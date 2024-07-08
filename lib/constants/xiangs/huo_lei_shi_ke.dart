@@ -52,7 +52,8 @@ XiangDicItem huoLeiSHiKe = XiangDicItem("噬嗑","火雷噬嗑","刚柔相济","
 身体：足病初发，宜早医治。
 
 初九变卦
-http://img.fututa.com/bk/yao/21_1.png
+
+[IMG:assets/images/xiang/噬嗑-1.png]
  
 初九爻动变得周易第35卦：火地晋。这个卦是异卦（下坤上离）相叠。离为日，为光明；坤为地。太阳高悬，普照大地，大地卑顺，万物生长，光明磊落，柔进上行，喻事业蒸蒸日上。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/21_1.png
 身体：肌肤有病，小心深入。
 
 六二变卦
-http://img.fututa.com/bk/yao/21_2.png
+
+[IMG:assets/images/xiang/噬嗑-2.png]
  
 六二爻动变得周易第38卦：火泽睽。这个卦是异卦（下兑上离）相叠。离为火；兑为泽。上火下泽，相违不相济。克则生，往复无空。万物有所不同，必有所异，相互矛盾。睽即矛盾。
 
@@ -102,7 +104,8 @@ http://img.fututa.com/bk/yao/21_2.png
 身体：药不对症，幸无大碍。
 
 六三变卦
-http://img.fututa.com/bk/yao/21_3.png
+
+[IMG:assets/images/xiang/噬嗑-3.png]
  
 六三爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。
 
@@ -130,7 +133,8 @@ http://img.fututa.com/bk/yao/21_3.png
 身体：难治之症，宜多调养。
 
 九四变卦
-http://img.fututa.com/bk/yao/21_4.png
+
+[IMG:assets/images/xiang/噬嗑-4.png]
  
 九四爻动变得周易第27卦：山雷颐。这个卦是异卦（下震上艮）相叠。震为雷，艮为山。山在上而雷在下，外实内虚。春暖万物养育，依时养贤育民。阳实阴虚，实者养人，虚者为人养。自食其力。
 
@@ -158,7 +162,8 @@ http://img.fututa.com/bk/yao/21_4.png
 身体：忌食肉类，小心调养。
 
 六五变卦
-http://img.fututa.com/bk/yao/21_5.png
+
+[IMG:assets/images/xiang/噬嗑-5.png]
  
 六五爻动变得周易第25卦：天雷无妄。这个卦是异卦（下震上乾）相叠。乾为天为刚为健；震为雷为刚为动。动而健，刚阳盛，人心振奋，必有所得，但唯循纯正，不可妄行。无妄必有获，必可致福。
 
@@ -187,7 +192,8 @@ http://img.fututa.com/bk/yao/21_5.png
 身体：眼耳之疾；保养头部。
 
 上九变卦
-http://img.fututa.com/bk/yao/21_6.png
+
+[IMG:assets/images/xiang/噬嗑-6.png]
  
 上九爻动变得周易第51卦：震为雷。这个卦是同卦（下震上震）相叠。震为雷，两震相叠，反响巨大，可消除沉闷之气，亨通畅达。平日应居安思危，怀恐惧心理，不敢有所怠慢，遇到突发事变，也能安然自若，谈笑如常。
 

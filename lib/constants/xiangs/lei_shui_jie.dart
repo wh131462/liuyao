@@ -48,7 +48,8 @@ XiangDicItem leiShuiJie = XiangDicItem("解","雷水解","柔道致治","""解�
 身体：一切无恙。
 
 初六变卦
-http://img.fututa.com/bk/yao/40_1.png
+
+[IMG:assets/images/xiang/解-1.png]
  
 初六爻动变得周易第54卦：雷泽归妹。这个卦是异卦（下兑上震）相叠。震为动、为长男；兑为悦、为少女。以少女从长男，产生爱慕之情，有婚姻之动，有嫁女之象，故称归妹。
 
@@ -78,7 +79,8 @@ http://img.fututa.com/bk/yao/40_1.png
 身体：防有邪念邪病。
 
 九二变卦
-http://img.fututa.com/bk/yao/40_2.png
+
+[IMG:assets/images/xiang/解-2.png]
  
 九二爻动变得周易第16卦：雷地豫。这个卦是异卦（下坤上震）相叠，坤为地，为顺；震为雷，为动。雷依时出，预示大地回春。因顺而动，和乐之源。此卦与谦卦互为综卦，交互作用。
 
@@ -111,7 +113,8 @@ http://img.fututa.com/bk/yao/40_2.png
 身体：乱服成药，自找麻烦。
 
 六三变卦
-http://img.fututa.com/bk/yao/40_3.png
+
+[IMG:assets/images/xiang/解-3.png]
  
 六三爻动变得周易第32卦：雷风恒。这个卦是异卦（下巽上震）相叠。震为男、为雷；巽为女、为风。震刚在上，巽柔在下。刚上柔下，造化有常，相互助长。阴阳相应，常情，故称为恒。
 
@@ -139,7 +142,8 @@ http://img.fututa.com/bk/yao/40_3.png
 身体：慢跑健身。
 
 九四变卦
-http://img.fututa.com/bk/yao/40_4.png
+
+[IMG:assets/images/xiang/解-4.png]
  
 九四爻动变得周易第7卦：地水师。这个卦是异卦（下坎上坤）相叠。“师”指军队。坎为水、为险；坤为地、为顺，喻寓兵于农。兵凶战危，用兵乃圣人不得已而为之，但它可以顺利无阻碍地解决矛盾，因为顺乎形势，师出有名，故能化凶为吉。
 
@@ -168,7 +172,8 @@ http://img.fututa.com/bk/yao/40_4.png
 身体：恢复正气。
 
 六五变卦
-http://img.fututa.com/bk/yao/40_5.png
+
+[IMG:assets/images/xiang/解-5.png]
  
 六五爻动变得周易第47卦：泽水困。这个卦是异卦（下坎上兑）相叠。兑为阴为泽喻悦；坎为阳为水喻险。泽水困，陷入困境，才智难以施展，仍坚守正道，自得其乐，必可成事，摆脱困境。
 
@@ -199,7 +204,8 @@ http://img.fututa.com/bk/yao/40_5.png
 身体：户外运动。
 
 上六变卦
-http://img.fututa.com/bk/yao/40_6.png
+
+[IMG:assets/images/xiang/解-6.png]
  
 上六爻动变得周易第64卦：火水未济。这个卦是异卦（下坎上离）相叠。离为火，坎为水。火上水下，火势压倒水势，救火大功未成，故称未济。《周易》以乾坤二卦为始，以既济、未济二卦为终，充分反映了变化发展的思想。
 

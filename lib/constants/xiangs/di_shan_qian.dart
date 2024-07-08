@@ -52,7 +52,8 @@ XiangDicItem diShanQian = XiangDicItem(
 身体：游泳健身。
 
 初六变卦
-http://img.fututa.com/bk/yao/15_1.png
+
+[IMG:assets/images/xiang/谦-1.png]
  
 初六爻动变得周易第36卦：地火明夷。这个卦是异卦（下离上坤）相叠。离为明，坤为顺；离为日；坤为地。日没入地，光明受损，前途不明，环境困难，宜遵时养晦，坚守正道，外愚内慧，韬光养晦。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/15_1.png
 身体：用心过劳之症。
 
 六二变卦
-http://img.fututa.com/bk/yao/15_2.png
+
+[IMG:assets/images/xiang/谦-2.png]
  
 六二爻动变得周易第46卦：地风升。这个卦是异卦（下巽上坤）相叠。坤为地、为顺；巽为木、为逊。大地生长树木，逐渐成长，日渐高大成材，喻事业步步高升，前程远大，故名“升”。
 
@@ -100,7 +102,8 @@ http://img.fututa.com/bk/yao/15_2.png
 身体：劳累过度，可能归天。
 
 九三变卦
-http://img.fututa.com/bk/yao/15_3.png
+
+[IMG:assets/images/xiang/谦-3.png]
  
 九三爻动变得周易第2卦：坤为地。这个卦是同卦（下坤上坤）相叠，阴性。象征地（与乾卦相反），顺从天，承载万物，伸展无穷无尽。坤卦以雌马为象征，表明地道生育抚养万物，而又依天顺时，性情温顺。它以“先迷后得”证明“坤”顺从“乾”，依随“乾”，才能把握正确方向，遵循正道，获取吉利。
 
@@ -125,7 +128,8 @@ http://img.fututa.com/bk/yao/15_3.png
 身体：多多散心，自可痊愈。
 
 六四变卦
-http://img.fututa.com/bk/yao/15_4.png
+
+[IMG:assets/images/xiang/谦-4.png]
  
 六四爻动变得周易第62卦：雷山小过。这个卦是异卦（下艮上震）相叠。艮为山，震为雷，过山雷鸣，不可不畏惧。阳为大，阴为小，卦外四阴超过中二阳，故称“小过”，小有越过。
 
@@ -149,7 +153,8 @@ http://img.fututa.com/bk/yao/15_4.png
 身体：消热去火。
 
 六五变卦
-http://img.fututa.com/bk/yao/15_5.png
+
+[IMG:assets/images/xiang/谦-5.png]
  
 六五爻动变得周易第39卦：水山蹇。这个卦是异卦（下艮上坎）相叠。坎为水，艮为山。山高水深，困难重重，人生险阻，见险而止，明哲保身，可谓智慧。蹇，跋行艰难。
 
@@ -174,7 +179,8 @@ http://img.fututa.com/bk/yao/15_5.png
 身体：调养心志。
 
 上六变卦
-http://img.fututa.com/bk/yao/15_6.png
+
+[IMG:assets/images/xiang/谦-6.png]
  
 上六爻动变得周易第52卦：艮为山。这个卦是同卦（下艮上艮）相叠。艮为山，二山相重，喻静止。它和震卦相反。高潮过后，必然出现低潮，进入事物的相对静止阶段。静止如山，宜止则止，宜行则行。行止即动和静，都不可失机，应恰到好处，动静得宜，适可而止。
 

@@ -54,7 +54,8 @@ XiangDicItem huoZeKui = XiangDicItem(
 身体：没有大碍。
 
 初九变卦
-http://img.fututa.com/bk/yao/38_1.png
+
+[IMG:assets/images/xiang/睽-1.png]
  
 初九爻动变得周易第64卦：火水未济。这个卦是异卦（下坎上离）相叠。离为火，坎为水。火上水下，火势压倒水势，救火大功未成，故称未济。《周易》以乾坤二卦为始，以既济、未济二卦为终，充分反映了变化发展的思想。
 
@@ -82,7 +83,8 @@ http://img.fututa.com/bk/yao/38_1.png
 身体：得遇良医。
 
 九二变卦
-http://img.fututa.com/bk/yao/38_2.png
+
+[IMG:assets/images/xiang/睽-2.png]
  
 九二爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 
@@ -116,7 +118,8 @@ http://img.fututa.com/bk/yao/38_2.png
 身体：面上有疮，久后自愈。
 
 六三变卦
-http://img.fututa.com/bk/yao/38_3.png
+
+[IMG:assets/images/xiang/睽-3.png]
  
 六三爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 
@@ -148,7 +151,8 @@ http://img.fututa.com/bk/yao/38_3.png
 身体：目疾求医。
 
 九四变卦
-http://img.fututa.com/bk/yao/38_4.png
+
+[IMG:assets/images/xiang/睽-4.png]
  
 九四爻动变得周易第41卦：山泽损。这个卦是异卦（下兑上艮）相叠。艮为山；兑为泽。上山下泽，大泽浸蚀山根。损益相间，损中有益，益中有损。二者之间，不可不慎重对待。损下益上，治理国家，过度会损伤国基。应损则损，但必量力、适度。少损而益最佳。
 
@@ -175,7 +179,8 @@ http://img.fututa.com/bk/yao/38_4.png
 身体：皮肤毛病，不难治好。
 
 六五变卦
-http://img.fututa.com/bk/yao/38_5.png
+
+[IMG:assets/images/xiang/睽-5.png]
  
 六五爻动变得周易第10卦：天泽履。这个卦是异卦（下兑上乾）相叠，乾为天，兑为泽，以天喻君，以泽喻民，原文：“履（踩）虎尾，不咥（咬）人”。因此，结果吉利。君上民下，各得其位。兑柔遇乾刚，所履危。履意为实践，卦义是脚踏实地的向前进取的意思。
 
@@ -203,7 +208,8 @@ http://img.fututa.com/bk/yao/38_5.png
 身体：因疑成病，解疑无碍。
 
 上九变卦
-http://img.fututa.com/bk/yao/38_6.png
+
+[IMG:assets/images/xiang/睽-6.png]
  
 上九爻动变得周易第54卦：雷泽归妹。这个卦是异卦（下兑上震）相叠。震为动、为长男；兑为悦、为少女。以少女从长男，产生爱慕之情，有婚姻之动，有嫁女之象，故称归妹。
 

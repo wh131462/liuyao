@@ -46,7 +46,8 @@ XiangDicItem fengShuiHuan = XiangDicItem("涣","风水涣","拯救涣散","""涣
 身体：急治为宜。
 
 初六变卦
-http://img.fututa.com/bk/yao/59_1.png
+
+[IMG:assets/images/xiang/涣-1.png]
  
 初六爻动变得周易第61卦：风泽中孚。这个卦是异卦（下兑上巽）相叠。孚本义孵，孵卵出壳的日期非常准确，有信的意义。卦形外实内虚，喻心中诚信，所以称中孚卦。这是立身处世的根本。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/59_1.png
 身体：愁眉不展，良医可治。
 
 九二变卦
-http://img.fututa.com/bk/yao/59_2.png
+
+[IMG:assets/images/xiang/涣-2.png]
  
 九二爻动变得周易第20卦：风地观。这个卦是异卦（下坤上巽）相叠，风行地上，喻德教遍施。观卦与临卦互为综卦，交相使用。在上者以道义观天下；在下者以敬仰瞻上，人心顺服归从。
 
@@ -102,7 +104,8 @@ http://img.fututa.com/bk/yao/59_2.png
 身体：转危为安。
 
 六三变卦
-http://img.fututa.com/bk/yao/59_3.png
+
+[IMG:assets/images/xiang/涣-3.png]
  
 六三爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 
@@ -130,7 +133,8 @@ http://img.fututa.com/bk/yao/59_3.png
 身体：凝聚元气，病体自愈。
 
 六四变卦
-http://img.fututa.com/bk/yao/59_4.png
+
+[IMG:assets/images/xiang/涣-4.png]
  
 六四爻动变得周易第6卦：天水讼。这个卦是异卦（下坎上乾）相叠。同需卦相反，互为“综卦”。乾为刚健，坎为险陷。刚与险，健与险，彼此反对，定生争讼。争讼非善事，务必慎重戒惧。
 
@@ -160,7 +164,8 @@ http://img.fututa.com/bk/yao/59_4.png
 身体：大汗可愈。
 
 九五变卦
-http://img.fututa.com/bk/yao/59_5.png
+
+[IMG:assets/images/xiang/涣-5.png]
  
 九五爻动变得周易第4卦：山水蒙。这个卦是异卦（下坎上艮）相叠，艮是山的形象，喻止；坎是水的形象，喻险。卦形为山下有险，仍不停止前进，是为蒙昧，故称蒙卦。但因把握时机，行动切合时宜，因此，具有启蒙和通达的卦象。
 
@@ -188,7 +193,8 @@ http://img.fututa.com/bk/yao/59_5.png
 身体：气血郁积，疏通即治。
 
 上九变卦
-http://img.fututa.com/bk/yao/59_6.png
+
+[IMG:assets/images/xiang/涣-6.png]
  
 上九爻动变得周易第29卦：坎为水。这个卦是同卦（下坎上坎）相叠。坎为水、为险，两坎相重，险上加险，险阻重重。一阳陷二阴。所幸阴虚阳实，诚信可豁然贯通。虽险难重重，却方能显人性光彩。
 

@@ -55,7 +55,8 @@ XiangDicItem fengHuoJiaRen = XiangDicItem(
 身体：有病就治，一拖难医。
 
 初九变卦
-http://img.fututa.com/bk/yao/37_1.png
+
+[IMG:assets/images/xiang/家人-1.png]
  
 初九爻动变得周易第53卦：风山渐。这个卦是异卦（下艮上巽）相叠。艮为山，巽为木。山上有木，逐渐成长，山也随着增高。这是逐渐进步的过程，所以称渐，渐即进，渐渐前进而不急速。
 
@@ -86,7 +87,8 @@ http://img.fututa.com/bk/yao/37_1.png
 身体：胃口尚好，可以无碍。
 
 六二变卦
-http://img.fututa.com/bk/yao/37_2.png
+
+[IMG:assets/images/xiang/家人-2.png]
  
 六二爻动变得周易第9卦：风天小畜。这个卦是异卦（下乾上巽）相叠，乾为天，巽为风。喻风调雨顺，谷物滋长，故卦名小畜（蓄）。力量有限，须待发展到一定程度，才可大有作为。
 
@@ -118,7 +120,8 @@ http://img.fututa.com/bk/yao/37_2.png
 身体：凉剂解厄。
 
 九三变卦
-http://img.fututa.com/bk/yao/37_3.png
+
+[IMG:assets/images/xiang/家人-3.png]
  
 九三爻动变得周易第42卦：风雷益。这个卦是异卦（下震上巽）相叠。巽为风；震为雷。风雷激荡，其势愈强，雷愈响，风雷相助互长，交相助益。此卦与损卦相反。它是损上以益下，后者是损下以益上。二卦阐述的是损益的原则。
 
@@ -151,7 +154,8 @@ http://img.fututa.com/bk/yao/37_3.png
 身体：过于肥胖，减之即愈。
 
 六四变卦
-http://img.fututa.com/bk/yao/37_4.png
+
+[IMG:assets/images/xiang/家人-4.png]
  
 六四爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 
@@ -180,7 +184,8 @@ http://img.fututa.com/bk/yao/37_4.png
 身体：肝火过旺，调养心气。
 
 九五变卦
-http://img.fututa.com/bk/yao/37_5.png
+
+[IMG:assets/images/xiang/家人-5.png]
  
 九五爻动变得周易第22卦：山火贲。这个卦是异卦（下离上艮）相叠。离为火为明；艮为山为止。文明而有节制。贲卦论述文与质的关系，以质为主，以文调节。贲，文饰、修饰。
 
@@ -212,7 +217,8 @@ http://img.fututa.com/bk/yao/37_5.png
 身体：运动健身。
 
 上九变卦
-http://img.fututa.com/bk/yao/37_6.png
+
+[IMG:assets/images/xiang/家人-6.png]
  
 上九爻动变得周易第63卦：水火既济。这个卦是异卦（下离上坎）相叠。坎为水，离为火，水火相交，水在火上，水势压倒火势，救火大功告成。既，已经；济，成也。既济就是事情已经成功，但终将发生变故。
 

@@ -46,7 +46,8 @@ XiangDicItem genWeiShan = XiangDicItem("艮","艮为山","动静适时","""艮�
 身体：足疾就医。
 
 初六变卦
-http://img.fututa.com/bk/yao/52_1.png
+
+[IMG:assets/images/xiang/艮-1.png]
  
 初六爻动变得周易第22卦：山火贲。这个卦是异卦（下离上艮）相叠。离为火为明；艮为山为止。文明而有节制。贲卦论述文与质的关系，以质为主，以文调节。贲，文饰、修饰。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/52_1.png
 身体：药物难治。
 
 六二变卦
-http://img.fututa.com/bk/yao/52_2.png
+
+[IMG:assets/images/xiang/艮-2.png]
  
 六二爻动变得周易第18卦：山风蛊。这个卦是异卦（下巽上艮）相叠，与随卦互为综卦。蛊本意为事，引申为多事、混乱。器皿久不用而生虫称“蛊”，喻天下久安而因循、腐败，必须革新创造，治理整顿，挽救危机，重振事业。
 
@@ -103,7 +105,8 @@ http://img.fututa.com/bk/yao/52_2.png
 身体：血脉不通。
 
 九三变卦
-http://img.fututa.com/bk/yao/52_3.png
+
+[IMG:assets/images/xiang/艮-3.png]
  
 九三爻动变得周易第23卦：山地剥。这个卦是异卦（下坤上艮）相叠。五阴在下，一阳在上，阴盛而阳孤；高山附于地。二者都是剥落象，故为“剥卦”。此卦阴盛阳衰，喻小人得势，君子困顿，事业败坏。
 
@@ -134,7 +137,8 @@ http://img.fututa.com/bk/yao/52_3.png
 身体：带病延年。
 
 六四变卦
-http://img.fututa.com/bk/yao/52_4.png
+
+[IMG:assets/images/xiang/艮-4.png]
  
 六四爻动变得周易第56卦：火山旅。这个卦是异卦（下艮上离）相叠。此卦与丰卦相反，互为“综卦”。山中燃火，烧而不止，火势不停地向前蔓延，如同途中行人，急于赶路。因而称旅卦。
 
@@ -160,7 +164,8 @@ http://img.fututa.com/bk/yao/52_4.png
 身体：口能发声，病即可治。
 
 六五变卦
-http://img.fututa.com/bk/yao/52_5.png
+
+[IMG:assets/images/xiang/艮-5.png]
  
 六五爻动变得周易第53卦：风山渐。这个卦是异卦（下艮上巽）相叠。艮为山，巽为木。山上有木，逐渐成长，山也随着增高。这是逐渐进步的过程，所以称渐，渐即进，渐渐前进而不急速。
 
@@ -186,7 +191,8 @@ http://img.fututa.com/bk/yao/52_5.png
 身体：体质厚实。
 
 上九变卦
-http://img.fututa.com/bk/yao/52_6.png
+
+[IMG:assets/images/xiang/艮-6.png]
  
 上九爻动变得周易第15卦：地山谦。这个卦是异卦（下艮上坤）相叠，艮为山，坤为地。地面有山，地卑（低）而山高，是为内高外低，比喻功高不自居，名高不自誉，位高不自傲。这就是谦。
 

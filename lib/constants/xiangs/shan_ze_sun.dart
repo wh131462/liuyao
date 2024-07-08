@@ -53,7 +53,8 @@ XiangDicItem shanZeSun = XiangDicItem(
 身体：立即行动。
 
 初九变卦
-http://img.fututa.com/bk/yao/41_1.png
+
+[IMG:assets/images/xiang/损-1.png]
  
 初九爻动变得周易第4卦：山水蒙。这个卦是异卦（下坎上艮）相叠，艮是山的形象，喻止；坎是水的形象，喻险。卦形为山下有险，仍不停止前进，是为蒙昧，故称蒙卦。但因把握时机，行动切合时宜，因此，具有启蒙和通达的卦象。
 
@@ -84,7 +85,8 @@ http://img.fututa.com/bk/yao/41_1.png
 身体：平常状态。
 
 九二变卦
-http://img.fututa.com/bk/yao/41_2.png
+
+[IMG:assets/images/xiang/损-2.png]
  
 九二爻动变得周易第27卦：山雷颐。这个卦是异卦（下震上艮）相叠。震为雷，艮为山。山在上而雷在下，外实内虚。春暖万物养育，依时养贤育民。阳实阴虚，实者养人，虚者为人养。自食其力。
 
@@ -113,7 +115,8 @@ http://img.fututa.com/bk/yao/41_2.png
 身体：寡欲修身。
 
 六三变卦
-http://img.fututa.com/bk/yao/41_3.png
+
+[IMG:assets/images/xiang/损-3.png]
  
 六三爻动变得周易第26卦：山天大畜。这个卦是异卦（下乾上艮）相叠。乾为天，刚健；艮为山，笃实。畜者积聚，大畜意为大积蓄。为此不畏严重的艰难险阻，努力修身养性以丰富德业。
 
@@ -142,7 +145,8 @@ http://img.fututa.com/bk/yao/41_3.png
 身体：立即就医，否则堪虑。
 
 六四变卦
-http://img.fututa.com/bk/yao/41_4.png
+
+[IMG:assets/images/xiang/损-4.png]
  
 六四爻动变得周易第38卦：火泽睽。这个卦是异卦（下兑上离）相叠。离为火；兑为泽。上火下泽，相违不相济。克则生，往复无空。万物有所不同，必有所异，相互矛盾。睽即矛盾。
 
@@ -173,7 +177,8 @@ http://img.fututa.com/bk/yao/41_4.png
 身体：病愈得财。
 
 六五变卦
-http://img.fututa.com/bk/yao/41_5.png
+
+[IMG:assets/images/xiang/损-5.png]
  
 六五爻动变得周易第61卦：风泽中孚。这个卦是异卦（下兑上巽）相叠。孚本义孵，孵卵出壳的日期非常准确，有信的意义。卦形外实内虚，喻心中诚信，所以称中孚卦。这是立身处世的根本。
 
@@ -206,7 +211,8 @@ http://img.fututa.com/bk/yao/41_5.png
 身体：出外求医。
 
 上九变卦
-http://img.fututa.com/bk/yao/41_6.png
+
+[IMG:assets/images/xiang/损-6.png]
  
 上九爻动变得周易第19卦：地泽临。这个卦是异卦（下兑上坤）相叠。坤为地，兑为泽，地高于泽，泽容于地。喻君主亲临天下，治国安邦，上下融洽。
 

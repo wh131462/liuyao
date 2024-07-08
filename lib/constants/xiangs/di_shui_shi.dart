@@ -51,7 +51,8 @@ XiangDicItem diShuiShi = XiangDicItem(
 身体：寒多热少，宜早医治。
 
 初六变卦
-http://img.fututa.com/bk/yao/7_1.png
+
+[IMG:assets/images/xiang/师-1.png]
 初六爻动变得周易第19卦：地泽临。这个卦是异卦（下兑上坤）相叠。坤为地，兑为泽，地高于泽，泽容于地。喻君主亲临天下，治国安邦，上下融洽。
 
 初九爻的哲学含义
@@ -76,7 +77,9 @@ http://img.fututa.com/bk/yao/7_1.png
 身体：流动血气，病即舒解。
 
 九二变卦
-http://img.fututa.com/bk/yao/7_2.png
+
+[IMG:assets/images/xiang/师-2.png]
+
 九二爻动变得周易第2卦：坤为地。这个卦是同卦（下坤上坤）相叠，阴性。象征地（与乾卦相反），顺从天，承载万物，伸展无穷无尽。坤卦以雌马为象征，表明地道生育抚养万物，而又依天顺时，性情温顺。它以“先迷后得”证明“坤”顺从“乾”，依随“乾”，才能把握正确方向，遵循正道，获取吉利。
 
 九二爻的哲学含义
@@ -102,7 +105,9 @@ http://img.fututa.com/bk/yao/7_2.png
 身体：可能归天。
 
 六三变卦
-http://img.fututa.com/bk/yao/7_3.png
+
+[IMG:assets/images/xiang/师-3.png]
+
 六三爻动变得周易第46卦：地风升。这个卦是异卦（下巽上坤）相叠。坤为地、为顺；巽为木、为逊。大地生长树木，逐渐成长，日渐高大成材，喻事业步步高升，前程远大，故名“升”。
 
 九三爻的哲学含义
@@ -128,7 +133,9 @@ http://img.fututa.com/bk/yao/7_3.png
 身体：春生气来，疾病可愈。
 
 六四变卦
-http://img.fututa.com/bk/yao/7_4.png
+
+[IMG:assets/images/xiang/师-4.png]
+
 六四爻动变得周易第40卦：雷水解。这个卦是异卦（下坎上震）相叠。震为雷、为动；坎为水、为险。险在内，动在外。严冬天地闭塞，静极而动。万象更新，冬去春来，一切消除，是为解。
 
 九四爻的哲学含义
@@ -155,7 +162,9 @@ http://img.fututa.com/bk/yao/7_4.png
 身体：跑步健身。
 
 六五变卦
-http://img.fututa.com/bk/yao/7_5.png
+
+[IMG:assets/images/xiang/师-5.png]
+
 六五爻动变得周易第29卦：坎为水。这个卦是同卦（下坎上坎）相叠。坎为水、为险，两坎相重，险上加险，险阻重重。一阳陷二阴。所幸阴虚阳实，诚信可豁然贯通。虽险难重重，却方能显人性光彩。
 
 九五爻的哲学含义
@@ -179,7 +188,9 @@ http://img.fututa.com/bk/yao/7_5.png
 身体：正常运动。
 
 上六变卦
-http://img.fututa.com/bk/yao/7_6.png
+
+[IMG:assets/images/xiang/师-6.png]
+
 上六爻动变得周易第4卦：山水蒙。这个卦是异卦（下坎上艮）相叠，艮是山的形象，喻止；坎是水的形象，喻险。卦形为山下有险，仍不停止前进，是为蒙昧，故称蒙卦。但因把握时机，行动切合时宜，因此，具有启蒙和通达的卦象。
 
 上九爻的哲学含义

@@ -54,7 +54,8 @@ XiangDicItem huoDiJin = XiangDicItem(
 身体：宽心解怀。
 
 初六变卦
-http://img.fututa.com/bk/yao/35_1.png
+
+[IMG:assets/images/xiang/晋-1.png]
  
 初六爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 
@@ -85,7 +86,8 @@ http://img.fututa.com/bk/yao/35_1.png
 身体：多听老人言。
 
 六二变卦
-http://img.fututa.com/bk/yao/35_2.png
+
+[IMG:assets/images/xiang/晋-2.png]
  
 六二爻动变得周易第64卦：火水未济。这个卦是异卦（下坎上离）相叠。离为火，坎为水。火上水下，火势压倒水势，救火大功未成，故称未济。《周易》以乾坤二卦为始，以既济、未济二卦为终，充分反映了变化发展的思想。
 
@@ -117,7 +119,8 @@ http://img.fututa.com/bk/yao/35_2.png
 身体：团体运动；讼事调解。
 
 六三变卦
-http://img.fututa.com/bk/yao/35_3.png
+
+[IMG:assets/images/xiang/晋-3.png]
  
 六三爻动变得周易第56卦：火山旅。这个卦是异卦（下艮上离）相叠。此卦与丰卦相反，互为“综卦”。山中燃火，烧而不止，火势不停地向前蔓延，如同途中行人，急于赶路。因而称旅卦。
 
@@ -147,7 +150,8 @@ http://img.fututa.com/bk/yao/35_3.png
 身体：疥疮或呕血，皆危。
 
 九四变卦
-http://img.fututa.com/bk/yao/35_4.png
+
+[IMG:assets/images/xiang/晋-4.png]
  
 九四爻动变得周易第23卦：山地剥。这个卦是异卦（下坤上艮）相叠。五阴在下，一阳在上，阴盛而阳孤；高山附于地。二者都是剥落象，故为“剥卦”。此卦阴盛阳衰，喻小人得势，君子困顿，事业败坏。
 
@@ -179,7 +183,8 @@ http://img.fututa.com/bk/yao/35_4.png
 身体：已无大碍。
 
 六五变卦
-http://img.fututa.com/bk/yao/35_5.png
+
+[IMG:assets/images/xiang/晋-5.png]
  
 六五爻动变得周易第12卦：天地否。这个卦是异卦（下坤上乾）相叠，其结构同泰卦相反，系阳气上升，阴气下降，天地不交，万物不通。它们彼此为“综卦”，表明泰极而否，否极泰来，互为因果。
 
@@ -211,7 +216,8 @@ http://img.fututa.com/bk/yao/35_5.png
 身体：保养头部；罢讼为吉。
 
 上九变卦
-http://img.fututa.com/bk/yao/35_6.png
+
+[IMG:assets/images/xiang/晋-6.png]
  
 上九爻动变得周易第16卦：雷地豫。这个卦是异卦（下坤上震）相叠，坤为地，为顺；震为雷，为动。雷依时出，预示大地回春。因顺而动，和乐之源。此卦与谦卦互为综卦，交互作用。
 

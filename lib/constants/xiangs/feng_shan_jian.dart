@@ -48,7 +48,8 @@ XiangDicItem fengShanJian = XiangDicItem("渐", "风山渐", "渐进蓄德", """
 身体：大人没事，小孩就医。
 
 初六变卦
-http://img.fututa.com/bk/yao/53_1.png
+
+[IMG:assets/images/xiang/渐-1.png]
  
 初六爻动变得周易第37卦：风火家人。这个卦是异卦（下离上巽）相叠。离为火；巽为风。火使热气上升，成为风。一切事物皆应以内在为本，然后伸延到外。发生于内，形成于外。喻先治家而后治天下，家道正，天下安乐。
 
@@ -79,7 +80,8 @@ http://img.fututa.com/bk/yao/53_1.png
 身体：饮食过度之症。
 
 六二变卦
-http://img.fututa.com/bk/yao/53_2.png
+
+[IMG:assets/images/xiang/渐-2.png]
  
 六二爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 
@@ -108,7 +110,8 @@ http://img.fututa.com/bk/yao/53_2.png
 身体：生产时恐难两全。
 
 九三变卦
-http://img.fututa.com/bk/yao/53_3.png
+
+[IMG:assets/images/xiang/渐-3.png]
  
 九三爻动变得周易第20卦：风地观。这个卦是异卦（下坤上巽）相叠，风行地上，喻德教遍施。观卦与临卦互为综卦，交相使用。在上者以道义观天下；在下者以敬仰瞻上，人心顺服归从。
 
@@ -136,7 +139,8 @@ http://img.fututa.com/bk/yao/53_3.png
 身体：肝火过盛。
 
 六四变卦
-http://img.fututa.com/bk/yao/53_4.png
+
+[IMG:assets/images/xiang/渐-4.png]
  
 六四爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 
@@ -164,7 +168,8 @@ http://img.fututa.com/bk/yao/53_4.png
 身体：三年可愈。
 
 九五变卦
-http://img.fututa.com/bk/yao/53_5.png
+
+[IMG:assets/images/xiang/渐-5.png]
  
 九五爻动变得周易第52卦：艮为山。这个卦是同卦（下艮上艮）相叠。艮为山，二山相重，喻静止。它和震卦相反。高潮过后，必然出现低潮，进入事物的相对静止阶段。静止如山，宜止则止，宜行则行。行止即动和静，都不可失机，应恰到好处，动静得宜，适可而止。
 
@@ -191,7 +196,8 @@ http://img.fututa.com/bk/yao/53_5.png
 身体：健康活泼。
 
 上九变卦
-http://img.fututa.com/bk/yao/53_6.png
+
+[IMG:assets/images/xiang/渐-6.png]
  
 上九爻动变得周易第39卦：水山蹇。这个卦是异卦（下艮上坎）相叠。坎为水，艮为山。山高水深，困难重重，人生险阻，见险而止，明哲保身，可谓智慧。蹇，跋行艰难。
 

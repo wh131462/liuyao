@@ -48,7 +48,8 @@ XiangDicItem leiZeGuiMei = XiangDicItem("归妹", "雷泽归妹", "立家兴业"
 身体：不良于行。
 
 初九变卦
-http://img.fututa.com/bk/yao/54_1.png
+
+[IMG:assets/images/xiang/归妹-1.png]
  
 初九爻动变得周易第40卦：雷水解。这个卦是异卦（下坎上震）相叠。震为雷、为动；坎为水、为险。险在内，动在外。严冬天地闭塞，静极而动。万象更新，冬去春来，一切消除，是为解。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/54_1.png
 身体：保养眼睛。
 
 九二变卦
-http://img.fututa.com/bk/yao/54_2.png
+
+[IMG:assets/images/xiang/归妹-2.png]
  
 九二爻动变得周易第51卦：震为雷。这个卦是同卦（下震上震）相叠。震为雷，两震相叠，反响巨大，可消除沉闷之气，亨通畅达。平日应居安思危，怀恐惧心理，不敢有所怠慢，遇到突发事变，也能安然自若，谈笑如常。
 
@@ -103,7 +105,8 @@ http://img.fututa.com/bk/yao/54_2.png
 身体：待时可愈。
 
 六三变卦
-http://img.fututa.com/bk/yao/54_3.png
+
+[IMG:assets/images/xiang/归妹-3.png]
  
 六三爻动变得周易第34卦：雷天大壮。这个卦是异卦（下乾上震）相叠。震为雷；乾为天。乾刚震动。天鸣雷，云雷滚，声势宏大，阳气盛壮，万物生长。刚壮有力故曰壮。大而且壮，故名大壮。四阳壮盛，积极而有所作为，上正下正，标正影直。
 
@@ -131,7 +134,8 @@ http://img.fututa.com/bk/yao/54_3.png
 身体：安心静养。
 
 九四变卦
-http://img.fututa.com/bk/yao/54_4.png
+
+[IMG:assets/images/xiang/归妹-4.png]
  
 九四爻动变得周易第19卦：地泽临。这个卦是异卦（下兑上坤）相叠。坤为地，兑为泽，地高于泽，泽容于地。喻君主亲临天下，治国安邦，上下融洽。
 
@@ -160,7 +164,8 @@ http://img.fututa.com/bk/yao/54_4.png
 身体：半月可愈。
 
 六五变卦
-http://img.fututa.com/bk/yao/54_5.png
+
+[IMG:assets/images/xiang/归妹-5.png]
  
 六五爻动变得周易第58卦：兑为泽。这个卦是同卦（下泽上泽）相叠。泽为水。两泽相连，两水交流，上下相和，团结一致，朋友相助，欢欣喜悦。兑为悦也。同秉刚健之德，外抱柔和之姿，坚行正道，导民向上。
 
@@ -189,7 +194,8 @@ http://img.fututa.com/bk/yao/54_5.png
 身体：虚劳失血，不治之象。
 
 上六变卦
-http://img.fututa.com/bk/yao/54_6.png
+
+[IMG:assets/images/xiang/归妹-6.png]
  
 上六爻动变得周易第38卦：火泽睽。这个卦是异卦（下兑上离）相叠。离为火；兑为泽。上火下泽，相违不相济。克则生，往复无空。万物有所不同，必有所异，相互矛盾。睽即矛盾。
 

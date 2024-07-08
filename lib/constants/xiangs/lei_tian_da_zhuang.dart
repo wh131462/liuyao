@@ -52,7 +52,8 @@ XiangDicItem leiTianDaZhuang = XiangDicItem(
 身体：慎择良医。
 
 初九变卦
-http://img.fututa.com/bk/yao/34_1.png
+
+[IMG:assets/images/xiang/大壮-1.png]
  
 初九爻动变得周易第32卦：雷风恒。这个卦是异卦（下巽上震）相叠。震为男、为雷；巽为女、为风。震刚在上，巽柔在下。刚上柔下，造化有常，相互助长。阴阳相应，常情，故称为恒。
 
@@ -83,7 +84,8 @@ http://img.fututa.com/bk/yao/34_1.png
 身体：滋补得宜。
 
 九二变卦
-http://img.fututa.com/bk/yao/34_2.png
+
+[IMG:assets/images/xiang/大壮-2.png]
  
 九二爻动变得周易第55卦：雷火丰。这个卦是异卦（下离上震）相叠，电闪雷鸣，成就巨大，喻达到顶峰，如日中天。告戒：务必注意事物向相反方面发展，盛衰无常，不可不警惕。
 
@@ -111,7 +113,8 @@ http://img.fututa.com/bk/yao/34_2.png
 身体：血气过刚，防有不测。
 
 九三变卦
-http://img.fututa.com/bk/yao/34_3.png
+
+[IMG:assets/images/xiang/大壮-3.png]
  
 九三爻动变得周易第54卦：雷泽归妹。这个卦是异卦（下兑上震）相叠。震为动、为长男；兑为悦、为少女。以少女从长男，产生爱慕之情，有婚姻之动，有嫁女之象，故称归妹。
 
@@ -142,7 +145,8 @@ http://img.fututa.com/bk/yao/34_3.png
 身体：恐有不测。
 
 九四变卦
-http://img.fututa.com/bk/yao/34_4.png
+
+[IMG:assets/images/xiang/大壮-4.png]
  
 九四爻动变得周易第11卦：地天泰。这个卦是异卦（下乾上坤）相叠，乾为天，为阳；坤为地，为阴，阴阳交感，上下互通，天地相交，万物纷纭。反之则凶，万事万物，皆对立，转化，盛极必衰，衰而转盛，故应时而变者泰（通）。
 
@@ -180,7 +184,8 @@ http://img.fututa.com/bk/yao/34_4.png
 身体：不吉之象。
 
 六五变卦
-http://img.fututa.com/bk/yao/34_5.png
+
+[IMG:assets/images/xiang/大壮-5.png]
  
 六五爻动变得周易第43卦：泽天夬。这个卦是异卦（下乾上兑）相叠。乾为天为健；兑为泽为悦。泽气上升，决注成雨，雨施大地，滋润万物。五阳去一阴，去之不难，决（去之意）即可，故名为夬（guài），夬即决。
 
@@ -212,7 +217,8 @@ http://img.fututa.com/bk/yao/34_5.png
 身体：进退两难。
 
 上六变卦
-http://img.fututa.com/bk/yao/34_6.png
+
+[IMG:assets/images/xiang/大壮-6.png]
  
 上六爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 

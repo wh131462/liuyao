@@ -53,7 +53,8 @@ XiangDicItem tianFengGou = XiangDicItem(
 身体：虚弱静养。
 
 初六变卦
-http://img.fututa.com/bk/yao/44_1.png
+
+[IMG:assets/images/xiang/姤-1.png]
  
 初六爻动变得周易第1卦：乾为天。这个卦是同卦（下乾上乾）相叠。象征天，喻龙（德才的君子），又象征纯粹的阳和健，表明兴盛强健。乾卦是根据万物变通的道理，以“元、亨、利、贞”为卦辞，表示吉祥如意，教导人遵守天道的德行。
 
@@ -84,7 +85,8 @@ http://img.fututa.com/bk/yao/44_1.png
 身体：池鱼之殃。
 
 九二变卦
-http://img.fututa.com/bk/yao/44_2.png
+
+[IMG:assets/images/xiang/姤-2.png]
  
 九二爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 
@@ -113,7 +115,8 @@ http://img.fututa.com/bk/yao/44_2.png
 身体：坐立不安，求医诊治。
 
 九三变卦
-http://img.fututa.com/bk/yao/44_3.png
+
+[IMG:assets/images/xiang/姤-3.png]
  
 九三爻动变得周易第6卦：天水讼。这个卦是异卦（下坎上乾）相叠。同需卦相反，互为“综卦”。乾为刚健，坎为险陷。刚与险，健与险，彼此反对，定生争讼。争讼非善事，务必慎重戒惧。
 
@@ -144,7 +147,8 @@ http://img.fututa.com/bk/yao/44_3.png
 身体：虚火难治，极为凶险。
 
 九四变卦
-http://img.fututa.com/bk/yao/44_4.png
+
+[IMG:assets/images/xiang/姤-4.png]
  
 九四爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 
@@ -174,7 +178,8 @@ http://img.fututa.com/bk/yao/44_4.png
 身体：热中带寒，速求良医。
 
 九五变卦
-http://img.fututa.com/bk/yao/44_5.png
+
+[IMG:assets/images/xiang/姤-5.png]
  
 九五爻动变得周易第50卦：火风鼎。这个卦是异卦（下巽上离）相叠。燃木煮食，化生为熟，除旧布新的意思。鼎为重宝大器，三足稳重之象。煮食，喻食物充足，不再有困难和困扰。在此基础上宜变革，发展事业。
 
@@ -200,7 +205,8 @@ http://img.fututa.com/bk/yao/44_5.png
 身体：头部有疾，就医可治。
 
 上九变卦
-http://img.fututa.com/bk/yao/44_6.png
+
+[IMG:assets/images/xiang/姤-6.png]
  
 上九爻动变得周易第28卦：泽风大过。这个卦是异卦（下巽上兑）相叠。兑为泽、为悦，巽为木、为顺，泽水淹舟，遂成大错。阴阳爻相反，阳大阴小，行动非常，有过度形象，内刚外柔。
 

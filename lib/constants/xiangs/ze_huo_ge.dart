@@ -48,7 +48,8 @@ XiangDicItem zeHuoGe = XiangDicItem("革","泽火革","顺天应人","""革卦�
 身体：中腹胀硬，消积健脾。
 
 初九变卦
-http://img.fututa.com/bk/yao/49_1.png
+
+[IMG:assets/images/xiang/革-1.png]
  
 初九爻动变得周易第31卦：泽山咸。这个卦是异卦（下艮上兑）相叠。艮为山；泽为水。兑柔在上，艮刚在下，水向下渗，柔上而刚下，交相感应。感则成。
 
@@ -79,7 +80,8 @@ http://img.fututa.com/bk/yao/49_1.png
 身体：即将痊愈。
 
 六二变卦
-http://img.fututa.com/bk/yao/49_2.png
+
+[IMG:assets/images/xiang/革-2.png]
  
 六二爻动变得周易第43卦：泽天夬。这个卦是异卦（下乾上兑）相叠。乾为天为健；兑为泽为悦。泽气上升，决注成雨，雨施大地，滋润万物。五阳去一阴，去之不难，决（去之意）即可，故名为夬（guài），夬即决。
 
@@ -107,7 +109,8 @@ http://img.fututa.com/bk/yao/49_2.png
 身体：三日可愈。
 
 九三变卦
-http://img.fututa.com/bk/yao/49_3.png
+
+[IMG:assets/images/xiang/革-3.png]
  
 九三爻动变得周易第17卦：泽雷随。这个卦是异卦（下震上兑）相叠，震为雷，为动；兑为悦，动而悦就是“随”。随指相互顺从，己有随物，物能随己，彼此沟通。随必依时顺势，有原则和条件，以坚贞为前提。
 
@@ -135,7 +138,8 @@ http://img.fututa.com/bk/yao/49_3.png
 身体：改求良医。
 
 九四变卦
-http://img.fututa.com/bk/yao/49_4.png
+
+[IMG:assets/images/xiang/革-4.png]
 九四爻动变得周易第63卦：水火既济。这个卦是异卦（下离上坎）相叠。坎为水，离为火，水火相交，水在火上，水势压倒火势，救火大功告成。既，已经；济，成也。既济就是事情已经成功，但终将发生变故。
 
 九四爻的哲学含义
@@ -164,7 +168,8 @@ http://img.fututa.com/bk/yao/49_4.png
 身体：肝火浮动，不药可愈。
 
 九五变卦
-http://img.fututa.com/bk/yao/49_5.png
+
+[IMG:assets/images/xiang/革-5.png]
  
 九五爻动变得周易第55卦：雷火丰。这个卦是异卦（下离上震）相叠，电闪雷鸣，成就巨大，喻达到顶峰，如日中天。告戒：务必注意事物向相反方面发展，盛衰无常，不可不警惕。
 
@@ -192,7 +197,8 @@ http://img.fututa.com/bk/yao/49_5.png
 家宅：居之得安；多求必应。
 身体：静养修心。
 上六变卦
-http://img.fututa.com/bk/yao/49_6.png
+
+[IMG:assets/images/xiang/革-6.png]
  
 上六爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 

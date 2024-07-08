@@ -48,7 +48,8 @@ XiangDicItem zeShanXian = XiangDicItem("咸","泽山咸","相互感应","""咸�
 身体：足疾医治。
 
 初六变卦
-http://img.fututa.com/bk/yao/31_1.png
+
+[IMG:assets/images/xiang/咸-1.png]
  
 初六爻动变得周易第49卦：泽火革。这个卦是异卦（下离上兑）相叠。离为火、兑为泽，泽内有水。水在上而下浇，火在下而上升。火旺水干，水大火熄。二者相生亦相克，必然出现变革。变革是宇宙的基本规律。
 
@@ -79,7 +80,8 @@ http://img.fututa.com/bk/yao/31_1.png
 身体：无法步行。
 
 六二变卦
-http://img.fututa.com/bk/yao/31_2.png
+
+[IMG:assets/images/xiang/咸-2.png]
  
 六二爻动变得周易第28卦：泽风大过。这个卦是异卦（下巽上兑）相叠。兑为泽、为悦，巽为木、为顺，泽水淹舟，遂成大错。阴阳爻相反，阳大阴小，行动非常，有过度形象，内刚外柔。
 
@@ -108,7 +110,8 @@ http://img.fututa.com/bk/yao/31_2.png
 身体：勿陷情欲。
 
 九三变卦
-http://img.fututa.com/bk/yao/31_3.png
+
+[IMG:assets/images/xiang/咸-3.png]
  
 九三爻动变得周易第45卦：泽地萃。这个卦是异卦（下坤上兑）相叠。坤为地、为顺；兑为泽、为水。泽泛滥淹没大地，人众多相互斗争，危机必四伏，务必顺天任贤，未雨绸缪，柔顺而又和悦，彼此相得益彰，安居乐业。萃，聚集、团结。
 
@@ -139,7 +142,8 @@ http://img.fututa.com/bk/yao/31_3.png
 身体：心神恍惚，最好静养。
 
 九四变卦
-http://img.fututa.com/bk/yao/31_4.png
+
+[IMG:assets/images/xiang/咸-4.png]
  
 九四爻动变得周易第39卦：水山蹇。这个卦是异卦（下艮上坎）相叠。坎为水，艮为山。山高水深，困难重重，人生险阻，见险而止，明哲保身，可谓智慧。蹇，跋行艰难。
 
@@ -170,7 +174,8 @@ http://img.fututa.com/bk/yao/31_4.png
 身体：有病将愈，且可增寿。
 
 九五变卦
-http://img.fututa.com/bk/yao/31_5.png
+
+[IMG:assets/images/xiang/咸-5.png]
  
 九五爻动变得周易第62卦：雷山小过。这个卦是异卦（下艮上震）相叠。艮为山，震为雷，过山雷鸣，不可不畏惧。阳为大，阴为小，卦外四阴超过中二阳，故称“小过”，小有越过。
 
@@ -199,7 +204,8 @@ http://img.fututa.com/bk/yao/31_5.png
 身体：胡言乱语，祷之求安。
 
 上六变卦
-http://img.fututa.com/bk/yao/31_6.png
+
+[IMG:assets/images/xiang/咸-6.png]
  
 上六爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 

@@ -47,7 +47,8 @@ XiangDicItem huoShanLv = XiangDicItem("旅", "火山旅", "依义顺时", """旅
 身体：病初即治。
 
 初六变卦
-http://img.fututa.com/bk/yao/56_1.png
+
+[IMG:assets/images/xiang/旅-1.png]
  
 初六爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。""",
     """六二爻辞
@@ -65,7 +66,8 @@ http://img.fututa.com/bk/yao/56_1.png
 身体：旅途有恙，受人照料。
 
 六二变卦
-http://img.fututa.com/bk/yao/56_2.png
+
+[IMG:assets/images/xiang/旅-2.png]
  
 六二爻动变得周易第50卦：火风鼎。这个卦是异卦（下巽上离）相叠。燃木煮食，化生为熟，除旧布新的意思。鼎为重宝大器，三足稳重之象。煮食，喻食物充足，不再有困难和困扰。在此基础上宜变革，发展事业。
 
@@ -95,7 +97,8 @@ http://img.fututa.com/bk/yao/56_2.png
 身体：孩子或童仆难保。
 
 九三变卦
-http://img.fututa.com/bk/yao/56_3.png
+
+[IMG:assets/images/xiang/旅-3.png]
  
 九三爻动变得周易第35卦：火地晋。这个卦是异卦（下坤上离）相叠。离为日，为光明；坤为地。太阳高悬，普照大地，大地卑顺，万物生长，光明磊落，柔进上行，喻事业蒸蒸日上。
 
@@ -123,7 +126,8 @@ http://img.fututa.com/bk/yao/56_3.png
 身体：忧郁不欢。
 
 九四变卦
-http://img.fututa.com/bk/yao/56_4.png
+
+[IMG:assets/images/xiang/旅-4.png]
  
 九四爻动变得周易第52卦：艮为山。这个卦是同卦（下艮上艮）相叠。艮为山，二山相重，喻静止。它和震卦相反。高潮过后，必然出现低潮，进入事物的相对静止阶段。静止如山，宜止则止，宜行则行。行止即动和静，都不可失机，应恰到好处，动静得宜，适可而止。
 
@@ -152,7 +156,8 @@ http://img.fututa.com/bk/yao/56_4.png
 身体：殉难受奖。
 
 六五变卦
-http://img.fututa.com/bk/yao/56_5.png
+
+[IMG:assets/images/xiang/旅-5.png]
  
 六五爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 
@@ -180,7 +185,8 @@ http://img.fututa.com/bk/yao/56_5.png
 身体：属牛者凶。
 
 上九变卦
-http://img.fututa.com/bk/yao/56_6.png
+
+[IMG:assets/images/xiang/旅-6.png]
  
 上九爻动变得周易第62卦：雷山小过。这个卦是异卦（下艮上震）相叠。艮为山，震为雷，过山雷鸣，不可不畏惧。阳为大，阴为小，卦外四阴超过中二阳，故称“小过”，小有越过。
 

@@ -47,7 +47,8 @@ XiangDicItem shanHuoBen = XiangDicItem("贲","山火贲","饰外扬质","""贲�
 身体：初起之病，自可痊愈。
 
 初九变卦
-http://img.fututa.com/bk/yao/22_1.png
+
+[IMG:assets/images/xiang/贲-1.png]
  
 初九爻动变得周易第52卦：艮为山。这个卦是同卦（下艮上艮）相叠。艮为山，二山相重，喻静止。它和震卦相反。高潮过后，必然出现低潮，进入事物的相对静止阶段。静止如山，宜止则止，宜行则行。行止即动和静，都不可失机，应恰到好处，动静得宜，适可而止。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/22_1.png
 身体：遵照医嘱。
 
 六二变卦
-http://img.fututa.com/bk/yao/22_2.png
+
+[IMG:assets/images/xiang/贲-2.png]
  
 六二爻动变得周易第26卦：山天大畜。这个卦是异卦（下乾上艮）相叠。乾为天，刚健；艮为山，笃实。畜者积聚，大畜意为大积蓄。为此不畏严重的艰难险阻，努力修身养性以丰富德业。
 
@@ -101,7 +103,8 @@ http://img.fututa.com/bk/yao/22_2.png
 身体：游泳健身。
 
 九三变卦
-http://img.fututa.com/bk/yao/22_3.png
+
+[IMG:assets/images/xiang/贲-3.png]
  
 九三爻动变得周易第27卦：山雷颐。这个卦是异卦（下震上艮）相叠。震为雷，艮为山。山在上而雷在下，外实内虚。春暖万物养育，依时养贤育民。阳实阴虚，实者养人，虚者为人养。自食其力。
 
@@ -134,7 +137,8 @@ http://img.fututa.com/bk/yao/22_3.png
 身体：胸中气阻，调节上下。
 
 六四变卦
-http://img.fututa.com/bk/yao/22_4.png
+
+[IMG:assets/images/xiang/贲-4.png]
  
 六四爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。
 
@@ -162,7 +166,8 @@ http://img.fututa.com/bk/yao/22_4.png
 身体：园林修养。
 
 六五变卦
-http://img.fututa.com/bk/yao/22_5.png
+
+[IMG:assets/images/xiang/贲-5.png]
  
 六五爻动变得周易第37卦：风火家人。这个卦是异卦（下离上巽）相叠。离为火；巽为风。火使热气上升，成为风。一切事物皆应以内在为本，然后伸延到外。发生于内，形成于外。喻先治家而后治天下，家道正，天下安乐。
 
@@ -191,7 +196,8 @@ http://img.fututa.com/bk/yao/22_5.png
 身体：清谈解热，可能归天。
 
 上九变卦
-http://img.fututa.com/bk/yao/22_6.png
+
+[IMG:assets/images/xiang/贲-6.png]
  
 上九爻动变得周易第36卦：地火明夷。这个卦是异卦（下离上坤）相叠。离为明，坤为顺；离为日；坤为地。日没入地，光明受损，前途不明，环境困难，宜遵时养晦，坚守正道，外愚内慧，韬光养晦。
 

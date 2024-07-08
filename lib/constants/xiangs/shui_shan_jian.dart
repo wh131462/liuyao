@@ -47,7 +47,8 @@ XiangDicItem shuiShanJian = XiangDicItem("蹇","水山蹇","险阻在前","""蹇
 身体：有病初起，退而自养。
 
 初六变卦
-http://img.fututa.com/bk/yao/39_1.png
+
+[IMG:assets/images/xiang/蹇-1.png]
  
 初六爻动变得周易第63卦：水火既济。这个卦是异卦（下离上坎）相叠。坎为水，离为火，水火相交，水在火上，水势压倒火势，救火大功告成。既，已经；济，成也。既济就是事情已经成功，但终将发生变故。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/39_1.png
 身体：过劳之厄。
 
 六二变卦
-http://img.fututa.com/bk/yao/39_2.png
+
+[IMG:assets/images/xiang/蹇-2.png]
  
 六二爻动变得周易第48卦：水风井。这个卦是异卦（下巽上坎）相叠。坎为水；巽为木。树木得水而蓬勃生长。人靠水井生活，水井由人挖掘而成。相互为养，井以水养人，经久不竭，人应取此德而勤劳自勉。
 
@@ -104,7 +106,8 @@ http://img.fututa.com/bk/yao/39_2.png
 身体：多加保养。
 
 九三变卦
-http://img.fututa.com/bk/yao/39_3.png
+
+[IMG:assets/images/xiang/蹇-3.png]
  
 九三爻动变得周易第8卦：水地比。这个卦是异卦（下坤上坎）相叠，坤为地，坎为水。水附大地，地纳河海，相互依赖，亲密无间。此卦与师卦完全相反，互为综卦。它阐述的是相亲相辅，宽宏无私，精诚团结的道理。
 
@@ -134,7 +137,8 @@ http://img.fututa.com/bk/yao/39_3.png
 身体：久病缠身，一时难愈。
 
 六四变卦
-http://img.fututa.com/bk/yao/39_4.png
+
+[IMG:assets/images/xiang/蹇-4.png]
  
 六四爻动变得周易第31卦：泽山咸。这个卦是异卦（下艮上兑）相叠。艮为山；泽为水。兑柔在上，艮刚在下，水向下渗，柔上而刚下，交相感应。感则成。
 
@@ -162,7 +166,8 @@ http://img.fututa.com/bk/yao/39_4.png
 身体：众医会诊，才可治好。
 
 九五变卦
-http://img.fututa.com/bk/yao/39_5.png
+
+[IMG:assets/images/xiang/蹇-5.png]
  
 九五爻动变得周易第15卦：地山谦。这个卦是异卦（下艮上坤）相叠，艮为山，坤为地。地面有山，地卑（低）而山高，是为内高外低，比喻功高不自居，名高不自誉，位高不自傲。这就是谦。
 
@@ -189,7 +194,8 @@ http://img.fututa.com/bk/yao/39_5.png
 身体：良医出手。
 
 上六变卦
-http://img.fututa.com/bk/yao/39_6.png
+
+[IMG:assets/images/xiang/蹇-6.png]
  
 上六爻动变得周易第53卦：风山渐。这个卦是异卦（下艮上巽）相叠。艮为山，巽为木。山上有木，逐渐成长，山也随着增高。这是逐渐进步的过程，所以称渐，渐即进，渐渐前进而不急速。
 

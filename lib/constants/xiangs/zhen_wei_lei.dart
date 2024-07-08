@@ -53,7 +53,8 @@ XiangDicItem zhenWeiLei = XiangDicItem("震", "震为雷", "临危不乱", """�
 身体：先危后安。
 
 初九变卦
-http://img.fututa.com/bk/yao/51_1.png
+
+[IMG:assets/images/xiang/震-1.png]
  
 初九爻动变得周易第16卦：雷地豫。这个卦是异卦（下坤上震）相叠，坤为地，为顺；震为雷，为动。雷依时出，预示大地回春。因顺而动，和乐之源。此卦与谦卦互为综卦，交互作用。
 
@@ -83,7 +84,8 @@ http://img.fututa.com/bk/yao/51_1.png
 身体：病势可忧，七日可愈。
 
 六二变卦
-http://img.fututa.com/bk/yao/51_2.png
+
+[IMG:assets/images/xiang/震-2.png]
  
 六二爻动变得周易第54卦：雷泽归妹。这个卦是异卦（下兑上震）相叠。震为动、为长男；兑为悦、为少女。以少女从长男，产生爱慕之情，有婚姻之动，有嫁女之象，故称归妹。
 
@@ -112,7 +114,8 @@ http://img.fututa.com/bk/yao/51_2.png
 身体：由危而安。
 
 六三变卦
-http://img.fututa.com/bk/yao/51_3.png
+
+[IMG:assets/images/xiang/震-3.png]
  
 六三爻动变得周易第55卦：雷火丰。这个卦是异卦（下离上震）相叠，电闪雷鸣，成就巨大，喻达到顶峰，如日中天。告戒：务必注意事物向相反方面发展，盛衰无常，不可不警惕。
 
@@ -140,7 +143,8 @@ http://img.fututa.com/bk/yao/51_3.png
 身体：腹部积滞，宜泄除之。
 
 九四变卦
-http://img.fututa.com/bk/yao/51_4.png
+
+[IMG:assets/images/xiang/震-4.png]
  
 九四爻动变得周易第24卦：地雷复。这个卦是异卦（下震上坤）相叠。震为雷、为动；坤为地、为顺，动则顺，顺其自然。动在顺中，内阳外阴，循序运动，进退自如，利于前进。
 
@@ -170,7 +174,8 @@ http://img.fututa.com/bk/yao/51_4.png
 身体：修身养性。
 
 六五变卦
-http://img.fututa.com/bk/yao/51_5.png
+
+[IMG:assets/images/xiang/震-5.png]
  
 六五爻动变得周易第17卦：泽雷随。这个卦是异卦（下震上兑）相叠，震为雷，为动；兑为悦，动而悦就是“随”。随指相互顺从，己有随物，物能随己，彼此沟通。随必依时顺势，有原则和条件，以坚贞为前提。
 
@@ -198,7 +203,8 @@ http://img.fututa.com/bk/yao/51_5.png
 身体：安心养目。
 
 上六变卦
-http://img.fututa.com/bk/yao/51_6.png
+
+[IMG:assets/images/xiang/震-6.png]
  
 上六爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 

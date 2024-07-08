@@ -48,7 +48,8 @@ XiangDicItem shuiFengJing = XiangDicItem("井", "水风井", "求贤若渴", """
 身体：旧症不治。
 
 初六变卦
-http://img.fututa.com/bk/yao/48_1.png
+
+[IMG:assets/images/xiang/井-1.png]
  
 初六爻动变得周易第5卦：水天需。这个卦是异卦（下乾上坎）相叠，下卦是乾，刚健之意；上卦是坎，险陷之意。以刚逢险，宜稳健之妥，不可冒失行动，观时待变，所往一定成功。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/48_1.png
 身体：下漏之症，求医难治。
 
 九二变卦
-http://img.fututa.com/bk/yao/48_2.png
+
+[IMG:assets/images/xiang/井-2.png]
  
 九二爻动变得周易第39卦：水山蹇。这个卦是异卦（下艮上坎）相叠。坎为水，艮为山。山高水深，困难重重，人生险阻，见险而止，明哲保身，可谓智慧。蹇，跋行艰难。
 
@@ -104,7 +106,8 @@ http://img.fututa.com/bk/yao/48_2.png
 身体：心神不安，井泉可愈。
 
 九三变卦
-http://img.fututa.com/bk/yao/48_3.png
+
+[IMG:assets/images/xiang/井-3.png]
  
 九三爻动变得周易第29卦：坎为水。这个卦是同卦（下坎上坎）相叠。坎为水、为险，两坎相重，险上加险，险阻重重。一阳陷二阴。所幸阴虚阳实，诚信可豁然贯通。虽险难重重，却方能显人性光彩。
 
@@ -132,7 +135,8 @@ http://img.fututa.com/bk/yao/48_3.png
 身体：运动健身。
 
 六四变卦
-http://img.fututa.com/bk/yao/48_4.png
+
+[IMG:assets/images/xiang/井-4.png]
  
 
 六四爻动变得周易第28卦：泽风大过。这个卦是异卦（下巽上兑）相叠。兑为泽、为悦，巽为木、为顺，泽水淹舟，遂成大错。阴阳爻相反，阳大阴小，行动非常，有过度形象，内刚外柔。
@@ -159,7 +163,8 @@ http://img.fututa.com/bk/yao/48_4.png
 身体：外寒内热，寒剂可解。
 
 九五变卦
-http://img.fututa.com/bk/yao/48_5.png
+
+[IMG:assets/images/xiang/井-5.png]
  
 九五爻动变得周易第46卦：地风升。这个卦是异卦（下巽上坤）相叠。坤为地、为顺；巽为木、为逊。大地生长树木，逐渐成长，日渐高大成材，喻事业步步高升，前程远大，故名“升”。
 
@@ -189,7 +194,8 @@ http://img.fututa.com/bk/yao/48_5.png
 身体：即日可愈。
 
 上六变卦
-http://img.fututa.com/bk/yao/48_6.png
+
+[IMG:assets/images/xiang/井-6.png]
  
 上六爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 

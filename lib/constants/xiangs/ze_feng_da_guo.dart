@@ -51,7 +51,8 @@ XiangDicItem zeFengDaGuo = XiangDicItem(
 家宅：环境荒芜。
 身体：病体柔弱，温燥之药。
 初六变卦
-http://img.fututa.com/bk/yao/28_1.png
+
+[IMG:assets/images/xiang/大过-1.png]
  
 初六爻动变得周易第43卦：泽天夬。这个卦是异卦（下乾上兑）相叠。乾为天为健；兑为泽为悦。泽气上升，决注成雨，雨施大地，滋润万物。五阳去一阴，去之不难，决（去之意）即可，故名为夬（guài），夬即决。
 
@@ -78,7 +79,8 @@ http://img.fututa.com/bk/yao/28_1.png
 身体：虽危得安。
 
 九二变卦
-http://img.fututa.com/bk/yao/28_2.png
+
+[IMG:assets/images/xiang/大过-2.png]
  
 九二爻动变得周易第31卦：泽山咸。这个卦是异卦（下艮上兑）相叠。艮为山；泽为水。兑柔在上，艮刚在下，水向下渗，柔上而刚下，交相感应。感则成。
 
@@ -106,7 +108,8 @@ http://img.fututa.com/bk/yao/28_2.png
 身体：恐有不测。
 
 九三变卦
-http://img.fututa.com/bk/yao/28_3.png
+
+[IMG:assets/images/xiang/大过-3.png]
  
 九三爻动变得周易第47卦：泽水困。这个卦是异卦（下坎上兑）相叠。兑为阴为泽喻悦；坎为阳为水喻险。泽水困，陷入困境，才智难以施展，仍坚守正道，自得其乐，必可成事，摆脱困境。
 
@@ -136,7 +139,8 @@ http://img.fututa.com/bk/yao/28_3.png
 身体：胸胀无碍。
 
 九四变卦
-http://img.fututa.com/bk/yao/28_4.png
+
+[IMG:assets/images/xiang/大过-4.png]
  
 九四爻动变得周易第48卦：水风井。这个卦是异卦（下巽上坎）相叠。坎为水；巽为木。树木得水而蓬勃生长。人靠水井生活，水井由人挖掘而成。相互为养，井以水养人，经久不竭，人应取此德而勤劳自勉。
 
@@ -165,7 +169,8 @@ http://img.fututa.com/bk/yao/28_4.png
 身体：不好不坏。
 
 九五变卦
-http://img.fututa.com/bk/yao/28_5.png
+
+[IMG:assets/images/xiang/大过-5.png]
  
 九五爻动变得周易第32卦：雷风恒。这个卦是异卦（下巽上震）相叠。震为男、为雷；巽为女、为风。震刚在上，巽柔在下。刚上柔下，造化有常，相互助长。阴阳相应，常情，故称为恒。
 
@@ -199,7 +204,8 @@ http://img.fututa.com/bk/yao/28_5.png
 身体：颜面浮肿，可能难治。
 
 上六变卦
-http://img.fututa.com/bk/yao/28_6.png
+
+[IMG:assets/images/xiang/大过-6.png]
  
 上六爻动变得周易第44卦：天风姤。这个卦是异卦（下巽上乾）相叠。乾为天，巽为风。天下有风，吹遍大地，阴阳交合，万物茂盛。姤（gǒu）卦与夬卦相反，互为“综卦”。姤即媾，阴阳相遇。但五阳一阴，不能长久相处。
 

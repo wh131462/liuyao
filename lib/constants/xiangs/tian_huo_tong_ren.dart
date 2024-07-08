@@ -50,7 +50,8 @@ XiangDicItem tianHuoTongRen = XiangDicItem(
 身体：避地调养，可以无碍。
 
 初九变卦
-http://img.fututa.com/bk/yao/13_1.png
+
+[IMG:assets/images/xiang/同人-1.png]
  
 初九爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 
@@ -76,7 +77,8 @@ http://img.fututa.com/bk/yao/13_1.png
 身体：魂归宗庙，未可多言。
 
 六二变卦
-http://img.fututa.com/bk/yao/13_2.png
+
+[IMG:assets/images/xiang/同人-2.png]
  
 六二爻动变得周易第1卦：乾为天。这个卦是同卦（下乾上乾）相叠。象征天，喻龙（德才的君子），又象征纯粹的阳和健，表明兴盛强健。乾卦是根据万物变通的道理，以“元、亨、利、贞”为卦辞，表示吉祥如意，教导人遵守天道的德行。
 
@@ -101,7 +103,8 @@ http://img.fututa.com/bk/yao/13_2.png
 身体：不良于行。
 
 九三变卦
-http://img.fututa.com/bk/yao/13_3.png
+
+[IMG:assets/images/xiang/同人-3.png]
  
 九三爻动变得周易第25卦：天雷无妄。这个卦是异卦（下震上乾）相叠。乾为天为刚为健；震为雷为刚为动。动而健，刚阳盛，人心振奋，必有所得，但唯循纯正，不可妄行。无妄必有获，必可致福。
 
@@ -128,7 +131,8 @@ http://img.fututa.com/bk/yao/13_3.png
 身体：虽有凶险，终究无害。
 
 九四变卦
-http://img.fututa.com/bk/yao/13_4.png
+
+[IMG:assets/images/xiang/同人-4.png]
  
 九四爻动变得周易第37卦：风火家人。这个卦是异卦（下离上巽）相叠。离为火；巽为风。火使热气上升，成为风。一切事物皆应以内在为本，然后伸延到外。发生于内，形成于外。喻先治家而后治天下，家道正，天下安乐。
 
@@ -152,7 +156,8 @@ http://img.fututa.com/bk/yao/13_4.png
 身体：先危后安。
 
 九五变卦
-http://img.fututa.com/bk/yao/13_5.png
+
+[IMG:assets/images/xiang/同人-5.png]
  
 九五爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。
 
@@ -178,7 +183,8 @@ http://img.fututa.com/bk/yao/13_5.png
 身体：恐无生机。
 
 上九变卦
-http://img.fututa.com/bk/yao/13_6.png
+
+[IMG:assets/images/xiang/同人-6.png]
  
 上九爻动变得周易第49卦：泽火革。这个卦是异卦（下离上兑）相叠。离为火、兑为泽，泽内有水。水在上而下浇，火在下而上升。火旺水干，水大火熄。二者相生亦相克，必然出现变革。变革是宇宙的基本规律。
 

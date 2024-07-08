@@ -48,7 +48,8 @@ XiangDicItem shanTianDaChu = XiangDicItem("大畜","山天大畜","止而不止"
 身体：有病无虞。
 
 初九变卦
-http://img.fututa.com/bk/yao/26_1.png
+
+[IMG:assets/images/xiang/大畜-1.png]
  
 初九爻动变得周易第18卦：山风蛊。这个卦是异卦（下巽上艮）相叠，与随卦互为综卦。蛊本意为事，引申为多事、混乱。器皿久不用而生虫称“蛊”，喻天下久安而因循、腐败，必须革新创造，治理整顿，挽救危机，重振事业。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/26_1.png
 身体：腹痛难愈，但无大碍。
 
 九二变卦
-http://img.fututa.com/bk/yao/26_2.png
+
+[IMG:assets/images/xiang/大畜-2.png]
  
 九二爻动变得周易第22卦：山火贲。这个卦是异卦（下离上艮）相叠。离为火为明；艮为山为止。文明而有节制。贲卦论述文与质的关系，以质为主，以文调节。贲，文饰、修饰。
 
@@ -105,7 +107,8 @@ http://img.fututa.com/bk/yao/26_2.png
 身体：谨慎调养，可保无碍。
 
 九三变卦
-http://img.fututa.com/bk/yao/26_3.png
+
+[IMG:assets/images/xiang/大畜-3.png]
  
 九三爻动变得周易第41卦：山泽损。这个卦是异卦（下兑上艮）相叠。艮为山；兑为泽。上山下泽，大泽浸蚀山根。损益相间，损中有益，益中有损。二者之间，不可不慎重对待。损下益上，治理国家，过度会损伤国基。应损则损，但必量力、适度。少损而益最佳。
 
@@ -130,7 +133,8 @@ http://img.fututa.com/bk/yao/26_3.png
 身体：防小儿病。
 
 六四变卦
-http://img.fututa.com/bk/yao/26_4.png
+
+[IMG:assets/images/xiang/大畜-4.png]
  
 六四爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 
@@ -155,7 +159,8 @@ http://img.fututa.com/bk/yao/26_4.png
 身体：调养节制。
 
 六五变卦
-http://img.fututa.com/bk/yao/26_5.png
+
+[IMG:assets/images/xiang/大畜-5.png]
  
 六五爻动变得周易第9卦：风天小畜。这个卦是异卦（下乾上巽）相叠，乾为天，巽为风。喻风调雨顺，谷物滋长，故卦名小畜（蓄）。力量有限，须待发展到一定程度，才可大有作为。
 
@@ -186,7 +191,8 @@ http://img.fututa.com/bk/yao/26_5.png
 身体：健康平安。
 
 上九变卦
-http://img.fututa.com/bk/yao/26_6.png
+
+[IMG:assets/images/xiang/大畜-6.png]
  
 上九爻动变得周易第11卦：地天泰。这个卦是异卦（下乾上坤）相叠，乾为天，为阳；坤为地，为阴，阴阳交感，上下互通，天地相交，万物纷纭。反之则凶，万事万物，皆对立，转化，盛极必衰，衰而转盛，故应时而变者泰（通）。
 

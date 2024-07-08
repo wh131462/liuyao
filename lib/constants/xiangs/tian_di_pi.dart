@@ -52,8 +52,9 @@ XiangDicItem tianDiPi = XiangDicItem(
 身体：传染之症，但无大碍。
 
 初六变卦
-http://img.fututa.com/bk/yao/12_1.png
- 
+
+[IMG:assets/images/xiang/否-1.png]
+
 初六爻动变得周易第25卦：天雷无妄。这个卦是异卦（下震上乾）相叠。乾为天为刚为健；震为雷为刚为动。动而健，刚阳盛，人心振奋，必有所得，但唯循纯正，不可妄行。无妄必有获，必可致福。
 
  初九爻的哲学含义 
@@ -80,8 +81,9 @@ http://img.fututa.com/bk/yao/12_1.png
 身体：修身养性。
 
 六二变卦
-http://img.fututa.com/bk/yao/12_2.png
- 
+
+[IMG:assets/images/xiang/否-2.png]
+
 六二爻动变得周易第6卦：天水讼。这个卦是异卦（下坎上乾）相叠。同需卦相反，互为“综卦”。乾为刚健，坎为险陷。刚与险，健与险，彼此反对，定生争讼。争讼非善事，务必慎重戒惧。
 
  九二爻的哲学含义 
@@ -104,7 +106,8 @@ http://img.fututa.com/bk/yao/12_2.png
 身体：寒中带热，远求良医。
  
 六三变卦
-http://img.fututa.com/bk/yao/12_3.png
+
+[IMG:assets/images/xiang/否-3.png]
  
 六三爻动变得周易第33卦：天山遁。这个卦是异卦（下艮上乾）相叠。乾为天，艮为山。天下有山，山高天退。阴长阳消，小人得势，君子退隐，明哲保身，伺机救天下。
 
@@ -131,7 +134,8 @@ http://img.fututa.com/bk/yao/12_3.png
 身体：体质尚强。
 
 九四变卦
-http://img.fututa.com/bk/yao/12_4.png
+
+[IMG:assets/images/xiang/否-4.png]
  
 九四爻动变得周易第20卦：风地观。这个卦是异卦（下坤上巽）相叠，风行地上，喻德教遍施。观卦与临卦互为综卦，交相使用。在上者以道义观天下；在下者以敬仰瞻上，人心顺服归从。
 
@@ -156,7 +160,8 @@ http://img.fututa.com/bk/yao/12_4.png
 身体：小心保养。
 
 九五变卦
-http://img.fututa.com/bk/yao/12_5.png
+
+[IMG:assets/images/xiang/否-5.png]
  
 九五爻动变得周易第35卦：火地晋。这个卦是异卦（下坤上离）相叠。离为日，为光明；坤为地。太阳高悬，普照大地，大地卑顺，万物生长，光明磊落，柔进上行，喻事业蒸蒸日上。
 
@@ -180,7 +185,8 @@ http://img.fututa.com/bk/yao/12_5.png
 身体：即可病愈，须防复发。
 
 上九变卦
-http://img.fututa.com/bk/yao/12_6.png
+
+[IMG:assets/images/xiang/否-6.png]
  
 上九爻动变得周易第45卦：泽地萃。这个卦是异卦（下坤上兑）相叠。坤为地、为顺；兑为泽、为水。泽泛滥淹没大地，人众多相互斗争，危机必四伏，务必顺天任贤，未雨绸缪，柔顺而又和悦，彼此相得益彰，安居乐业。萃，聚集、团结。
 

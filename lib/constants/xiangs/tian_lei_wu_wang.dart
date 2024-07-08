@@ -54,7 +54,8 @@ XiangDicItem tianLeiWuWang = XiangDicItem(
 身体：出外就医。
 
 初九变卦
-http://img.fututa.com/bk/yao/25_1.png
+
+[IMG:assets/images/xiang/无妄-1.png]
  
 初九爻动变得周易第12卦：天地否。这个卦是异卦（下坤上乾）相叠，其结构同泰卦相反，系阳气上升，阴气下降，天地不交，万物不通。它们彼此为“综卦”，表明泰极而否，否极泰来，互为因果。
 
@@ -85,7 +86,8 @@ http://img.fututa.com/bk/yao/25_1.png
 身体：自然痊愈。
 
 六二变卦
-http://img.fututa.com/bk/yao/25_2.png
+
+[IMG:assets/images/xiang/无妄-2.png]
  
 六二爻动变得周易第10卦：天泽履。这个卦是异卦（下兑上乾）相叠，乾为天，兑为泽，以天喻君，以泽喻民，原文：“履（踩）虎尾，不咥（咬）人”。因此，结果吉利。君上民下，各得其位。兑柔遇乾刚，所履危。履意为实践，卦义是脚踏实地的向前进取的意思。
 
@@ -116,7 +118,8 @@ http://img.fututa.com/bk/yao/25_2.png
 身体：外人传染，小心防治。
 
 六三变卦
-http://img.fututa.com/bk/yao/25_3.png
+
+[IMG:assets/images/xiang/无妄-3.png]
  
 六三爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 
@@ -145,7 +148,8 @@ http://img.fututa.com/bk/yao/25_3.png
 身体：安静调养，下月可愈。
 
 九四变卦
-http://img.fututa.com/bk/yao/25_4.png
+
+[IMG:assets/images/xiang/无妄-4.png]
  
 九四爻动变得周易第42卦：风雷益。这个卦是异卦（下震上巽）相叠。巽为风；震为雷。风雷激荡，其势愈强，雷愈响，风雷相助互长，交相助益。此卦与损卦相反。它是损上以益下，后者是损下以益上。二卦阐述的是损益的原则。
 
@@ -177,7 +181,8 @@ http://img.fututa.com/bk/yao/25_4.png
 身体：不必担心。
 
 九五变卦
-http://img.fututa.com/bk/yao/25_5.png
+
+[IMG:assets/images/xiang/无妄-5.png]
  
 九五爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 
@@ -207,7 +212,8 @@ http://img.fututa.com/bk/yao/25_5.png
 身体：年老颐养。
 
 上九变卦
-http://img.fututa.com/bk/yao/25_6.png
+
+[IMG:assets/images/xiang/无妄-6.png]
  
 上九爻动变得周易第17卦：泽雷随。这个卦是异卦（下震上兑）相叠，震为雷，为动；兑为悦，动而悦就是“随”。随指相互顺从，己有随物，物能随己，彼此沟通。随必依时顺势，有原则和条件，以坚贞为前提。
 

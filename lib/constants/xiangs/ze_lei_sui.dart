@@ -50,7 +50,8 @@ XiangDicItem zeLeiSui = XiangDicItem(
 身体：改变用药，远方求医。
 
 初九变卦
-http://img.fututa.com/bk/yao/17_1.png
+
+[IMG:assets/images/xiang/随-1.png]
  
 初九爻动变得周易第45卦：泽地萃。这个卦是异卦（下坤上兑）相叠。坤为地、为顺；兑为泽、为水。泽泛滥淹没大地，人众多相互斗争，危机必四伏，务必顺天任贤，未雨绸缪，柔顺而又和悦，彼此相得益彰，安居乐业。萃，聚集、团结。
 
@@ -73,7 +74,8 @@ http://img.fututa.com/bk/yao/17_1.png
 身体：顾此失彼。
 
 六二变卦
-http://img.fututa.com/bk/yao/17_2.png
+
+[IMG:assets/images/xiang/随-2.png]
  
 六二爻动变得周易第58卦：兑为泽。这个卦是同卦（下泽上泽）相叠。泽为水。两泽相连，两水交流，上下相和，团结一致，朋友相助，欢欣喜悦。兑为悦也。同秉刚健之德，外抱柔和之姿，坚行正道，导民向上。
 
@@ -100,7 +102,8 @@ http://img.fututa.com/bk/yao/17_2.png
 身体：大人无妨，小孩不利。
 
 六三变卦
-http://img.fututa.com/bk/yao/17_3.png
+
+[IMG:assets/images/xiang/随-3.png]
  
 六三爻动变得周易第49卦：泽火革。这个卦是异卦（下离上兑）相叠。离为火、兑为泽，泽内有水。水在上而下浇，火在下而上升。火旺水干，水大火熄。二者相生亦相克，必然出现变革。变革是宇宙的基本规律。
 
@@ -123,7 +126,8 @@ http://img.fututa.com/bk/yao/17_3.png
 身体：先凶后吉。
 
 九四变卦
-http://img.fututa.com/bk/yao/17_4.png
+
+[IMG:assets/images/xiang/随-4.png]
  
 九四爻动变得周易第3卦：水雷屯。这个卦是异卦（下震上坎）相叠，震为雷，喻动；坎为雨，喻险。雷雨交加，险象丛生，环境恶劣。“屯”原指植物萌生大地，万物始生，充满艰难险阻，然而顺时应运，必欣欣向荣。
 
@@ -148,7 +152,8 @@ http://img.fututa.com/bk/yao/17_4.png
 身体：无须担心。
 
 九五变卦
-http://img.fututa.com/bk/yao/17_5.png
+
+[IMG:assets/images/xiang/随-5.png]
  
 九五爻动变得周易第51卦：震为雷。这个卦是同卦（下震上震）相叠。震为雷，两震相叠，反响巨大，可消除沉闷之气，亨通畅达。平日应居安思危，怀恐惧心理，不敢有所怠慢，遇到突发事变，也能安然自若，谈笑如常。
 
@@ -174,7 +179,8 @@ http://img.fututa.com/bk/yao/17_5.png
 身体：诚心祷告；可能归魂。
 
 上六变卦
-http://img.fututa.com/bk/yao/17_6.png
+
+[IMG:assets/images/xiang/随-6.png]
  
 上六爻动变得周易第25卦：天雷无妄。这个卦是异卦（下震上乾）相叠。乾为天为刚为健；震为雷为刚为动。动而健，刚阳盛，人心振奋，必有所得，但唯循纯正，不可妄行。无妄必有获，必可致福。
 

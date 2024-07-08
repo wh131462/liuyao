@@ -56,7 +56,8 @@ XiangDicItem shanFengGu = XiangDicItem(
 身体：初无大碍，无子不利。
 
 初六变卦
-http://img.fututa.com/bk/yao/18_1.png
+
+[IMG:assets/images/xiang/蛊-1.png]
  
 初六爻动变得周易第26卦：山天大畜。这个卦是异卦（下乾上艮）相叠。乾为天，刚健；艮为山，笃实。畜者积聚，大畜意为大积蓄。为此不畏严重的艰难险阻，努力修身养性以丰富德业。
 
@@ -81,7 +82,8 @@ http://img.fututa.com/bk/yao/18_1.png
 身体：大人寒症，小孩补气。
 
 九二变卦
-http://img.fututa.com/bk/yao/18_2.png
+
+[IMG:assets/images/xiang/蛊-2.png]
  
 九二爻动变得周易第52卦：艮为山。这个卦是同卦（下艮上艮）相叠。艮为山，二山相重，喻静止。它和震卦相反。高潮过后，必然出现低潮，进入事物的相对静止阶段。静止如山，宜止则止，宜行则行。行止即动和静，都不可失机，应恰到好处，动静得宜，适可而止。
 
@@ -106,7 +108,8 @@ http://img.fututa.com/bk/yao/18_2.png
 身体：应可痊愈。
 
 九三变卦
-http://img.fututa.com/bk/yao/18_3.png
+
+[IMG:assets/images/xiang/蛊-3.png]
  
 九三爻动变得周易第4卦：山水蒙。这个卦是异卦（下坎上艮）相叠，艮是山的形象，喻止；坎是水的形象，喻险。卦形为山下有险，仍不停止前进，是为蒙昧，故称蒙卦。但因把握时机，行动切合时宜，因此，具有启蒙和通达的卦象。
 
@@ -135,7 +138,8 @@ http://img.fututa.com/bk/yao/18_3.png
 身体：急救内患，以免不治。
 
 六四变卦
-http://img.fututa.com/bk/yao/18_4.png
+
+[IMG:assets/images/xiang/蛊-4.png]
  
 六四爻动变得周易第50卦：火风鼎。这个卦是异卦（下巽上离）相叠。燃木煮食，化生为熟，除旧布新的意思。鼎为重宝大器，三足稳重之象。煮食，喻食物充足，不再有困难和困扰。在此基础上宜变革，发展事业。
 
@@ -164,7 +168,8 @@ http://img.fututa.com/bk/yao/18_4.png
 身体：应觅名医。
 
 六五变卦
-http://img.fututa.com/bk/yao/18_5.png
+
+[IMG:assets/images/xiang/蛊-5.png]
  
 六五爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 
@@ -195,7 +200,8 @@ http://img.fututa.com/bk/yao/18_5.png
 身体：大限将至，安其天年。
 
 上九变卦
-http://img.fututa.com/bk/yao/18_6.png
+
+[IMG:assets/images/xiang/蛊-6.png]
  
 上九爻动变得周易第46卦：地风升。这个卦是异卦（下巽上坤）相叠。坤为地、为顺；巽为木、为逊。大地生长树木，逐渐成长，日渐高大成材，喻事业步步高升，前程远大，故名“升”。
 

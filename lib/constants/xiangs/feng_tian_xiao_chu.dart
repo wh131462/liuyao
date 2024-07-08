@@ -45,7 +45,9 @@ XiangDicItem fengTianXiaoChu = XiangDicItem("小畜","风天小畜","蓄养待�
 身体：安静休养，可以复原。
 
 初九变卦
-http://img.fututa.com/bk/yao/9_1.png
+
+[IMG:assets/images/xiang/小畜-1.png]
+
 初九爻动变得周易第57卦：巽为风。这个卦是同卦（下巽上巽）相叠，巽为风，两风相重，长风不绝，无孔不入，巽亦为顺、谦逊的态度和行为，可无往不利。
 
 初九爻的哲学含义
@@ -68,7 +70,9 @@ http://img.fututa.com/bk/yao/9_1.png
 身体：旧疾复发，小心调养。
 
 九二变卦
-http://img.fututa.com/bk/yao/9_2.png
+
+[IMG:assets/images/xiang/小畜-2.png]
+
 九二爻动变得周易第37卦：风火家人。这个卦是异卦（下离上巽）相叠。离为火；巽为风。火使热气上升，成为风。一切事物皆应以内在为本，然后伸延到外。发生于内，形成于外。喻先治家而后治天下，家道正，天下安乐。
 
 九二爻的哲学含义
@@ -89,7 +93,9 @@ http://img.fututa.com/bk/yao/9_2.png
 身体：阴阳不察，慎择良医。
 
 九三变卦
-http://img.fututa.com/bk/yao/9_3.png
+
+[IMG:assets/images/xiang/小畜-3.png]
+
 九三爻动变得周易第61卦：风泽中孚。这个卦是异卦（下兑上巽）相叠。孚本义孵，孵卵出壳的日期非常准确，有信的意义。卦形外实内虚，喻心中诚信，所以称中孚卦。这是立身处世的根本。
 
 九三爻的哲学含义
@@ -112,7 +118,9 @@ http://img.fututa.com/bk/yao/9_3.png
 身体：宽解治之，燥烈之药不宜。
 
 六四变卦
-http://img.fututa.com/bk/yao/9_4.png
+
+[IMG:assets/images/xiang/小畜-4.png]
+
 六四爻动变得周易第1卦：乾为天。这个卦是同卦（下乾上乾）相叠。象征天，喻龙（德才的君子），又象征纯粹的阳和健，表明兴盛强健。乾卦是根据万物变通的道理，以“元、亨、利、贞”为卦辞，表示吉祥如意，教导人遵守天道的德行。
 
 九四爻的哲学含义
@@ -135,7 +143,9 @@ http://img.fututa.com/bk/yao/9_4.png
 身体：手足麻痹之症。
 
 九五变卦
-http://img.fututa.com/bk/yao/9_5.png
+
+[IMG:assets/images/xiang/小畜-5.png]
+
 九五爻动变得周易第26卦：山天大畜。这个卦是异卦（下乾上艮）相叠。乾为天，刚健；艮为山，笃实。畜者积聚，大畜意为大积蓄。为此不畏严重的艰难险阻，努力修身养性以丰富德业。
 
 九五爻的哲学含义
@@ -157,7 +167,9 @@ http://img.fututa.com/bk/yao/9_5.png
 家宅：前困后亨。
 身体：须防营养过多。
 上九变卦
-http://img.fututa.com/bk/yao/9_6.png
+
+[IMG:assets/images/xiang/小畜-6.png]
+
 上九爻动变得周易第5卦：水天需。这个卦是异卦（下乾上坎）相叠，下卦是乾，刚健之意；上卦是坎，险陷之意。以刚逢险，宜稳健之妥，不可冒失行动，观时待变，所往一定成功。
 
 上九爻的哲学含义

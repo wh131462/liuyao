@@ -54,7 +54,8 @@ XiangDicItem liWeiHuo = XiangDicItem(
 身体：走路小心。
 
 初九变卦
-http://img.fututa.com/bk/yao/30_1.png
+
+[IMG:assets/images/xiang/离-1.png]
  
 初九爻动变得周易第56卦：火山旅。这个卦是异卦（下艮上离）相叠。此卦与丰卦相反，互为“综卦”。山中燃火，烧而不止，火势不停地向前蔓延，如同途中行人，急于赶路。因而称旅卦。
 
@@ -83,7 +84,8 @@ http://img.fututa.com/bk/yao/30_1.png
 身体：郁热之症。
 
 六二变卦
-http://img.fututa.com/bk/yao/30_2.png
+
+[IMG:assets/images/xiang/离-2.png]
  
 六二爻动变得周易第14卦：火天大有。这个卦是异卦（下乾上离）相叠。上卦为离，为火；下卦为乾，为天。火在天上，普照万物，万民归顺，顺天依时，大有所成。
 
@@ -109,7 +111,8 @@ http://img.fututa.com/bk/yao/30_2.png
 身体：早睡早起。
 
 九三变卦
-http://img.fututa.com/bk/yao/30_3.png
+
+[IMG:assets/images/xiang/离-3.png]
  
 九三爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 
@@ -139,7 +142,8 @@ http://img.fututa.com/bk/yao/30_3.png
 身体：命在危局。
 
 九四变卦
-http://img.fututa.com/bk/yao/30_4.png
+
+[IMG:assets/images/xiang/离-4.png]
  
 九四爻动变得周易第22卦：山火贲。这个卦是异卦（下离上艮）相叠。离为火为明；艮为山为止。文明而有节制。贲卦论述文与质的关系，以质为主，以文调节。贲，文饰、修饰。
 
@@ -169,7 +173,8 @@ http://img.fututa.com/bk/yao/30_4.png
 身体：又哭又叹，但仍无妨。
 
 六五变卦
-http://img.fututa.com/bk/yao/30_5.png
+
+[IMG:assets/images/xiang/离-5.png]
  
 六五爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 
@@ -194,7 +199,8 @@ http://img.fututa.com/bk/yao/30_5.png
 身体：可能归天。
 
 上九变卦
-http://img.fututa.com/bk/yao/30_6.png
+
+[IMG:assets/images/xiang/离-6.png]
  
 上九爻动变得周易第55卦：雷火丰。这个卦是异卦（下离上震）相叠，电闪雷鸣，成就巨大，喻达到顶峰，如日中天。告戒：务必注意事物向相反方面发展，盛衰无常，不可不警惕。
 

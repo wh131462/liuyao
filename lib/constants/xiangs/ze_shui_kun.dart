@@ -48,7 +48,8 @@ XiangDicItem zeShuiKun = XiangDicItem("困", "泽水困", "困境求通", """困
 身体：大凶之兆。
 
 初六变卦
-http://img.fututa.com/bk/yao/47_1.png
+
+[IMG:assets/images/xiang/困-1.png]
  
 初六爻动变得周易第58卦：兑为泽。这个卦是同卦（下泽上泽）相叠。泽为水。两泽相连，两水交流，上下相和，团结一致，朋友相助，欢欣喜悦。兑为悦也。同秉刚健之德，外抱柔和之姿，坚行正道，导民向上。
 
@@ -78,7 +79,8 @@ http://img.fututa.com/bk/yao/47_1.png
 身体：饮食无度，收心祷告。
 
 九二变卦
-http://img.fututa.com/bk/yao/47_2.png
+
+[IMG:assets/images/xiang/困-2.png]
  
 九二爻动变得周易第45卦：泽地萃。这个卦是异卦（下坤上兑）相叠。坤为地、为顺；兑为泽、为水。泽泛滥淹没大地，人众多相互斗争，危机必四伏，务必顺天任贤，未雨绸缪，柔顺而又和悦，彼此相得益彰，安居乐业。萃，聚集、团结。
 
@@ -108,7 +110,8 @@ http://img.fututa.com/bk/yao/47_2.png
 身体：无可救药。
 
 六三变卦
-http://img.fututa.com/bk/yao/47_3.png
+
+[IMG:assets/images/xiang/困-3.png]
  
 六三爻动变得周易第28卦：泽风大过。这个卦是异卦（下巽上兑）相叠。兑为泽、为悦，巽为木、为顺，泽水淹舟，遂成大错。阴阳爻相反，阳大阴小，行动非常，有过度形象，内刚外柔。
 
@@ -135,7 +138,8 @@ http://img.fututa.com/bk/yao/47_3.png
 身体：长期劳累，恐得归天。
 
 九四变卦
-http://img.fututa.com/bk/yao/47_4.png
+
+[IMG:assets/images/xiang/困-4.png]
  
 九四爻动变得周易第29卦：坎为水。这个卦是同卦（下坎上坎）相叠。坎为水、为险，两坎相重，险上加险，险阻重重。一阳陷二阴。所幸阴虚阳实，诚信可豁然贯通。虽险难重重，却方能显人性光彩。
 
@@ -163,7 +167,8 @@ http://img.fututa.com/bk/yao/47_4.png
 身体：头脚之病，调养祷告。
 
 九五变卦
-http://img.fututa.com/bk/yao/47_5.png
+
+[IMG:assets/images/xiang/困-5.png]
  
 九五爻动变得周易第40卦：雷水解。这个卦是异卦（下坎上震）相叠。震为雷、为动；坎为水、为险。险在内，动在外。严冬天地闭塞，静极而动。万象更新，冬去春来，一切消除，是为解。
 
@@ -190,7 +195,8 @@ http://img.fututa.com/bk/yao/47_5.png
 身体：心神不安，迁地静养。
 
 上六变卦
-http://img.fututa.com/bk/yao/47_6.png
+
+[IMG:assets/images/xiang/困-6.png]
  
 上六爻动变得周易第6卦：天水讼。这个卦是异卦（下坎上乾）相叠。同需卦相反，互为“综卦”。乾为刚健，坎为险陷。刚与险，健与险，彼此反对，定生争讼。争讼非善事，务必慎重戒惧。
 

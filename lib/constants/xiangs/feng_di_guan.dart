@@ -47,7 +47,8 @@ XiangDicItem fengDiGuan = XiangDicItem("观","风地观","观下瞻上","""观�
 身体：小孩没事，大人不利。
 
 初六变卦
-http://img.fututa.com/bk/yao/20_1.png
+
+[IMG:assets/images/xiang/观-1.png]
  
 初六爻动变得周易第42卦：风雷益。这个卦是异卦（下震上巽）相叠。巽为风；震为雷。风雷激荡，其势愈强，雷愈响，风雷相助互长，交相助益。此卦与损卦相反。它是损上以益下，后者是损下以益上。二卦阐述的是损益的原则。
 
@@ -72,7 +73,8 @@ http://img.fututa.com/bk/yao/20_1.png
 身体：阴寒之症，可愈。
 
 六二变卦
-http://img.fututa.com/bk/yao/20_2.png
+
+[IMG:assets/images/xiang/观-2.png]
  
 六二爻动变得周易第59卦：风水涣。这个卦是异卦（下坎上巽）相叠。风在水上行，推波助澜，四方流溢。涣，水流流散之意。象征组织和人心涣散，必须用积极的手段和方法克服，战胜弊端，挽救涣散，转危为安。
 
@@ -98,7 +100,8 @@ http://img.fututa.com/bk/yao/20_2.png
 身体：安心静养，可保平安。
 
 六三变卦
-http://img.fututa.com/bk/yao/20_3.png
+
+[IMG:assets/images/xiang/观-3.png]
  
 六三爻动变得周易第53卦：风山渐。这个卦是异卦（下艮上巽）相叠。艮为山，巽为木。山上有木，逐渐成长，山也随着增高。这是逐渐进步的过程，所以称渐，渐即进，渐渐前进而不急速。
 
@@ -124,7 +127,8 @@ http://img.fututa.com/bk/yao/20_3.png
 身体：多加小心。
 
 六四变卦
-http://img.fututa.com/bk/yao/20_4.png
+
+[IMG:assets/images/xiang/观-4.png]
  
 六四爻动变得周易第12卦：天地否。这个卦是异卦（下坤上乾）相叠，其结构同泰卦相反，系阳气上升，阴气下降，天地不交，万物不通。它们彼此为“综卦”，表明泰极而否，否极泰来，互为因果。
 
@@ -152,7 +156,8 @@ http://img.fututa.com/bk/yao/20_4.png
 身体：平安无碍。
 
 九五变卦
-http://img.fututa.com/bk/yao/20_5.png
+
+[IMG:assets/images/xiang/观-5.png]
  
 九五爻动变得周易第23卦：山地剥。这个卦是异卦（下坤上艮）相叠。五阴在下，一阳在上，阴盛而阳孤；高山附于地。二者都是剥落象，故为“剥卦”。此卦阴盛阳衰，喻小人得势，君子困顿，事业败坏。
 
@@ -178,7 +183,8 @@ http://img.fututa.com/bk/yao/20_5.png
 身体：来日无多。
 
 上九变卦
-http://img.fututa.com/bk/yao/20_6.png
+
+[IMG:assets/images/xiang/观-6.png]
  
 上九爻动变得周易第8卦：水地比。这个卦是异卦（下坤上坎）相叠，坤为地，坎为水。水附大地，地纳河海，相互依赖，亲密无间。此卦与师卦完全相反，互为综卦。它阐述的是相亲相辅，宽宏无私，精诚团结的道理。
 

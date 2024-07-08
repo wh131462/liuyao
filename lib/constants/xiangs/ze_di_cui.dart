@@ -53,7 +53,8 @@ XiangDicItem zeDiCui = XiangDicItem(
 身体：心神混乱，求医可治。
 
 初六变卦
-http://img.fututa.com/bk/yao/45_1.png
+
+[IMG:assets/images/xiang/萃-1.png]
  
 初六爻动变得周易第17卦：泽雷随。这个卦是异卦（下震上兑）相叠，震为雷，为动；兑为悦，动而悦就是“随”。随指相互顺从，己有随物，物能随己，彼此沟通。随必依时顺势，有原则和条件，以坚贞为前提。
 
@@ -84,7 +85,8 @@ http://img.fututa.com/bk/yao/45_1.png
 身体：勤练气功。
 
 六二变卦
-http://img.fututa.com/bk/yao/45_2.png
+
+[IMG:assets/images/xiang/萃-2.png]
  
 六二爻动变得周易第47卦：泽水困。这个卦是异卦（下坎上兑）相叠。兑为阴为泽喻悦；坎为阳为水喻险。泽水困，陷入困境，才智难以施展，仍坚守正道，自得其乐，必可成事，摆脱困境。
 
@@ -115,7 +117,8 @@ http://img.fututa.com/bk/yao/45_2.png
 身体：胸部不适，注意排泄。
 
 六三变卦
-http://img.fututa.com/bk/yao/45_3.png
+
+[IMG:assets/images/xiang/萃-3.png]
  
 六三爻动变得周易第31卦：泽山咸。这个卦是异卦（下艮上兑）相叠。艮为山；泽为水。兑柔在上，艮刚在下，水向下渗，柔上而刚下，交相感应。感则成。
 
@@ -145,7 +148,8 @@ http://img.fututa.com/bk/yao/45_3.png
 身体：外强中干。
 
 九四变卦
-http://img.fututa.com/bk/yao/45_4.png
+
+[IMG:assets/images/xiang/萃-4.png]
  
 九四爻动变得周易第8卦：水地比。这个卦是异卦（下坤上坎）相叠，坤为地，坎为水。水附大地，地纳河海，相互依赖，亲密无间。此卦与师卦完全相反，互为综卦。它阐述的是相亲相辅，宽宏无私，精诚团结的道理。
 
@@ -177,7 +181,8 @@ http://img.fututa.com/bk/yao/45_4.png
 身体：心神不宁，最好静养。
 
 九五变卦
-http://img.fututa.com/bk/yao/45_5.png
+
+[IMG:assets/images/xiang/萃-5.png]
  
 九五爻动变得周易第16卦：雷地豫。这个卦是异卦（下坤上震）相叠，坤为地，为顺；震为雷，为动。雷依时出，预示大地回春。因顺而动，和乐之源。此卦与谦卦互为综卦，交互作用。
 
@@ -215,7 +220,8 @@ http://img.fututa.com/bk/yao/45_5.png
 身体：悲恸致病，放宽心思。
 
 上六变卦
-http://img.fututa.com/bk/yao/45_6.png
+
+[IMG:assets/images/xiang/萃-6.png]
  
 上六爻动变得周易第12卦：天地否。这个卦是异卦（下坤上乾）相叠，其结构同泰卦相反，系阳气上升，阴气下降，天地不交，万物不通。它们彼此为“综卦”，表明泰极而否，否极泰来，互为因果。
 

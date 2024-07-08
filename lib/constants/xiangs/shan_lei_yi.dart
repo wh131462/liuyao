@@ -51,7 +51,8 @@ XiangDicItem shanLeiYi = XiangDicItem(
 身体：饮食致病。
 
 初九变卦
-http://img.fututa.com/bk/yao/27_1.png
+
+[IMG:assets/images/xiang/颐-1.png]
  
 初九爻动变得周易第23卦：山地剥。这个卦是异卦（下坤上艮）相叠。五阴在下，一阳在上，阴盛而阳孤；高山附于地。二者都是剥落象，故为“剥卦”。此卦阴盛阳衰，喻小人得势，君子困顿，事业败坏。
 
@@ -79,7 +80,8 @@ http://img.fututa.com/bk/yao/27_1.png
 身体：头昏眼花，小心调养。
 
 六二变卦
-http://img.fututa.com/bk/yao/27_2.png
+
+[IMG:assets/images/xiang/颐-2.png]
  
 六二爻动变得周易第41卦：山泽损。这个卦是异卦（下兑上艮）相叠。艮为山；兑为泽。上山下泽，大泽浸蚀山根。损益相间，损中有益，益中有损。二者之间，不可不慎重对待。损下益上，治理国家，过度会损伤国基。应损则损，但必量力、适度。少损而益最佳。
 
@@ -110,7 +112,8 @@ http://img.fututa.com/bk/yao/27_2.png
 身体：痼疾难治。
 
 六三变卦
-http://img.fututa.com/bk/yao/27_3.png
+
+[IMG:assets/images/xiang/颐-3.png]
  
 六三爻动变得周易第22卦：山火贲。这个卦是异卦（下离上艮）相叠。离为火为明；艮为山为止。文明而有节制。贲卦论述文与质的关系，以质为主，以文调节。贲，文饰、修饰。
 
@@ -136,7 +139,8 @@ http://img.fututa.com/bk/yao/27_3.png
 身体：少欲则安。
 
 六四变卦
-http://img.fututa.com/bk/yao/27_4.png
+
+[IMG:assets/images/xiang/颐-4.png]
  
 六四爻动变得周易第21卦：火雷噬嗑。这个卦是异卦（下震上离）相叠。离为阴卦；震为阳卦。阴阳相交，咬碎硬物，喻恩威并施，宽严结合，刚柔相济。噬嗑为上下颚咬合，咀嚼。
 
@@ -163,7 +167,8 @@ http://img.fututa.com/bk/yao/27_4.png
 身体：安居静养，劳累难治。
 
 六五变卦
-http://img.fututa.com/bk/yao/27_5.png
+
+[IMG:assets/images/xiang/颐-5.png]
  
 六五爻动变得周易第42卦：风雷益。这个卦是异卦（下震上巽）相叠。巽为风；震为雷。风雷激荡，其势愈强，雷愈响，风雷相助互长，交相助益。此卦与损卦相反。它是损上以益下，后者是损下以益上。二卦阐述的是损益的原则。
 
@@ -200,7 +205,8 @@ http://img.fututa.com/bk/yao/27_5.png
 身体：虽危无碍。
 
 上九变卦
-http://img.fututa.com/bk/yao/27_6.png
+
+[IMG:assets/images/xiang/颐-6.png]
  
 上九爻动变得周易第24卦：地雷复。这个卦是异卦（下震上坤）相叠。震为雷、为动；坤为地、为顺，动则顺，顺其自然。动在顺中，内阳外阴，循序运动，进退自如，利于前进。
 

@@ -50,7 +50,8 @@ XiangDicItem tianHuoDaYou = XiangDicItem("大有","天火大有","顺天依时",
 身体：健康无虞，讼事宜解。
 
 初九变卦
-http://img.fututa.com/bk/yao/14_1.png
+
+[IMG:assets/images/xiang/大有-1.png]
  
 初九爻动变得周易第50卦：火风鼎。这个卦是异卦（下巽上离）相叠。燃木煮食，化生为熟，除旧布新的意思。鼎为重宝大器，三足稳重之象。煮食，喻食物充足，不再有困难和困扰。在此基础上宜变革，发展事业。
 
@@ -75,7 +76,8 @@ http://img.fututa.com/bk/yao/14_1.png
 身体：出外就医，讼事得胜。
 
 九二变卦
-http://img.fututa.com/bk/yao/14_2.png
+
+[IMG:assets/images/xiang/大有-2.png]
  
 九二爻动变得周易第30卦：离为火。这个卦是同卦（下离上离）相叠。离者丽也，附着之意，一阴附丽，上下二阳，该卦象征火，内空外明。离为火、为明，太阳反复升落，运行不息，柔顺为心。
 
@@ -99,7 +101,8 @@ http://img.fututa.com/bk/yao/14_2.png
 身体：饮食小心，不可争讼。
 
 九三变卦
-http://img.fututa.com/bk/yao/14_3.png
+
+[IMG:assets/images/xiang/大有-3.png]
  
 九三爻动变得周易第38卦：火泽睽。这个卦是异卦（下兑上离）相叠。离为火；兑为泽。上火下泽，相违不相济。克则生，往复无空。万物有所不同，必有所异，相互矛盾。睽即矛盾。
 
@@ -125,7 +128,8 @@ http://img.fututa.com/bk/yao/14_3.png
 身体：膨胀之症。
 
 九四变卦
-http://img.fututa.com/bk/yao/14_4.png
+
+[IMG:assets/images/xiang/大有-4.png]
 九四爻动变得周易第26卦：山天大畜。这个卦是异卦（下乾上艮）相叠。乾为天，刚健；艮为山，笃实。畜者积聚，大畜意为大积蓄。为此不畏严重的艰难险阻，努力修身养性以丰富德业。
 
 九四爻的哲学含义
@@ -147,7 +151,8 @@ http://img.fututa.com/bk/yao/14_4.png
 身体：保持门面。
 
 六五变卦
-http://img.fututa.com/bk/yao/14_5.png
+
+[IMG:assets/images/xiang/大有-5.png]
 六五爻动变得周易第1卦：乾为天。这个卦是同卦（下乾上乾）相叠。象征天，喻龙（德才的君子），又象征纯粹的阳和健，表明兴盛强健。乾卦是根据万物变通的道理，以“元、亨、利、贞”为卦辞，表示吉祥如意，教导人遵守天道的德行。
 
 九五爻的哲学含义
@@ -171,7 +176,8 @@ http://img.fututa.com/bk/yao/14_5.png
 身体：得神庇佑，或即归天。
 
 上九变卦
-http://img.fututa.com/bk/yao/14_6.png
+
+[IMG:assets/images/xiang/大有-6.png]
  
 上九爻动变得周易第34卦：雷天大壮。这个卦是异卦（下乾上震）相叠。震为雷；乾为天。乾刚震动。天鸣雷，云雷滚，声势宏大，阳气盛壮，万物生长。刚壮有力故曰壮。大而且壮，故名大壮。四阳壮盛，积极而有所作为，上正下正，标正影直。
 

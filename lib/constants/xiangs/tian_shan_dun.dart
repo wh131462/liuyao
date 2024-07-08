@@ -48,7 +48,8 @@ XiangDicItem tianShanDun = XiangDicItem("遁","天山遁","遁世救世","""遁�
 身体：走路小心。
 
 初六变卦
-http://img.fututa.com/bk/yao/33_1.png
+
+[IMG:assets/images/xiang/遁-1.png]
  
 初六爻动变得周易第13卦：天火同人。这个卦是异卦（下离上乾）相叠，乾为天，为君；离为火，为臣民百姓，上天下火，火性上升，同于天，上下和同，同舟共济，人际关系和谐，天下大同。
 
@@ -80,7 +81,8 @@ http://img.fututa.com/bk/yao/33_1.png
 身体：运动有恒。
 
 六二变卦
-http://img.fututa.com/bk/yao/33_2.png
+
+[IMG:assets/images/xiang/遁-2.png]
  
 六二爻动变得周易第44卦：天风姤。这个卦是异卦（下巽上乾）相叠。乾为天，巽为风。天下有风，吹遍大地，阴阳交合，万物茂盛。姤（gǒu）卦与夬卦相反，互为“综卦”。姤即媾，阴阳相遇。但五阳一阴，不能长久相处。
 
@@ -112,7 +114,8 @@ http://img.fututa.com/bk/yao/33_2.png
 身体：纵欲伤身。
 
 九三变卦
-http://img.fututa.com/bk/yao/33_3.png
+
+[IMG:assets/images/xiang/遁-3.png]
  
 九三爻动变得周易第12卦：天地否。这个卦是异卦（下坤上乾）相叠，其结构同泰卦相反，系阳气上升，阴气下降，天地不交，万物不通。它们彼此为“综卦”，表明泰极而否，否极泰来，互为因果。
 
@@ -144,7 +147,8 @@ http://img.fututa.com/bk/yao/33_3.png
 身体：大人可治，小孩危险。
 
 九四变卦
-http://img.fututa.com/bk/yao/33_4.png
+
+[IMG:assets/images/xiang/遁-4.png]
  
 九四爻动变得周易第53卦：风山渐。这个卦是异卦（下艮上巽）相叠。艮为山，巽为木。山上有木，逐渐成长，山也随着增高。这是逐渐进步的过程，所以称渐，渐即进，渐渐前进而不急速。
 
@@ -175,7 +179,8 @@ http://img.fututa.com/bk/yao/33_4.png
 身体：避开阴邪。
 
 九五变卦
-http://img.fututa.com/bk/yao/33_5.png
+
+[IMG:assets/images/xiang/遁-5.png]
  
 九五爻动变得周易第56卦：火山旅。这个卦是异卦（下艮上离）相叠。此卦与丰卦相反，互为“综卦”。山中燃火，烧而不止，火势不停地向前蔓延，如同途中行人，急于赶路。因而称旅卦。
 
@@ -205,7 +210,8 @@ http://img.fututa.com/bk/yao/33_5.png
 身体：过胖虚脱。
 
 上九变卦
-http://img.fututa.com/bk/yao/33_6.png
+
+[IMG:assets/images/xiang/遁-6.png]
  
 上九爻动变得周易第31卦：泽山咸。这个卦是异卦（下艮上兑）相叠。艮为山；泽为水。兑柔在上，艮刚在下，水向下渗，柔上而刚下，交相感应。感则成。
 
