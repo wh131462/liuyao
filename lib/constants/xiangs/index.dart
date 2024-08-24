@@ -41,7 +41,7 @@ export './feng_di_guan.dart';
 export './shui_tian_xu.dart';
 export './shui_ze_jie.dart';
 export './shui_huo_ji_ji.dart';
-export './shui_lei_tun.dart';
+export './shui_lei_zhun.dart';
 export './shui_feng_jing.dart';
 export './kan_wei_shui.dart';
 export './shui_shan_jian.dart';

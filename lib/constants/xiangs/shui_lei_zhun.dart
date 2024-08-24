@@ -1,6 +1,6 @@
 import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
 
-XiangDicItem shuiLeiTun = XiangDicItem(
+XiangDicItem shuiLeiZhun = XiangDicItem(
     "屯",
     "水雷屯",
     "起始维艰",

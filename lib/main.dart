@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/pages/welcome/welcome.dart';
+import 'package:provider/provider.dart';
+
+import 'store/schemas.dart';
+import 'store/store.dart';
 
 void main() {
-  runApp(const MyApp());
+  final storeService = StoreService([User.schema, HistoryItem.schema]);
+
+  runApp(Provider<StoreService>(
+    create: (_) => storeService,
+    dispose: (_, storeService) => storeService.close(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +22,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '六爻排卦',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      home: const WelcomePage()
-    );
+        title: '六爻排卦',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: const WelcomePage());
   }
 }

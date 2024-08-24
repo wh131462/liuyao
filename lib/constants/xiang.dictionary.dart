@@ -148,7 +148,7 @@ Map<String, XiangDicItem> xiangDictionary = {
   "需": shuiTianXu,
   "节": shuiZeJie,
   "既济": shuiHuoJiJi,
-  "屯": shuiLeiTun,
+  "屯": shuiLeiZhun,
   "井": shuiFengJing,
   "坎": kanWeiShui,
   "蹇": shuiShanJian,

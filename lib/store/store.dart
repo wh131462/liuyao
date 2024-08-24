@@ -1,86 +1,87 @@
+import 'package:liuyao_flutter/utils/logger.dart';
 import 'package:realm/realm.dart';
-/// 基础Store类
-abstract class Store<T extends RealmObject> {
-  final Realm _realm;
 
-  Store(this._realm);
+import 'schemas.dart';
 
-  // 保存单个对象
-  Future<T?> save(T object) async {
-    try {
-      await _realm.write(() {
-        _realm.add(object);
-      });
-      return object;
-    } catch (e) {
-      print('Error saving object: $e');
-      return null;
-    }
+class StoreService {
+  late Realm realm;
+
+  StoreService(List<SchemaObject> schemas) {
+    final config = Configuration.local(schemas,
+        schemaVersion: 2, // 当前最新的 schema 版本号
+        migrationCallback: migrationCallback); // 使用统一的迁移回调函数);
+    realm = Realm(config);
   }
 
-  // 批量保存对象
-  Future<List<T>?> saveAll(List<T> objects) async {
-    try {
-      await _realm.write(() {
-        _realm.addAll(objects);
-      });
-      return objects;
-    } catch (e) {
-      print('Error saving objects: $e');
-      return null;
-    }
+  // 添加或更新对象
+  void update<T extends RealmObject>(T item) {
+    realm.write(() {
+      realm.add(item, update: true);
+    });
   }
 
   // 获取所有对象
-  Future<List<T>> getAll({int page = 0, int pageSize = 10}) async {
-    // Calculate the range for pagination
-    int startIndex = page * pageSize;
-    int endIndex = startIndex + pageSize;
-    return _realm.all<T>().toList().getRange(startIndex, endIndex).toList();
+  List<T> getAll<T extends RealmObject>() {
+    return realm.all<T>().toList();
   }
 
-  // 根据条件过滤对象
-  Future<List<RealmObject>> query(String query) async {
-    var results = _realm.query(query);
-    return results.toList();
+  // 根据主键获取对象
+  T? getById<T extends RealmObject>(ObjectId id) {
+    return realm.find<T>(id);
   }
 
-  // 根据ID获取对象
-  Future<T?> getById(int id) async {
-    return _realm.find<T>(id);
+  // 删除对象
+  void delete<T extends RealmObject>(T item) {
+    realm.write(() {
+      realm.delete(item);
+    });
   }
 
-  // 更新对象
-  Future<T?> update(T object) async {
-    try {
-      await _realm.write(() {
-        _realm.add(object,update: true);
-      });
-      return object;
-    } catch (e) {
-      print('Error updating object: $e');
-      return null;
+  // 根据主键删除对象
+  void deleteById<T extends RealmObject>(ObjectId id) {
+    final item = getById<T>(id);
+    if (item != null) {
+      delete(item);
     }
   }
 
-  // 删除单个对象
-  Future<void> delete(T object) async {
-    await _realm.write(() {
-      _realm.delete(object);
+  //删除全部数据
+  void deleteAll<T extends RealmObject>() {
+    realm.write(() {
+      realm.deleteAll<T>();
     });
   }
 
-  // 批量删除对象
-  Future<void> deleteItems(List<T> objects) async {
-    _realm.write(() {
-      _realm.deleteMany(objects);
-    });
+  // 查询对象
+  List<T> query<T extends RealmObject>(String query) {
+    return realm.all<T>().query(query).toList();
   }
 
-  // 删除全部对象
-  Future<void> deleteAll() async {
-    _realm.write(() {
-      _realm.deleteAll<T>();
-    });
+  // 关闭 Realm 实例
+  void close() {
+    realm.close();
+  }
+}
+
+void migrationCallback(Migration migration, int oldSchemaVersion) {
+  final newRealm = migration.newRealm;
+  final oldRealm = migration.oldRealm;
+
+  // 针对旧版本的迁移逻辑
+  if (oldSchemaVersion < 1) {
+    // 处理从版本 0 到版本 1 的迁移逻辑，例如将 DateTime 转为时间戳
+    final oldHistoryItems = oldRealm.all('HistoryItem');
+    for (var oldItem in oldHistoryItems) {
+      final newItem = newRealm.find<HistoryItem>(oldItem.dynamic.get('id'));
+      if (newItem != null && oldItem is HistoryItem) {
+        newItem.timestamp = (oldItem.timestamp as DateTime).millisecondsSinceEpoch;
+      }
+    }
+    logger.info("处理数据库迁移升级");
+  }
+
+  if (oldSchemaVersion < 2) {
+    // 处理版本 1 到版本 2 的迁移，例如新增或删除字段
+    // 这里可以添加更多的迁移逻辑
   }
 }

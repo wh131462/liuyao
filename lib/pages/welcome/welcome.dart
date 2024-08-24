@@ -1,8 +1,9 @@
-export "./welcome.dart";
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/navigation/pages.const.dart';
 import 'package:liuyao_flutter/styles/iconfont.dart';
 import 'package:liuyao_flutter/utils/logger.dart';
+
+export "./welcome.dart";
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
