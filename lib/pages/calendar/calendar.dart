@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:liuyao_flutter/pages/arrange/arrange.detail.dart';
 import 'package:liuyao_flutter/utils/logger.dart';
 import 'package:lunar/lunar.dart';
 import 'package:provider/provider.dart';
@@ -13,11 +15,14 @@ class CalendarPage extends StatefulWidget {
   _CalendarPageState createState() => _CalendarPageState();
 }
 
-class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderStateMixin {
+class _CalendarPageState extends State<CalendarPage>
+    with SingleTickerProviderStateMixin {
   DateTime _focusedDay = DateTime.now();
   late TabController? _tabController;
   late ScrollController _scrollController; // 用于控制GridView滚动
-  int _currentYear = DateTime.now().year; // 当前的年份
+  final int _currentYear = DateTime
+      .now()
+      .year; // 当前的年份
 
 
   @override
@@ -25,6 +30,10 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
     _scrollController = ScrollController();
+    // 当切换到年视图时滚动到当前年份
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToCurrentYear();
+    });
     _tabController?.addListener(() {
       if (_tabController?.indexIsChanging == false) {
         // Tab 切换后执行的逻辑
@@ -42,6 +51,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
         }
       }
     });
+    initializeDateFormatting('zh_CN');
   }
 
   @override
@@ -64,7 +74,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
         controller: _tabController,
         children: [
           // Year view
-          _buildYearView(context,storeService),
+          _buildYearView(context, storeService),
           // Month view
           _buildMonthView(context, storeService),
           // Week view
@@ -80,7 +90,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
     logger.info("当前年份:$_currentYear,当前offset:$offset");
     _scrollController.animateTo(
       offset,
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
   }
@@ -122,9 +132,24 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
 
   Widget _buildMonthView(BuildContext context, StoreService storeService) {
     return TableCalendar(
-      firstDay: DateTime.utc(_focusedDay.year, 1, 1),
-      lastDay: DateTime.utc(_focusedDay.year, 12, 31),
+      locale: "zh-CN",
+      headerStyle: HeaderStyle(
+        formatButtonVisible: false,
+        // 隐藏格式切换按钮
+        titleCentered: true,
+        formatButtonShowsNext: false,
+        titleTextFormatter: (date, locale) =>
+            DateFormat.yMMMM(locale).format(date),
+        // 将标题格式化为 "yyyy年MM月"
+        leftChevronIcon: Icon(Icons.chevron_left, color: Colors.black),
+        rightChevronIcon: Icon(Icons.chevron_right, color: Colors.black),
+      ),
+      firstDay: DateTime.utc(1970, 1, 1),
+      lastDay: DateTime.utc(_focusedDay.year + 100, 12, 31),
       focusedDay: _focusedDay,
+      availableCalendarFormats: const {
+        CalendarFormat.month: '',
+      },
       calendarFormat: CalendarFormat.month,
       onDaySelected: (selectedDay, focusedDay) {
         setState(() {
@@ -142,15 +167,30 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
           _focusedDay = focusedDay;
         });
       },
-      calendarBuilders: _calendarBuilders(storeService),
+      calendarBuilders: _calendarBuilders(storeService, _focusedDay),
     );
   }
 
   Widget _buildWeekView(BuildContext context, StoreService storeService) {
     return TableCalendar(
+      locale: "zh-CN",
+      headerStyle: HeaderStyle(
+        formatButtonVisible: false,
+        // 隐藏格式切换按钮
+        titleCentered: true,
+        formatButtonShowsNext: false,
+        titleTextFormatter: (date, locale) =>
+            DateFormat.yMMMM(locale).format(date),
+        // 将标题格式化为 "yyyy年MM月"
+        leftChevronIcon: Icon(Icons.chevron_left, color: Colors.black),
+        rightChevronIcon: Icon(Icons.chevron_right, color: Colors.black),
+      ),
       firstDay: DateTime.utc(_focusedDay.year, 1, 1),
       lastDay: DateTime.utc(_focusedDay.year, 12, 31),
       focusedDay: _focusedDay,
+      availableCalendarFormats: const {
+        CalendarFormat.week: '',
+      },
       calendarFormat: CalendarFormat.week,
       onDaySelected: (selectedDay, focusedDay) {
         setState(() {
@@ -168,78 +208,171 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
           _focusedDay = focusedDay;
         });
       },
-      calendarBuilders: _calendarBuilders(storeService),
+      calendarBuilders: _calendarBuilders(storeService, _focusedDay),
     );
   }
 
-  CalendarBuilders _calendarBuilders(StoreService storeService) {
+  CalendarBuilders _calendarBuilders(StoreService storeService,
+      DateTime _focusedDay) {
     return CalendarBuilders(
       defaultBuilder: (context, day, focusedDay) {
         Lunar lunarDate = Lunar.fromDate(day);
-        bool hasQuestions = storeService
-            .query<HistoryItem>(
-            "timestamp >= ${day.millisecondsSinceEpoch} AND timestamp < ${day.millisecondsSinceEpoch + 86400000}")
+        bool isToday = day.isAtSameMomentAs(DateTime.now());
+        // 检查是否是节假日
+        bool isHoliday = lunarDate
+            .getFestivals()
             .isNotEmpty;
-        return Container(
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      '${day.day}',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: day.month == _focusedDay.month
-                            ? Colors.black87
-                            : Colors.grey,
-                      ),
+        bool isLunarStart = lunarDate.getDayInChinese() == "初一"; // 判断是否是每月的开始
+        // 计算当天的数据量（示例）
+        int dataCount = storeService
+            .query<HistoryItem>(
+            "timestamp >= ${day.millisecondsSinceEpoch} AND timestamp < ${day
+                .millisecondsSinceEpoch + 86400000}")
+            .length;
+        bool hasQuestion = dataCount > 0;
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    '${day.day}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: isToday
+                          ? Colors.blueAccent // 今天的日期颜色
+                          : (day.month == _focusedDay.month
+                          ? Colors.black87
+                          : Colors.grey),
                     ),
-                    SizedBox(height: 4),
-                    if (lunarDate.getDayInChinese().isNotEmpty)
-                      Text(
-                        '${lunarDate.getDayInChinese()}',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: day.month == _focusedDay.month
-                              ? Colors.grey.shade600
-                              : Colors.grey,
-                        ),
-                      ),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    isLunarStart
+                        ? lunarDate.getMonthInChinese() + "月"
+                        : lunarDate.getDayInChinese(),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: isToday
+                          ? Colors.blueAccent // 今天的日期颜色
+                          : (day.month == _focusedDay.month
+                          ? Colors.black87
+                          : Colors.grey),
+                    ),
+                  ),
+                  // 节假日
+                  // Text(
+                  //   '${lunarDate.getFestivals().join(',')}',
+                  //   style: TextStyle(
+                  //     fontSize: 10,
+                  //     color: Colors.green,
+                  //   ),
+                  // ),
+
+                ],
               ),
-              if (hasQuestions)
-                Positioned(
-                  right: 8,
-                  top: -8,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Text(
-                        '1',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
+            ),
+            if(hasQuestion)
+              Positioned(
+                right: 6,
+                top: -8,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 6, vertical: 3),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    // 节假日和普通数据标记的颜色区分
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${dataCount > 0 ? dataCount : ''}', // 显示数据量或空
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal),
                     ),
                   ),
                 ),
-            ],
-          ),
+              ),
+          ],
+        );
+      },
+      todayBuilder: (context, day, focusedDay) {
+        Lunar lunarDate = Lunar.fromDate(day);
+        bool isToday = day.isAtSameMomentAs(DateTime.now());
+        // 检查是否是节假日
+        bool isHoliday = lunarDate
+            .getFestivals()
+            .isNotEmpty;
+        bool isLunarStart = lunarDate.getDayInChinese() == "初一"; // 判断是否是每月的开始
+        // 计算当天的数据量（示例）
+        int dataCount = storeService
+            .query<HistoryItem>(
+            "timestamp >= ${day.millisecondsSinceEpoch} AND timestamp < ${day
+                .millisecondsSinceEpoch + 86400000}")
+            .length;
+        bool hasQuestion = dataCount > 0;
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    '${day.day}',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    isLunarStart
+                        ? lunarDate.getMonthInChinese() + "月"
+                        : lunarDate.getDayInChinese(),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.blueAccent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if(hasQuestion)
+              Positioned(
+                right: 8,
+                top: -8,
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 6, vertical: 3),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    // 节假日和普通数据标记的颜色区分
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${dataCount > 0 ? dataCount : ''}', // 显示数据量或空
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ),
+                ),
+              ),
+          ],
         );
       },
     );
   }
+
 
   @override
   void dispose() {
@@ -264,7 +397,7 @@ class DayDetailPage extends StatelessWidget {
         "timestamp >= ${startOfDay.millisecondsSinceEpoch} AND timestamp <= ${endOfDay.millisecondsSinceEpoch}");
 
     Lunar lunar = Lunar.fromDate(date);
-
+    Solar solar = Solar.fromDate(date);
     return Scaffold(
       appBar: AppBar(
         title: Text('详细信息'),
@@ -274,46 +407,73 @@ class DayDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '公历日期: ${DateFormat('yyyy-MM-dd').format(date)}',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 8),
-            Text(
-              '阴历日期: ${lunar.getMonthInChinese()}月${lunar.getDayInChinese()}日',
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(height: 8),
-            Text(
-              '节日: ${lunar.getFestivals().isEmpty ? "无" : lunar.getFestivals().join(", ")}',
-              style: TextStyle(fontSize: 20),
-            ),
+            _buildDateInfo(lunar),
             SizedBox(height: 16),
-            Text(
-              '今日求问过的问题:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8),
-            todayQuestions.isEmpty
-                ? Text('今日无求问记录')
-                : ListView.builder(
-              shrinkWrap: true,
-              itemCount: todayQuestions.length,
-              itemBuilder: (context, index) {
-                final item = todayQuestions[index];
-                final time =
-                DateTime.fromMillisecondsSinceEpoch(item.timestamp);
-                return ListTile(
-                  title: Text(item.question),
-                  subtitle: Text(
-                    '时间: ${time.hour}:${time.minute}',
-                  ),
-                );
-              },
-            ),
+            _buildFestivalsInfo(lunar,solar),
+            SizedBox(height: 16),
+            _buildQuestionsList(todayQuestions, context),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildDateInfo(Lunar lunar) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '公历日期: ${DateFormat('yyyy-MM-dd').format(date)}',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 8),
+        Text(
+          '阴历日期: ${lunar.getMonthInChinese()}月${lunar.getDayInChinese()}',
+          style: TextStyle(fontSize: 20),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFestivalsInfo(Lunar lunar,Solar solar) {
+    return Text(
+      '节日: ${solar.getFestivals().isEmpty ? "无" : solar.getFestivals().join(", ")}\n传统节日: ${lunar.getFestivals().isEmpty ? "无" : lunar.getFestivals().join(", ")}',
+      style: TextStyle(fontSize: 20),
+    );
+  }
+
+  Widget _buildQuestionsList(List<HistoryItem> questions, BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '今日求问过的问题:',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 8),
+        questions.isEmpty
+            ? Text('今日无求问记录')
+            : ListView.builder(
+          shrinkWrap: true,
+          itemCount: questions.length,
+          itemBuilder: (context, index) {
+            final item = questions[index];
+            final time = DateTime.fromMillisecondsSinceEpoch(item.timestamp);
+            return ListTile(
+              title: Text(item.question??"未描述问题"),
+              subtitle: Text('时间: ${time.hour}:${time.minute}'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ArrangeDetailPage(question: item.question,answer: item.originAnswer),
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ],
     );
   }
 }

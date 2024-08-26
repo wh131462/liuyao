@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // 用于格式化日期
+import 'package:liuyao_flutter/constants/liuyao.const.dart';
+import 'package:liuyao_flutter/pages/arrange/arrange.detail.dart';
+import 'package:liuyao_flutter/utils/liuyao.util.dart';
 import 'package:provider/provider.dart';
 import '../../store/schemas.dart';
 import '../../store/store.dart';
-
 class ArrangeHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,36 +39,52 @@ class HistoryItemCard extends StatelessWidget {
   }
 
   // 假设有一个方法可以根据 originAnswer 获取卦象的名称
-  String _getHexagramName(String originAnswer) {
+  String _getHexagramName(String answer) {
     // 这里需要根据你的实际逻辑来实现获取卦象名称的方法
-    return "卦象名称"; // 示例返回值，需替换为实际逻辑
+    Map<Hexagram, Xiang> map = LiuYaoUtil.getHexagramsByText(answer);
+    var origin = map[Hexagram.original]?.getGuaProps().name??"无";
+    var transformed = map[Hexagram.transformed]?.getGuaProps().name??"无";
+    return "$origin->$transformed"; // 示例返回值，需替换为实际逻辑
   }
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '问题: ${item.question}',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArrangeDetailPage(
+              question: item.question,
+              answer: item.originAnswer,
             ),
-            SizedBox(height: 8),
-            Text(
-              '结果本卦: ${_getHexagramName(item.originAnswer)}',
-              style: TextStyle(fontSize: 16),
-            ),
-            SizedBox(height: 8),
-            Text(
-              '时间: ${_formatDate(DateTime.fromMillisecondsSinceEpoch(item.timestamp))}',
-              style: TextStyle(color: Colors.grey[600], fontSize: 14),
-            ),
-          ],
+          ),
+        );
+      },
+      child: Card(
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        elevation: 4,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '问题: ${item.question}',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+              SizedBox(height: 8),
+              Text(
+                '答: ${_getHexagramName(item.originAnswer)}',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 8),
+              Text(
+                '时间: ${_formatDate(DateTime.fromMillisecondsSinceEpoch(item.timestamp))}',
+                style: TextStyle(color: Colors.grey[600], fontSize: 14),
+              ),
+            ],
+          ),
         ),
       ),
     );

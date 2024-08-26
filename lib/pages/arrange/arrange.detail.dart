@@ -1,24 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao_flutter/constants/liuyao.const.dart';
 import 'package:liuyao_flutter/pages/hexagrams/hexagram.detail.dart';
+import 'package:liuyao_flutter/utils/liuyao.util.dart';
 
-class ArrangeDetailPage extends StatelessWidget {
+class ArrangeDetailPage extends StatefulWidget {
   final String question;
-  final Xiang originalHexagram;
-  final Xiang transformedHexagram;
-  final Xiang reversedHexagram;
-  final Xiang mutualHexagram;
-  final Xiang oppositeHexagram;
+  final String answer;
 
   // 通过构造函数传递解析结果
-  const ArrangeDetailPage({
-    required this.question,
-    required this.originalHexagram,
-    required this.transformedHexagram,
-    required this.reversedHexagram,
-    required this.mutualHexagram,
-    required this.oppositeHexagram,
-  });
+  ArrangeDetailPage({super.key, required this.question, required this.answer});
+
+  @override
+  _ArrangeDetailPageState createState() => _ArrangeDetailPageState();
+}
+
+class _ArrangeDetailPageState extends State<ArrangeDetailPage> {
+  late Xiang originalHexagram;
+  late Xiang transformedHexagram;
+  late Xiang reversedHexagram;
+  late Xiang mutualHexagram;
+  late Xiang oppositeHexagram;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeHexagrams();
+  }
+
+  // 初始化卦象数据
+  void _initializeHexagrams() {
+    Map<Hexagram, Xiang> map = LiuYaoUtil.getHexagramsByText(widget.answer);
+    originalHexagram = map[Hexagram.original]!;
+    transformedHexagram = map[Hexagram.transformed]!;
+    reversedHexagram = map[Hexagram.reversed]!;
+    mutualHexagram = map[Hexagram.mutual]!;
+    oppositeHexagram = map[Hexagram.opposite]!;
+  }
 
   /// 获取跳转文本按钮
   GestureDetector getTextButton(
@@ -48,7 +65,7 @@ class ArrangeDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("求问: $question",
+            Text("求问: ${widget.question}",
                 style: const TextStyle(
                     fontSize: 32,
                     color: Colors.black,

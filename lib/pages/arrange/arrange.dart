@@ -33,18 +33,13 @@ class _ArrangePageState extends State<ArrangePage> {
 
   void _navigateToResultPage() {
     if (_numberEditingController.text.isNotEmpty) {
-      Map<Hexagram, Xiang> map = LiuYaoUtil.getHexagramsByText(_numberEditingController.text);
       storeService.update<HistoryItem>(HistoryItem(Uuid.v4(), _textEditingController.text, _numberEditingController.text, 0, "000", DateTime.now().millisecondsSinceEpoch));
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => ArrangeDetailPage(
             question: _textEditingController.text,
-            originalHexagram: map[Hexagram.original]!,
-            transformedHexagram: map[Hexagram.transformed]!,
-            reversedHexagram: map[Hexagram.reversed]!,
-            mutualHexagram: map[Hexagram.mutual]!,
-            oppositeHexagram: map[Hexagram.opposite]!,
+            answer: _numberEditingController.text,
           ),
         ),
       );
@@ -55,16 +50,6 @@ class _ArrangePageState extends State<ArrangePage> {
     setState(() {
       _numberEditingController.text = generateRandomNumber();
     });
-  }
-
-  void _showCalendar() {
-    // 处理显示日历的逻辑
-    showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
   }
 
   void _viewHistory() {

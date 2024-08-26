@@ -1,7 +1,7 @@
 import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
 
 XiangDicItem zeLeiSui = XiangDicItem(
-    "随卦",
+    "随",
     "泽雷随",
     "随时变通",
     """随卦原文
