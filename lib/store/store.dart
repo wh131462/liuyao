@@ -26,7 +26,7 @@ class StoreService {
   }
 
   // 根据主键获取对象
-  T? getById<T extends RealmObject>(ObjectId id) {
+  T? getById<T extends RealmObject>(Uuid id) {
     return realm.find<T>(id);
   }
 
@@ -38,7 +38,7 @@ class StoreService {
   }
 
   // 根据主键删除对象
-  void deleteById<T extends RealmObject>(ObjectId id) {
+  void deleteById<T extends RealmObject>(Uuid id) {
     final item = getById<T>(id);
     if (item != null) {
       delete(item);
