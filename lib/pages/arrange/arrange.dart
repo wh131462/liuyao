@@ -11,6 +11,7 @@ import 'package:realm/realm.dart';
 import '../../store/store.dart';
 import '../calendar/calendar.dart';
 import 'arrange.history.dart';
+import 'divination.input.dart';
 
 class ArrangePage extends StatefulWidget {
   @override
@@ -67,7 +68,7 @@ class _ArrangePageState extends State<ArrangePage> {
     storeService = context.watch<StoreService>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('排卦页面'),
+        title: Text('六爻排盘'),
         actions: [
           IconButton(
             icon: Icon(Icons.calendar_today),
@@ -99,20 +100,7 @@ class _ArrangePageState extends State<ArrangePage> {
               ),
             ),
             SizedBox(height: 20),
-            TextField(
-              maxLength: 6,
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.allow('6789')],
-              controller: _numberEditingController,
-              decoration: InputDecoration(
-                labelText: '答案在其中',
-                labelStyle: TextStyle(fontSize: 18),
-                border: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2),
-                ),
-              ),
-            ),
+            DivinationInput(numberEditingController: _numberEditingController,),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -150,29 +138,6 @@ class _ArrangePageState extends State<ArrangePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class FilteringTextInputFormatter extends TextInputFormatter {
-  final String _allowedCharacters;
-
-  FilteringTextInputFormatter.allow(this._allowedCharacters);
-
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
-    String filtered = newValue.text;
-    for (int i = 0; i < filtered.length; i++) {
-      if (!_allowedCharacters.contains(filtered[i])) {
-        filtered = filtered.replaceRange(i, i + 1, '');
-      }
-    }
-    return TextEditingValue(
-      text: filtered,
-      selection: TextSelection.collapsed(offset: filtered.length),
     );
   }
 }
