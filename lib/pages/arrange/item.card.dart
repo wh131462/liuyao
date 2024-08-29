@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart'; // 用于格式化日期
-import 'package:liuyao_flutter/constants/liuyao.const.dart';
-import 'package:liuyao_flutter/pages/arrange/arrange.detail.dart';
-import 'package:liuyao_flutter/utils/liuyao.util.dart';
+import 'package:liuyao/constants/liuyao.const.dart';
+import 'package:liuyao/pages/arrange/arrange.detail.dart';
+import 'package:liuyao/utils/liuyao.util.dart';
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/store/schemas.dart';
+import 'package:liuyao/store/schemas.dart';
 
 class HistoryItemCard extends StatelessWidget {
   final HistoryItem item;

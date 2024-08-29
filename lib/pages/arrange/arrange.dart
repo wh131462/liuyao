@@ -1,10 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:liuyao_flutter/constants/liuyao.const.dart';
-import 'package:liuyao_flutter/pages/arrange/arrange.detail.dart';
-import 'package:liuyao_flutter/store/schemas.dart';
-import 'package:liuyao_flutter/utils/liuyao.util.dart';
+import 'package:liuyao/constants/liuyao.const.dart';
+import 'package:liuyao/pages/arrange/arrange.detail.dart';
+import 'package:liuyao/store/schemas.dart';
+import 'package:liuyao/utils/liuyao.util.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 
@@ -34,7 +34,7 @@ class _ArrangePageState extends State<ArrangePage> {
 
   void _navigateToResultPage() {
     if (_numberEditingController.text.isNotEmpty) {
-      storeService.update<HistoryItem>(HistoryItem(Uuid.v4(), _textEditingController.text, _numberEditingController.text, 0, "000", DateTime.now().millisecondsSinceEpoch));
+      storeService.update<HistoryItem>(HistoryItem(Uuid.v4(), _textEditingController.text, _numberEditingController.text, 0, Uuid.v4(), DateTime.now().millisecondsSinceEpoch));
       Navigator.push(
         context,
         MaterialPageRoute(

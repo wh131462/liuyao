@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/pages/license/license.dart';
-import 'package:liuyao_flutter/components/custom_bar.dart';
+import 'package:liuyao/pages/license/license.dart';
+import 'package:liuyao/pages/login/login.dart';
+import 'package:liuyao/pages/spinning/spinning.dart';
+import 'package:liuyao/pages/userinfo/userinfo.dart';
+import 'package:liuyao/store/store.dart';
+import 'package:liuyao/utils/logger.dart';
+import 'package:provider/provider.dart';
+import 'package:realm/realm.dart' as realm;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyPage extends StatefulWidget {
   @override
@@ -8,14 +15,67 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPageState extends State<MyPage> {
-  // 定义一个变量来控制头像的显示位置
-  double _avatarPosition = 190; // 初始头像位置与AppBar顶部的距离
+  double _avatarPosition = 190;
+  bool _isLoggedIn = false;
+  String _username = '未登录';
+  String _userId = "";
+  late StoreService storeService;
+  late SharedPreferences prefs;
+
+  Future<SharedPreferences> _init() async {
+    storeService = context.watch<StoreService>();
+    prefs = await SharedPreferences.getInstance();
+    return prefs;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
+
+  Future<void> _checkLoginStatus() async {
+    setState(() {
+      _isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+      _username = prefs.getString('username') ?? '未登录';
+      _userId = prefs.getString('userId') ?? '';
+
+      logger.info("获取到信息$_isLoggedIn, $_userId, $_username");
+    });
+  }
+
+  void _logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear(); // 清除登录信息
+    setState(() {
+      _isLoggedIn = false;
+      _username = '未登录';
+      _userId = "";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [_buildSliverAppBar(),_buildSettingsList(),],
+      body: FutureBuilder<SharedPreferences>(
+        future: _init(), // 传入异步操作
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (snapshot.hasData) {
+            // 当数据获取完成时，渲染页面内容
+            return CustomScrollView(
+              slivers: [
+                _buildSliverAppBar(),
+                _buildSettingsList(),
+              ],
+            );
+          } else {
+            return Center(child: Text('No data available'));
+          }
+        },
       ),
     );
   }
@@ -23,9 +83,7 @@ class _MyPageState extends State<MyPage> {
   Widget _buildSliverAppBar() {
     return SliverAppBar(
       expandedHeight: _avatarPosition,
-      leading: null,
       pinned: true,
-      snap: false,
       backgroundColor: Colors.blue,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.only(left: 55, bottom: 15),
@@ -33,18 +91,13 @@ class _MyPageState extends State<MyPage> {
         background: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            Image.asset(
-              "assets/images/wall.jpg",
-              fit: BoxFit.cover,
-            ),
-            // 头像组件
+            Image.asset("assets/images/wall.jpg", fit: BoxFit.cover),
             Align(
               alignment: Alignment.bottomCenter,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(height: 30), // 可以根据需要调整间隔大小
-                  // 头像图片
+                  const SizedBox(height: 30),
                   ClipOval(
                     child: Image.asset(
                       "assets/images/head_pic.png",
@@ -53,17 +106,35 @@ class _MyPageState extends State<MyPage> {
                       height: 80,
                     ),
                   ),
-                  // 账号信息，距离头像底部的间隔
-                  const SizedBox(height: 10), // 可以根据需要调整间隔大小
-                  // 账号文本
-                  const Text(
-                    'uid: 000',
+                  const SizedBox(height: 10),
+                  Text(
+                    _username,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  if (!_isLoggedIn)
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                    storeService: storeService,
+                                    prefs: prefs,
+                                  )),
+                        ).then((_) => _checkLoginStatus());
+                      },
+                      child:
+                          Text('点击登录', style: TextStyle(color: Colors.white)),
+                    ),
+                  if (_isLoggedIn)
+                    TextButton(
+                      onPressed: _logout,
+                      child: Text('注销', style: TextStyle(color: Colors.white)),
+                    ),
                 ],
               ),
             ),
@@ -72,6 +143,7 @@ class _MyPageState extends State<MyPage> {
       ),
     );
   }
+
   Widget _buildSettingsList() {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
@@ -79,16 +151,45 @@ class _MyPageState extends State<MyPage> {
           return ListTile(
             title: Text(_settings[index]),
             onTap: () {
-              // 处理设置项点击事件
-              if (_settings[index] == "关于软件") {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const MyLicensePage()), // NewPage 是你要跳转到的页面
-                );
+              switch (_settings[index]) {
+                case "我的信息":
+                  if (!_isLoggedIn) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginPage(
+                                storeService: storeService,
+                                prefs: prefs,
+                              )),
+                    ).then((_) => _checkLoginStatus());
+                  } else {
+                    var userId = realm.Uuid.fromString(_userId);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UserInfoPage(
+                                storeService: storeService,
+                                userId: userId,
+                              )),
+                    ).then((_) => _checkLoginStatus());
+                  }
+                  break;
+                case "卦象转盘":
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SpinningWheelPage(),
+                      ));
+                  break;
+                case "备份设置":
+                  break;
+                case "关于软件":
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyLicensePage()),
+                  );
+                  break;
               }
-              print('点击了设置项: ${_settings[index]}');
             },
           );
         },
@@ -97,6 +198,10 @@ class _MyPageState extends State<MyPage> {
     );
   }
 
-  // 设置项列表
-  final List<String> _settings = ['我的信息', '备份设置', '关于软件'];
+  final List<String> _settings = [
+    '我的信息',
+    "卦象转盘",
+    //  '备份设置',
+    '关于软件'
+  ];
 }

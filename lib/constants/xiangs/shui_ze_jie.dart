@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiZeJie = XiangDicItem("节","水泽节","万物有节","""节卦原文
 节。亨，苦节不可贞。

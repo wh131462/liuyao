@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem diFengSheng = XiangDicItem("升", "地风升", "柔顺谦虚", """升卦原文
 升。元亨。用见大人，勿恤，南征吉。

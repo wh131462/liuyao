@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:liuyao_flutter/constants/liuyao.const.dart';
+import 'package:liuyao/constants/liuyao.const.dart';
 
 class LiuYaoUtil {
   /// 字符串转数字数组

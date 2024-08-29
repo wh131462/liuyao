@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem zeHuoGe = XiangDicItem("革","泽火革","顺天应人","""革卦原文
 革。己日乃孚。元亨利贞。悔亡。

@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiTianXu = XiangDicItem("需","水天需","守正待机","""需卦原文
 需。有孚，光亨，贞吉。利涉大川。

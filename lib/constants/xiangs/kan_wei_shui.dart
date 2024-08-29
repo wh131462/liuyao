@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem kanWeiShui = XiangDicItem("坎","坎为水","行险用险","""坎卦原文
 坎。习坎，有孚，维心亨，行有尚。

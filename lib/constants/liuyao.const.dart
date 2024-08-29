@@ -1,7 +1,7 @@
 // 定义 Yao 枚举
 import 'dart:math';
 
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 enum Yao {
   yin("yin", "阴"),

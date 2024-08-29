@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shanShuiMeng = XiangDicItem("蒙","山水蒙","启蒙奋发","""蒙卦原文
 蒙。亨。匪我求童蒙，童蒙求我。初筮告，再三渎，渎则不告。利贞。

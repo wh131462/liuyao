@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem diZeLin = XiangDicItem("临","地泽临","教民保民","""临卦原文
 临。元，亨，利，贞。至于八月有凶。

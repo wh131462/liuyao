@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem leiDiYu = XiangDicItem("豫","雷地豫","顺时依势","""豫卦原文
 豫。利建侯行师。

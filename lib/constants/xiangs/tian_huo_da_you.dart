@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem tianHuoDaYou = XiangDicItem("大有","天火大有","顺天依时","""大有卦原文
 大有。元亨。

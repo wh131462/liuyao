@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem zeShuiKun = XiangDicItem("困", "泽水困", "困境求通", """困卦原文
 困。亨，贞，大人吉，无咎。有言不信。

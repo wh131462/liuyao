@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiHuoJiJi = XiangDicItem("既济","水火既济","盛极将衰","""既济卦原文
 既济。亨，小利贞，初吉终乱。

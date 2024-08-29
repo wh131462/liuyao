@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/pages/arrange/arrange.dart';
-import 'package:liuyao_flutter/pages/hexagrams/hexagrams.dart';
-import 'package:liuyao_flutter/pages/my/my.dart';
-import 'package:liuyao_flutter/styles/iconfont.dart';
+import 'package:liuyao/pages/arrange/arrange.dart';
+import 'package:liuyao/pages/hexagrams/hexagrams.dart';
+import 'package:liuyao/pages/my/my.dart';
+import 'package:liuyao/styles/iconfont.dart';
 
 class CustomPage {
   String title;

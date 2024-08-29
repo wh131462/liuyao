@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shanTianDaChu = XiangDicItem("大畜","山天大畜","止而不止","""大畜卦原文
 大畜。利贞，不家食，吉。利涉大川。

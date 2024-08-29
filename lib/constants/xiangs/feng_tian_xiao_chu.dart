@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem fengTianXiaoChu = XiangDicItem("小畜","风天小畜","蓄养待进","""小畜卦原文
 小畜。亨。密云不雨，自我西郊。

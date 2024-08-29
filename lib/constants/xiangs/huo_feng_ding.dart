@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem huoFengDing = XiangDicItem("鼎", "火风鼎", "稳重图变", """鼎卦原文
 鼎。元吉，亨。

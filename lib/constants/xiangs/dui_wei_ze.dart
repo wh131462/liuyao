@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem duiWeiZe = XiangDicItem("兑", "兑为泽", "刚内柔外", """兑卦原文
 兑。亨，利，贞。

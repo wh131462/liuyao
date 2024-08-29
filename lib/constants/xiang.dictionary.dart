@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/components/image_rich_text.dart';
-import 'package:liuyao_flutter/constants/xiangs/index.dart';
+import 'package:liuyao/components/image_rich_text.dart';
+import 'package:liuyao/constants/xiangs/index.dart';
 
 class XiangDicItem {
   // 象名称

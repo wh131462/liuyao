@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiShanJian = XiangDicItem("蹇","水山蹇","险阻在前","""蹇卦原文
 蹇。利西南，不利东北。利见大人，贞吉。

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/navigation/pages.const.dart';
-import 'package:liuyao_flutter/styles/iconfont.dart';
-import 'package:liuyao_flutter/utils/logger.dart';
+import 'package:liuyao/navigation/pages.const.dart';
+import 'package:liuyao/styles/iconfont.dart';
+import 'package:liuyao/utils/logger.dart';
 
 export "./welcome.dart";
 

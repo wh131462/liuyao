@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiFengJing = XiangDicItem("井", "水风井", "求贤若渴", """井卦原文
 井。改邑不改井，无丧无得。往来井井。汔至，亦未繘井，羸其瓶，凶。

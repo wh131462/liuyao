@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 
 class IconFont {
   IconFont._();
-
   static const String _kFontFam = 'IconFont';
   // 排盘
   static const IconData arrange = const IconData(0xe612, fontFamily: _kFontFam);

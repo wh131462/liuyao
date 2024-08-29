@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem fengShuiHuan = XiangDicItem("涣","风水涣","拯救涣散","""涣卦原文
 涣。亨，王假有庙。利涉大川，利贞。

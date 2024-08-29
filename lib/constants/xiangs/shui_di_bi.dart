@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shuiDiBi = XiangDicItem("比","水地比","诚信团结","""比卦原文
 比。吉。原筮，元永贞，无咎。不宁方来，后夫凶。

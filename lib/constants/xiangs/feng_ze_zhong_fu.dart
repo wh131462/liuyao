@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem fengZeZhongFu = XiangDicItem("中孚", "风泽中孚", "诚信立身", """中孚卦原文
 中孚。豚鱼，吉。利涉大川，利贞。

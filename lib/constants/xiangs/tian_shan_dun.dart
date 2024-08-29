@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem tianShanDun = XiangDicItem("遁","天山遁","遁世救世","""遁卦原文
 遁。亨。小利贞。

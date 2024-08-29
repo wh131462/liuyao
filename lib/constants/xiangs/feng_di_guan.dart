@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem fengDiGuan = XiangDicItem("观","风地观","观下瞻上","""观卦原文
 观。盥而不荐，有孚顒若。

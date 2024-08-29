@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem leiHuoFeng = XiangDicItem("丰", "雷火丰", "日中则斜", """丰卦原文
 丰。亨。王假之，勿忧，宜日中。

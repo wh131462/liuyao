@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem leiZeGuiMei = XiangDicItem("归妹", "雷泽归妹", "立家兴业", """归妹卦原文
 归妹。征凶，无攸利。

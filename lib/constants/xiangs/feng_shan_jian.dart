@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem fengShanJian = XiangDicItem("渐", "风山渐", "渐进蓄德", """渐卦原文
 渐。女归吉，利贞。

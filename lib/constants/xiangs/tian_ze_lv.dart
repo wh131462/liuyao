@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem tianZeLv = XiangDicItem("履", "天泽履", "脚踏实地", """履卦原文
 履。履虎尾，不咥人，亨。

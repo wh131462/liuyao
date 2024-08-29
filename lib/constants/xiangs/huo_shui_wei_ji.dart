@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem huoShuiWeiJi = XiangDicItem("未济", "火水未济", "事业未竟", """未济卦原文
 未济。亨，小狐汔济，濡其尾，无攸利。

@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem zeShanXian = XiangDicItem("咸","泽山咸","相互感应","""咸卦原文
 咸。亨，利贞。取女吉。

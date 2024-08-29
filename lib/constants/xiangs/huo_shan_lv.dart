@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem huoShanLv = XiangDicItem("旅", "火山旅", "依义顺时", """旅卦原文
 旅。小亨，旅贞吉。

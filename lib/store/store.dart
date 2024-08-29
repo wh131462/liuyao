@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/utils/logger.dart';
+import 'package:liuyao/utils/logger.dart';
 import 'package:realm/realm.dart';
 
 import 'schemas.dart';
@@ -8,7 +8,7 @@ class StoreService {
 
   StoreService(List<SchemaObject> schemas) {
     final config = Configuration.local(schemas,
-        schemaVersion: 2, // 当前最新的 schema 版本号
+        schemaVersion: 3, // 当前最新的 schema 版本号
         migrationCallback: migrationCallback); // 使用统一的迁移回调函数);
     realm = Realm(config);
   }
@@ -67,7 +67,7 @@ void migrationCallback(Migration migration, int oldSchemaVersion) {
   final newRealm = migration.newRealm;
   final oldRealm = migration.oldRealm;
 
-  // 针对旧版本的迁移逻辑
+  // 0-1
   if (oldSchemaVersion < 1) {
     // 处理从版本 0 到版本 1 的迁移逻辑，例如将 DateTime 转为时间戳
     final oldHistoryItems = oldRealm.all('HistoryItem');
@@ -79,9 +79,12 @@ void migrationCallback(Migration migration, int oldSchemaVersion) {
     }
     logger.info("处理数据库迁移升级");
   }
-
+  // 1-2
   if (oldSchemaVersion < 2) {
-    // 处理版本 1 到版本 2 的迁移，例如新增或删除字段
-    // 这里可以添加更多的迁移逻辑
+    // 不需要调整
+  }
+  // 2-3
+  if(oldSchemaVersion < 3){
+
   }
 }

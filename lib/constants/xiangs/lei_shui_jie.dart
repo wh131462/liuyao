@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem leiShuiJie = XiangDicItem("解","雷水解","柔道致治","""解卦原文
 解。利西南。无所往，其来复吉。有攸往，夙吉。

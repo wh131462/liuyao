@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem tianShuiSong = XiangDicItem("讼","天水讼","慎争戒讼","""讼卦原文
 讼。有孚，窒惕，中吉，终凶。利见大人，不利涉大川。

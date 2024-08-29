@@ -7,18 +7,31 @@ part of 'schemas.dart';
 // **************************************************************************
 
 // ignore_for_file: type=lint
-class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
-  User(
-    Uuid id,
-    String name,
-    String memo,
-  ) {
+class UserInfo extends _UserInfo
+    with RealmEntity, RealmObjectBase, RealmObject {
+  UserInfo(
+    Uuid id, {
+    String? username,
+    String? passwd,
+    String? name,
+    String? memo,
+    String? email,
+    String? phone,
+    DateTime? createTime,
+    DateTime? lastModified,
+  }) {
     RealmObjectBase.set(this, 'id', id);
+    RealmObjectBase.set(this, 'username', username);
+    RealmObjectBase.set(this, 'passwd', passwd);
     RealmObjectBase.set(this, 'name', name);
     RealmObjectBase.set(this, 'memo', memo);
+    RealmObjectBase.set(this, 'email', email);
+    RealmObjectBase.set(this, 'phone', phone);
+    RealmObjectBase.set(this, 'createTime', createTime);
+    RealmObjectBase.set(this, 'lastModified', lastModified);
   }
 
-  User._();
+  UserInfo._();
 
   @override
   Uuid get id => RealmObjectBase.get<Uuid>(this, 'id') as Uuid;
@@ -26,59 +39,111 @@ class User extends _User with RealmEntity, RealmObjectBase, RealmObject {
   set id(Uuid value) => RealmObjectBase.set(this, 'id', value);
 
   @override
-  String get name => RealmObjectBase.get<String>(this, 'name') as String;
+  String? get username =>
+      RealmObjectBase.get<String>(this, 'username') as String?;
   @override
-  set name(String value) => RealmObjectBase.set(this, 'name', value);
+  set username(String? value) => RealmObjectBase.set(this, 'username', value);
 
   @override
-  String get memo => RealmObjectBase.get<String>(this, 'memo') as String;
+  String? get passwd => RealmObjectBase.get<String>(this, 'passwd') as String?;
   @override
-  set memo(String value) => RealmObjectBase.set(this, 'memo', value);
+  set passwd(String? value) => RealmObjectBase.set(this, 'passwd', value);
 
   @override
-  Stream<RealmObjectChanges<User>> get changes =>
-      RealmObjectBase.getChanges<User>(this);
+  String? get name => RealmObjectBase.get<String>(this, 'name') as String?;
+  @override
+  set name(String? value) => RealmObjectBase.set(this, 'name', value);
 
   @override
-  Stream<RealmObjectChanges<User>> changesFor([List<String>? keyPaths]) =>
-      RealmObjectBase.getChangesFor<User>(this, keyPaths);
+  String? get memo => RealmObjectBase.get<String>(this, 'memo') as String?;
+  @override
+  set memo(String? value) => RealmObjectBase.set(this, 'memo', value);
 
   @override
-  User freeze() => RealmObjectBase.freezeObject<User>(this);
+  String? get email => RealmObjectBase.get<String>(this, 'email') as String?;
+  @override
+  set email(String? value) => RealmObjectBase.set(this, 'email', value);
+
+  @override
+  String? get phone => RealmObjectBase.get<String>(this, 'phone') as String?;
+  @override
+  set phone(String? value) => RealmObjectBase.set(this, 'phone', value);
+
+  @override
+  DateTime? get createTime =>
+      RealmObjectBase.get<DateTime>(this, 'createTime') as DateTime?;
+  @override
+  set createTime(DateTime? value) =>
+      RealmObjectBase.set(this, 'createTime', value);
+
+  @override
+  DateTime? get lastModified =>
+      RealmObjectBase.get<DateTime>(this, 'lastModified') as DateTime?;
+  @override
+  set lastModified(DateTime? value) =>
+      RealmObjectBase.set(this, 'lastModified', value);
+
+  @override
+  Stream<RealmObjectChanges<UserInfo>> get changes =>
+      RealmObjectBase.getChanges<UserInfo>(this);
+
+  @override
+  Stream<RealmObjectChanges<UserInfo>> changesFor([List<String>? keyPaths]) =>
+      RealmObjectBase.getChangesFor<UserInfo>(this, keyPaths);
+
+  @override
+  UserInfo freeze() => RealmObjectBase.freezeObject<UserInfo>(this);
 
   EJsonValue toEJson() {
     return <String, dynamic>{
       'id': id.toEJson(),
+      'username': username.toEJson(),
+      'passwd': passwd.toEJson(),
       'name': name.toEJson(),
       'memo': memo.toEJson(),
+      'email': email.toEJson(),
+      'phone': phone.toEJson(),
+      'createTime': createTime.toEJson(),
+      'lastModified': lastModified.toEJson(),
     };
   }
 
-  static EJsonValue _toEJson(User value) => value.toEJson();
-  static User _fromEJson(EJsonValue ejson) {
+  static EJsonValue _toEJson(UserInfo value) => value.toEJson();
+  static UserInfo _fromEJson(EJsonValue ejson) {
     if (ejson is! Map<String, dynamic>) return raiseInvalidEJson(ejson);
     return switch (ejson) {
       {
         'id': EJsonValue id,
-        'name': EJsonValue name,
-        'memo': EJsonValue memo,
       } =>
-        User(
+        UserInfo(
           fromEJson(id),
-          fromEJson(name),
-          fromEJson(memo),
+          username: fromEJson(ejson['username']),
+          passwd: fromEJson(ejson['passwd']),
+          name: fromEJson(ejson['name']),
+          memo: fromEJson(ejson['memo']),
+          email: fromEJson(ejson['email']),
+          phone: fromEJson(ejson['phone']),
+          createTime: fromEJson(ejson['createTime']),
+          lastModified: fromEJson(ejson['lastModified']),
         ),
       _ => raiseInvalidEJson(ejson),
     };
   }
 
   static final schema = () {
-    RealmObjectBase.registerFactory(User._);
+    RealmObjectBase.registerFactory(UserInfo._);
     register(_toEJson, _fromEJson);
-    return const SchemaObject(ObjectType.realmObject, User, 'User', [
+    return const SchemaObject(ObjectType.realmObject, UserInfo, 'UserInfo', [
       SchemaProperty('id', RealmPropertyType.uuid, primaryKey: true),
-      SchemaProperty('name', RealmPropertyType.string),
-      SchemaProperty('memo', RealmPropertyType.string),
+      SchemaProperty('username', RealmPropertyType.string, optional: true),
+      SchemaProperty('passwd', RealmPropertyType.string, optional: true),
+      SchemaProperty('name', RealmPropertyType.string, optional: true),
+      SchemaProperty('memo', RealmPropertyType.string, optional: true),
+      SchemaProperty('email', RealmPropertyType.string, optional: true),
+      SchemaProperty('phone', RealmPropertyType.string, optional: true),
+      SchemaProperty('createTime', RealmPropertyType.timestamp, optional: true),
+      SchemaProperty('lastModified', RealmPropertyType.timestamp,
+          optional: true),
     ]);
   }();
 
@@ -95,7 +160,7 @@ class HistoryItem extends _HistoryItem
     String question,
     String originAnswer,
     int order,
-    String userId,
+    Uuid userId,
     int timestamp, {
     String? group = "none",
   }) {
@@ -144,9 +209,9 @@ class HistoryItem extends _HistoryItem
   set group(String? value) => RealmObjectBase.set(this, 'group', value);
 
   @override
-  String get userId => RealmObjectBase.get<String>(this, 'userId') as String;
+  Uuid get userId => RealmObjectBase.get<Uuid>(this, 'userId') as Uuid;
   @override
-  set userId(String value) => RealmObjectBase.set(this, 'userId', value);
+  set userId(Uuid value) => RealmObjectBase.set(this, 'userId', value);
 
   @override
   int get timestamp => RealmObjectBase.get<int>(this, 'timestamp') as int;
@@ -212,7 +277,7 @@ class HistoryItem extends _HistoryItem
       SchemaProperty('originAnswer', RealmPropertyType.string),
       SchemaProperty('order', RealmPropertyType.int),
       SchemaProperty('group', RealmPropertyType.string, optional: true),
-      SchemaProperty('userId', RealmPropertyType.string),
+      SchemaProperty('userId', RealmPropertyType.uuid),
       SchemaProperty('timestamp', RealmPropertyType.int),
     ]);
   }();

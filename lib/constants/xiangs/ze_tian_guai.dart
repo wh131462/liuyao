@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem zeTianGuai = XiangDicItem("夬","泽天夬","决而能和","""夬卦原文
 夬。扬于王庭，孚号，有厉。告自邑，不利即戎，利有攸往。

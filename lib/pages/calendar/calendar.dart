@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:liuyao_flutter/utils/logger.dart';
+import 'package:liuyao/utils/logger.dart';
 import 'package:lunar/lunar.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';

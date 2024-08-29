@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem leiShanXiaoGuo = XiangDicItem("小过","雷山小过","行动有度","""小过卦原文
 小过。亨，利贞。可小事，不可大事。飞鸟遗之音。不宜上，宜下，大吉。

@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem genWeiShan = XiangDicItem("艮","艮为山","动静适时","""艮卦原文
 艮。艮其背，不获其身。行其庭，不见其人。无咎。

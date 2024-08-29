@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem diHuoMingYi = XiangDicItem("明夷","地火明夷","晦而转明","""明夷卦原文
 明夷。利艰贞。

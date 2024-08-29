@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/pages/welcome/welcome.dart';
+import 'package:liuyao/pages/welcome/welcome.dart';
 import 'package:provider/provider.dart';
 
 import 'store/schemas.dart';
 import 'store/store.dart';
 
 void main() {
-  final storeService = StoreService([User.schema, HistoryItem.schema]);
+  final storeService = StoreService([UserInfo.schema, HistoryItem.schema]);
 
   runApp(Provider<StoreService>(
     create: (_) => storeService,

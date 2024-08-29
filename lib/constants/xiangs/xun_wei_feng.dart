@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem xunWeiFeng = XiangDicItem("巽","巽为风","谦逊受益","""巽卦原文
 巽。小亨。利有攸往，利见大人。

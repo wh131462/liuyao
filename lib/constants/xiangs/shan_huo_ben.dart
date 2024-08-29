@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem shanHuoBen = XiangDicItem("贲","山火贲","饰外扬质","""贲卦原文
 贲。亨。小利有攸往。

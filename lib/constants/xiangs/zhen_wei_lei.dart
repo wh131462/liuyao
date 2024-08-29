@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem zhenWeiLei = XiangDicItem("震", "震为雷", "临危不乱", """震卦原文
 震。亨。震来虩虩，笑言哑哑。震惊百里，不丧匕鬯。

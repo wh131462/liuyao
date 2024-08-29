@@ -1,4 +1,4 @@
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
 
 XiangDicItem huoLeiSHiKe = XiangDicItem("噬嗑","火雷噬嗑","刚柔相济","""噬嗑卦原文
 噬嗑。亨。利用狱。

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao_flutter/constants/liuyao.const.dart';
-import 'package:liuyao_flutter/pages/hexagrams/hexagram.detail.dart';
-import 'package:liuyao_flutter/utils/liuyao.util.dart';
+import 'package:liuyao/constants/liuyao.const.dart';
+import 'package:liuyao/pages/hexagrams/hexagram.detail.dart';
+import 'package:liuyao/utils/liuyao.util.dart';
 
 class ArrangeDetailPage extends StatefulWidget {
   final String question;

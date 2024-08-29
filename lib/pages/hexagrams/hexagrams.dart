@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:liuyao_flutter/constants/liuyao.const.dart';
-import 'package:liuyao_flutter/constants/xiang.dictionary.dart';
-import 'package:liuyao_flutter/utils/logger.dart';
+import 'package:liuyao/constants/liuyao.const.dart';
+import 'package:liuyao/constants/xiang.dictionary.dart';
+import 'package:liuyao/utils/logger.dart';
 
 import 'hexagram.detail.dart';
 
