@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao/pages/welcome/welcome.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'store/schemas.dart';
 import 'store/store.dart';
 
-void main() {
+void main() async{
   final storeService = StoreService([UserInfo.schema, HistoryItem.schema]);
-
-  runApp(Provider<StoreService>(
-    create: (_) => storeService,
-    dispose: (_, storeService) => storeService.close(),
+  runApp(MultiProvider(
+    providers: [
+      Provider<StoreService>(
+        create: (_) => storeService,
+        dispose: (_, storeService) => storeService.close(),
+      )
+    ],
     child: const MyApp(),
   ));
 }

@@ -6,9 +6,8 @@ import '../../store/store.dart';
 
 class LoginPage extends StatefulWidget {
   final StoreService storeService;
-  final SharedPreferences prefs;
 
-  LoginPage({required this.storeService, required this.prefs});
+  LoginPage({required this.storeService});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -32,9 +31,9 @@ class _LoginPageState extends State<LoginPage> {
     if (user.isNotEmpty) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('登录成功')));
-      widget.prefs.setBool('isLoggedIn', true);
-      widget.prefs.setString('username', user.first.username??"");
-      widget.prefs.setString('userId', user.first.id.toString());
+      widget.storeService.setLocal('isLoggedIn', true);
+      widget.storeService.setLocal('username', user.first.username??"");
+      widget.storeService.setLocal('userId', user.first.id.toString());
       Navigator.pop(context); // 注册成功后返回登录页面
     } else {
       ScaffoldMessenger.of(context)

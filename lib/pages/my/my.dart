@@ -20,26 +20,17 @@ class _MyPageState extends State<MyPage> {
   String _username = '未登录';
   String _userId = "";
   late StoreService storeService;
-  late SharedPreferences prefs;
-
-  Future<SharedPreferences> _init() async {
-    storeService = context.watch<StoreService>();
-    prefs = await SharedPreferences.getInstance();
-    return prefs;
-  }
 
   @override
   void initState() {
-    super.initState();
-    _checkLoginStatus();
+    storeService = context.watch<StoreService>();
   }
 
   Future<void> _checkLoginStatus() async {
     setState(() {
-      _isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
-      _username = prefs.getString('username') ?? '未登录';
-      _userId = prefs.getString('userId') ?? '';
-
+      _isLoggedIn = storeService.getLocal("isLoggedIn")?? false;
+      _username = storeService.getLocal('username') ?? '未登录';
+      _userId = storeService.getLocal('userId') ?? '';
       logger.info("获取到信息$_isLoggedIn, $_userId, $_username");
     });
   }
@@ -51,32 +42,19 @@ class _MyPageState extends State<MyPage> {
       _isLoggedIn = false;
       _username = '未登录';
       _userId = "";
+      logger.info("退出登录$_isLoggedIn, $_userId, $_username");
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<SharedPreferences>(
-        future: _init(), // 传入异步操作
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (snapshot.hasData) {
-            // 当数据获取完成时，渲染页面内容
-            return CustomScrollView(
-              slivers: [
-                _buildSliverAppBar(),
-                _buildSettingsList(),
-              ],
-            );
-          } else {
-            return Center(child: Text('No data available'));
-          }
-        },
-      ),
+      body: CustomScrollView(
+        slivers: [
+          _buildSliverAppBar(),
+          _buildSettingsList(),
+        ],
+      )
     );
   }
 
@@ -122,8 +100,7 @@ class _MyPageState extends State<MyPage> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => LoginPage(
-                                    storeService: storeService,
-                                    prefs: prefs,
+                                    storeService: storeService
                                   )),
                         ).then((_) => _checkLoginStatus());
                       },
@@ -158,8 +135,7 @@ class _MyPageState extends State<MyPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => LoginPage(
-                                storeService: storeService,
-                                prefs: prefs,
+                                storeService: storeService
                               )),
                     ).then((_) => _checkLoginStatus());
                   } else {

@@ -1,18 +1,51 @@
+import 'dart:nativewrappers/_internal/vm/lib/mirrors_patch.dart';
+
 import 'package:liuyao/utils/logger.dart';
 import 'package:realm/realm.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'schemas.dart';
 
 class StoreService {
   late Realm realm;
+  late SharedPreferences sharedPreferences;
 
   StoreService(List<SchemaObject> schemas) {
     final config = Configuration.local(schemas,
         schemaVersion: 3, // 当前最新的 schema 版本号
         migrationCallback: migrationCallback); // 使用统一的迁移回调函数);
     realm = Realm(config);
-  }
 
+    SharedPreferences.getInstance().then((perfs) {
+      sharedPreferences = perfs;
+    });
+  }
+  // region sharedPreferences
+  // 获取本地值
+  dynamic getLocal(String key){
+    if (sharedPreferences.containsKey(key)) {
+      return sharedPreferences.get(key);
+    }
+    return null;
+  }
+  // 设置本地缓存 根据传入类型设置存储
+  Future<dynamic> setLocal(String key, dynamic value) async{
+    if (value is String) {
+      await sharedPreferences.setString(key, value);
+    } else if (value is int) {
+      await sharedPreferences.setInt(key, value);
+    } else if (value is bool) {
+      await sharedPreferences.setBool(key, value);
+    } else if (value is double) {
+      await sharedPreferences.setDouble(key, value);
+    } else if (value is List<String>) {
+      await sharedPreferences.setStringList(key, value);
+    } else {
+      throw Exception("Unsupported value type");
+    }
+  }
+  // endregion
+  // region realm
   // 添加或更新对象
   void update<T extends RealmObject>(T item) {
     realm.write(() {
@@ -61,6 +94,7 @@ class StoreService {
   void close() {
     realm.close();
   }
+  // endregion
 }
 
 void migrationCallback(Migration migration, int oldSchemaVersion) {
@@ -74,7 +108,8 @@ void migrationCallback(Migration migration, int oldSchemaVersion) {
     for (var oldItem in oldHistoryItems) {
       final newItem = newRealm.find<HistoryItem>(oldItem.dynamic.get('id'));
       if (newItem != null && oldItem is HistoryItem) {
-        newItem.timestamp = (oldItem.timestamp as DateTime).millisecondsSinceEpoch;
+        newItem.timestamp =
+            (oldItem.timestamp as DateTime).millisecondsSinceEpoch;
       }
     }
     logger.info("处理数据库迁移升级");
@@ -84,7 +119,5 @@ void migrationCallback(Migration migration, int oldSchemaVersion) {
     // 不需要调整
   }
   // 2-3
-  if(oldSchemaVersion < 3){
-
-  }
+  if (oldSchemaVersion < 3) {}
 }
