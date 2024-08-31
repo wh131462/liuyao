@@ -7,7 +7,6 @@ import 'package:liuyao/store/store.dart';
 import 'package:liuyao/utils/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart' as realm;
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MyPage extends StatefulWidget {
   @override
@@ -22,22 +21,30 @@ class _MyPageState extends State<MyPage> {
   late StoreService storeService;
 
   @override
-  void initState() {
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     storeService = context.watch<StoreService>();
+    _checkLoginStatus();
   }
 
   Future<void> _checkLoginStatus() async {
+    final isLoggedIn = storeService.getLocal("isLoggedIn") ?? false;
+    final username = storeService.getLocal('username') ?? '未登录';
+    final userId = storeService.getLocal('userId') ?? '';
+
+
     setState(() {
-      _isLoggedIn = storeService.getLocal("isLoggedIn")?? false;
-      _username = storeService.getLocal('username') ?? '未登录';
-      _userId = storeService.getLocal('userId') ?? '';
+      _isLoggedIn = isLoggedIn;
+      _username = username; // 确保这个值是正确的
+      _userId = userId;
       logger.info("获取到信息$_isLoggedIn, $_userId, $_username");
     });
   }
 
   void _logout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.clear(); // 清除登录信息
+    storeService.deleteLocal("isLoggedIn");
+    storeService.deleteLocal('username');
+    storeService.deleteLocal('userId');
     setState(() {
       _isLoggedIn = false;
       _username = '未登录';

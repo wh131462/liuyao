@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/mirrors_patch.dart';
-
 import 'package:liuyao/utils/logger.dart';
 import 'package:realm/realm.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,17 +7,17 @@ import 'schemas.dart';
 class StoreService {
   late Realm realm;
   late SharedPreferences sharedPreferences;
-
-  StoreService(List<SchemaObject> schemas) {
+  StoreService._internal(this.realm, this.sharedPreferences);
+  static Future<StoreService> initialize(List<SchemaObject> schemas) async {
     final config = Configuration.local(schemas,
-        schemaVersion: 3, // 当前最新的 schema 版本号
-        migrationCallback: migrationCallback); // 使用统一的迁移回调函数);
-    realm = Realm(config);
-
-    SharedPreferences.getInstance().then((prefs) {
-      sharedPreferences = prefs;
-    });
+        schemaVersion: 3,
+        migrationCallback: migrationCallback);
+    Realm realm = Realm(config);
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    logger.info("初始化完成");
+    return StoreService._internal(realm, prefs);
   }
+
   // region sharedPreferences
   // 获取本地值
   dynamic getLocal(String key){
@@ -44,6 +42,11 @@ class StoreService {
       throw Exception("Unsupported value type");
     }
   }
+  // 删除key的数据
+  void deleteLocal(String key){
+    sharedPreferences.remove(key);
+  }
+
   // endregion
   // region realm
   // 添加或更新对象

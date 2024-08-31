@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao/pages/welcome/welcome.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'store/schemas.dart';
 import 'store/store.dart';
 
-void main() async{
-  final storeService = StoreService([UserInfo.schema, HistoryItem.schema]);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // 确保Flutter环境初始化完成
+  StoreService storeService = await StoreService.initialize([UserInfo.schema, HistoryItem.schema]);
   runApp(MultiProvider(
     providers: [
       Provider<StoreService>(
