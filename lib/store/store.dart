@@ -16,8 +16,8 @@ class StoreService {
         migrationCallback: migrationCallback); // 使用统一的迁移回调函数);
     realm = Realm(config);
 
-    SharedPreferences.getInstance().then((perfs) {
-      sharedPreferences = perfs;
+    SharedPreferences.getInstance().then((prefs) {
+      sharedPreferences = prefs;
     });
   }
   // region sharedPreferences

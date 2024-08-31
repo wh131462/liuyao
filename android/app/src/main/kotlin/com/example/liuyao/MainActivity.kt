@@ -1,4 +1,4 @@
-package com.example.liuyao_flutter
+package com.example.liuyao
 
 import io.flutter.embedding.android.FlutterActivity
 
