@@ -23,22 +23,43 @@ enum Yao {
 }
 
 // 定义 Gua 枚举
+// 先天序:乾·兑·离·震·巽·坎·艮·坤
+// 后天序:乾·坎·艮·震·巽·离·坤·兑
 enum Gua {
-  qian("qian", "乾", "☰", [Yao.yang, Yao.yang, Yao.yang]),
-  kun("kun", "坤", "☷", [Yao.yin, Yao.yin, Yao.yin]),
-  zhen("zhen", "震", "☳", [Yao.yin, Yao.yin, Yao.yang]),
-  gen("gen", "艮", "☶", [Yao.yang, Yao.yin, Yao.yin]),
-  li("li", "离", "☲", [Yao.yang, Yao.yin, Yao.yang]),
-  kan("kan", "坎", "☵", [Yao.yin, Yao.yang, Yao.yin]),
-  dui("dui", "兑", "☱", [Yao.yin, Yao.yang, Yao.yang]),
-  xun("xun", "巽", "☴", [Yao.yang, Yao.yang, Yao.yin]);
+  qian("qian", "乾", "☰", 1, 1, [Yao.yang, Yao.yang, Yao.yang]),
+  kun("kun", "坤", "☷", 8, 7, [Yao.yin, Yao.yin, Yao.yin]),
+  zhen("zhen", "震", "☳", 4, 4, [Yao.yin, Yao.yin, Yao.yang]),
+  gen("gen", "艮", "☶", 7, 3, [Yao.yang, Yao.yin, Yao.yin]),
+  li("li", "离", "☲", 3, 6, [Yao.yang, Yao.yin, Yao.yang]),
+  kan("kan", "坎", "☵", 6, 2, [Yao.yin, Yao.yang, Yao.yin]),
+  dui("dui", "兑", "☱", 2, 8, [Yao.yin, Yao.yang, Yao.yang]),
+  xun("xun", "巽", "☴", 5, 5, [Yao.yang, Yao.yang, Yao.yin]);
 
   final String key;
   final String name;
   final String symbol;
+  final int prenatalIndex; // 先天八卦序 从 1 开始
+  final int postnatalIndex; // 后天天八卦序 从 1 开始
   final List<Yao> yaoList;
 
-  const Gua(this.key, this.name, this.symbol, this.yaoList);
+  const Gua(this.key, this.name, this.symbol, this.prenatalIndex,
+      this.postnatalIndex, this.yaoList);
+  /// 从先天八卦序返回数组
+  static List<Gua> getGuaListByPrenatalIndex() {
+    List<Gua> temp = Gua.values.toList();
+    temp.sort((Gua a, Gua b) {
+      return a.prenatalIndex - b.prenatalIndex;
+    });
+    return temp;
+  }
+  /// 从后天八卦序返回数组
+  static List<Gua> getGuaListByPostnatalIndex() {
+    List<Gua> temp = Gua.values.toList();
+    temp.sort((Gua a, Gua b) {
+      return a.postnatalIndex - b.postnatalIndex;
+    });
+    return temp;
+  }
 
   /// 通过爻列表获取卦
   static Gua getGuaByYaoList(List<Yao> yaoList) {
@@ -129,10 +150,12 @@ enum Xiang {
   static Xiang getXiangByTitle(String name) {
     return Xiang.values.firstWhere((v) => v.name == name);
   }
+
   /// 根据index获取象
-  static Xiang getXiangByIndex(int index){
+  static Xiang getXiangByIndex(int index) {
     return Xiang.values.firstWhere((v) => v.idx == index);
   }
+
   /// 获取按顺序输出的象列表
   static List<Xiang>? getXiangList() {
     const list = Xiang.values;
@@ -154,12 +177,14 @@ enum Xiang {
   /**
    * 卦实例方法
    */
+
   /// 获取卦对应的符号列表
   List<String> getSymbolList() {
     return guaList.map((gua) => gua.symbol).toList();
   }
+
   /// 获取卦象的符号字符串
-  String getSymbolText(){
+  String getSymbolText() {
     return getSymbolList().join("\n");
   }
 
@@ -167,11 +192,13 @@ enum Xiang {
   XiangDicItem getGuaProps() {
     return xiangDictionary[name]!;
   }
+
   /// 获取卦对应的字符串
-  String getGuaListText(){
+  String getGuaListText() {
     return "${guaList.first.name}上${guaList.last.name}下";
   }
 }
+
 /// 卦类型
 enum Hexagram {
   original("本卦", "代表了占卜问题的当前状态或者初始条件", "原始卦象"),

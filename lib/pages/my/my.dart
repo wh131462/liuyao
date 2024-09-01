@@ -8,6 +8,8 @@ import 'package:liuyao/utils/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart' as realm;
 
+import '../spinning/spinning_page.dart';
+
 class MyPage extends StatefulWidget {
   @override
   _MyPageState createState() => _MyPageState();
@@ -161,7 +163,7 @@ class _MyPageState extends State<MyPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SpinningWheelPage(),
+                        builder: (context) => SpinningPage(),
                       ));
                   break;
                 case "备份设置":
