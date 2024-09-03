@@ -1,10 +1,10 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
 import 'package:liuyao/utils/logger.dart';
 
 enum Direction { up, down }
+
 class BaGuaController {
   double rotation = 0.0;
   Direction direction = Direction.up;
@@ -22,7 +22,7 @@ class BaGuaController {
     double adjustedRotation = (rotation - pi / 2) % (2 * pi);
 
     if (adjustedRotation < 0) {
-      adjustedRotation += 2 * pi;  // 保证 adjustedRotation 是正数
+      adjustedRotation += 2 * pi; // 保证 adjustedRotation 是正数
     }
 
     // 计算索引
@@ -54,11 +54,12 @@ class BaGuaWheelController extends StatefulWidget {
   final Direction direction;
   final Function? onComplete;
 
-  BaGuaWheelController(
-      {required this.size,
-        required this.controller,
-        required this.direction,
-        this.onComplete});
+  BaGuaWheelController({
+    required this.size,
+    required this.controller,
+    required this.direction,
+    this.onComplete,
+  });
 
   @override
   _BaGuaWheelControllerState createState() => _BaGuaWheelControllerState();
@@ -69,6 +70,7 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
   late AnimationController _animationController;
   late Animation<double> _animation;
   double currentRotation = 0.0; // 记录当前旋转角度
+  bool isDragging = false;
 
   @override
   void initState() {
@@ -81,14 +83,16 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
     // 监听动画
     _animationController.addListener(() {
       setState(() {
-        currentRotation = _animation.value;
-        widget.controller.rotation = currentRotation; // 更新到 controller
-        logger.info("进行中 $currentRotation");
+        if (!isDragging) {
+          currentRotation = _animation.value;
+          widget.controller.rotation = currentRotation; // 更新到 controller
+          logger.info("进行中 $currentRotation");
+        }
       });
     });
 
     _animationController.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.completed) {
+      if (status == AnimationStatus.completed && !isDragging) {
         widget.controller.stopRotation();
         widget.onComplete?.call(widget.controller.getGua());
         logger.info("完成 $currentRotation");
@@ -104,11 +108,8 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
 
       _animationController.duration = Duration(seconds: randomDuration);
 
-      _animation = Tween<double>(
-          begin: currentRotation,
-          end: currentRotation + randomRotation + targetRotation)
-          .animate(CurvedAnimation(
-          parent: _animationController, curve: Curves.decelerate));
+      _animation = Tween<double>(begin: currentRotation, end: currentRotation + randomRotation + targetRotation)
+          .animate(CurvedAnimation(parent: _animationController, curve: Curves.decelerate));
 
       _animationController.forward(from: 0.0);
     };
@@ -125,6 +126,7 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
     return GestureDetector(
       onPanStart: (details) {
         _animationController.stop();
+        isDragging = true;
       },
       onPanUpdate: (details) {
         setState(() {
@@ -144,17 +146,15 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
         });
       },
       onPanEnd: (details) {
-        final double velocity = details.velocity.pixelsPerSecond.dx * 0.001;
-        final int duration = (velocity.abs() * 500)
-            .clamp(200, 2000)
-            .toInt();
-
+        isDragging = false;
+        final Offset center = Offset(widget.size / 2, widget.size / 2);
+        final under = details.localPosition.dy > center.dy?-1:1;
+        final double velocity = under* details.velocity.pixelsPerSecond.dx * 0.001;
+        final int duration = (velocity.abs() * 500).clamp(200, 2000).toInt();
+        logger.info("停止$velocity");
         _animationController.duration = Duration(milliseconds: duration);
-        _animation = Tween<double>(
-            begin: currentRotation,
-            end: currentRotation + velocity * duration / 100)
-            .animate(CurvedAnimation(
-            parent: _animationController, curve: Curves.decelerate));
+        _animation = Tween<double>(begin: currentRotation, end: currentRotation + velocity * duration / 100)
+            .animate(CurvedAnimation(parent: _animationController, curve: Curves.decelerate));
         _animationController.forward(from: 0.0);
       },
       child: Transform.rotate(
@@ -164,7 +164,6 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
     );
   }
 }
-
 
 class BaGuaPainter extends CustomPainter {
   final List<Gua> guaList = Gua.getGuaListByPostnatalIndex();
