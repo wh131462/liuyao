@@ -7,29 +7,26 @@ enum Direction { up, down }
 
 class BaGuaController {
   double rotation = 0.0;
-  Direction direction = Direction.up;
+  final Direction direction;
   Gua? currentGua; // 当前选中的内容
   Function? onStart;
   Function? onEnd;
 
-  BaGuaController();
+  BaGuaController({this.direction = Direction.up});
 
   Gua getGua() {
-    var guaList = Gua.values.toList();
+    var guaList = Gua.getGuaListByPostnatalIndex();
     var unit = 2 * pi / guaList.length;
-
-    // 调整 rotation 使其基于 Y 轴正上方
-    double adjustedRotation = (rotation - pi / 2) % (2 * pi);
-
-    if (adjustedRotation < 0) {
-      adjustedRotation += 2 * pi; // 保证 adjustedRotation 是正数
+    var cur = direction == Direction.up ? rotation : rotation + pi;
+    if (cur < 0) {
+      cur += 2 * pi; // 保证 adjustedRotation 是正数
     }
 
     // 计算索引
-    int index = (adjustedRotation / unit).floor() % guaList.length;
+    int index = (guaList.length - (cur / unit).floor()) % guaList.length;
 
     currentGua = guaList[index];
-    logger.info("当前角度: $rotation, Y 轴上方选中: ${guaList[index]}");
+    // logger.info("当前旋转角度: $cur $unit 卦象索引: $index, 当前选中: ${guaList[index]}");
     return currentGua!;
   }
 
@@ -51,13 +48,11 @@ class BaGuaController {
 class BaGuaWheelController extends StatefulWidget {
   final double size;
   final BaGuaController controller;
-  final Direction direction;
   final Function? onComplete;
 
   BaGuaWheelController({
     required this.size,
     required this.controller,
-    required this.direction,
     this.onComplete,
   });
 
@@ -70,6 +65,7 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
   late AnimationController _animationController;
   late Animation<double> _animation;
   double currentRotation = 0.0; // 记录当前旋转角度
+  double currentVelocity = 0.0;
   bool isDragging = false;
 
   @override
@@ -77,42 +73,71 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     // 监听动画
     _animationController.addListener(() {
-      setState(() {
-        if (!isDragging) {
-          currentRotation = _animation.value;
-          widget.controller.rotation = currentRotation; // 更新到 controller
-          logger.info("进行中 $currentRotation");
-        }
-      });
+      if (_animationController.isAnimating) {
+        setState(() {
+          if (!isDragging) {
+            currentRotation = _animation.value % (2 * pi);
+            widget.controller.rotation = currentRotation; // 更新到 controller
+          }
+        });
+      }
     });
 
     _animationController.addStatusListener((AnimationStatus status) {
       if (status == AnimationStatus.completed && !isDragging) {
-        widget.controller.stopRotation();
+        isDragging = false;
+        // 先归位最近的卦象
+        normalizeRotation(currentVelocity);
         widget.onComplete?.call(widget.controller.getGua());
-        logger.info("完成 $currentRotation");
       }
     });
 
     widget.controller.onStart = () {
       final int randomDuration = Random().nextInt(3) + 1;
       final double randomRotation = 2 * pi * Random().nextDouble();
-
       final double normalizedRotation = currentRotation % (2 * pi);
       final double targetRotation = 2 * pi - normalizedRotation;
 
       _animationController.duration = Duration(seconds: randomDuration);
 
-      _animation = Tween<double>(begin: currentRotation, end: currentRotation + randomRotation + targetRotation)
-          .animate(CurvedAnimation(parent: _animationController, curve: Curves.decelerate));
-
+      _animation = Tween<double>(
+              begin: currentRotation,
+              end: currentRotation + randomRotation + targetRotation)
+          .animate(CurvedAnimation(
+              parent: _animationController, curve: Curves.decelerate));
+      currentVelocity = randomRotation + targetRotation;
       _animationController.forward(from: 0.0);
     };
+  }
+
+  void normalizeRotation(double velocity) {
+    var guaList = Gua.values.toList();
+    var unit = 2 * pi / guaList.length;
+    var diff = currentRotation % unit;
+    if (diff == 0) return;
+    double targetOffset;
+    if (velocity < 0) {
+      targetOffset = -diff;
+    } else {
+      targetOffset = unit - diff;
+    }
+    double targetRotation = currentRotation + targetOffset;
+
+    _animation = Tween<double>(
+      begin: currentRotation,
+      end: targetRotation,
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.decelerate,
+    ));
+
+    _animationController.duration = Duration(milliseconds: 300);
+    _animationController.forward(from: 0.0);
   }
 
   @override
@@ -136,10 +161,12 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
           final double angleAtTouchPosition =
           atan2(touchPosition.dy - center.dy, touchPosition.dx - center.dx);
 
+          // 计算前一次触摸位置的角度
           final double previousAngle = atan2(
               touchPosition.dy - center.dy - details.delta.dy,
               touchPosition.dx - center.dx - details.delta.dx);
 
+          // 计算角度的差值，并更新当前旋转角度
           final double deltaAngle = angleAtTouchPosition - previousAngle;
           currentRotation += deltaAngle;
           widget.controller.rotation = currentRotation;
@@ -149,17 +176,23 @@ class _BaGuaWheelControllerState extends State<BaGuaWheelController>
         isDragging = false;
         final Offset center = Offset(widget.size / 2, widget.size / 2);
         final under = details.localPosition.dy > center.dy?-1:1;
-        final double velocity = under* details.velocity.pixelsPerSecond.dx * 0.001;
+        final double velocity =under* details.velocity.pixelsPerSecond.dx * 0.001;
         final int duration = (velocity.abs() * 500).clamp(200, 2000).toInt();
-        logger.info("停止$velocity");
         _animationController.duration = Duration(milliseconds: duration);
-        _animation = Tween<double>(begin: currentRotation, end: currentRotation + velocity * duration / 100)
-            .animate(CurvedAnimation(parent: _animationController, curve: Curves.decelerate));
-        _animationController.forward(from: 0.0);
+        _animation = Tween<double>(
+            begin: currentRotation,
+            end: currentRotation + velocity * duration / 100)
+            .animate(CurvedAnimation(
+            parent: _animationController, curve: Curves.decelerate));
+        // 执行惯性动画，动画结束后再进行归一化
+        currentVelocity = velocity;
+        _animationController.forward(from: 0.0).then((_) {
+          normalizeRotation(currentVelocity); // 惯性动画结束后，进行归一化
+        });
       },
       child: Transform.rotate(
         angle: currentRotation,
-        child: BaGuaWheel(size: widget.size, direction: widget.direction),
+        child: BaGuaWheel(size: widget.size, direction: widget.controller.direction),
       ),
     );
   }
