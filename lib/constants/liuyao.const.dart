@@ -158,7 +158,7 @@ enum Xiang {
 
   /// 获取按顺序输出的象列表
   static List<Xiang>? getXiangList() {
-    const list = Xiang.values;
+    var list = List<Xiang>.from(Xiang.values) ;
     list.sort((a, b) => a.idx - b.idx);
     return list;
   }

@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
-import 'package:liuyao/utils/logger.dart';
 
 enum Direction { up, down }
 

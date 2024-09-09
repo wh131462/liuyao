@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liuyao/pages/license/license.dart';
 import 'package:liuyao/pages/login/login.dart';
-import 'package:liuyao/pages/spinning/spinning.dart';
 import 'package:liuyao/pages/userinfo/userinfo.dart';
+import 'package:liuyao/pages/xiaoliuren/xiaoliuren.dart';
 import 'package:liuyao/store/store.dart';
 import 'package:liuyao/utils/logger.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +34,6 @@ class _MyPageState extends State<MyPage> {
     final username = storeService.getLocal('username') ?? '未登录';
     final userId = storeService.getLocal('userId') ?? '';
 
-
     setState(() {
       _isLoggedIn = isLoggedIn;
       _username = username; // 确保这个值是正确的
@@ -58,13 +57,12 @@ class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          _buildSliverAppBar(),
-          _buildSettingsList(),
-        ],
-      )
-    );
+        body: CustomScrollView(
+      slivers: [
+        _buildSliverAppBar(),
+        _buildSettingsList(),
+      ],
+    ));
   }
 
   Widget _buildSliverAppBar() {
@@ -108,9 +106,8 @@ class _MyPageState extends State<MyPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                    storeService: storeService
-                                  )),
+                              builder: (context) =>
+                                  LoginPage(storeService: storeService)),
                         ).then((_) => _checkLoginStatus());
                       },
                       child:
@@ -143,9 +140,8 @@ class _MyPageState extends State<MyPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => LoginPage(
-                                storeService: storeService
-                              )),
+                          builder: (context) =>
+                              LoginPage(storeService: storeService)),
                     ).then((_) => _checkLoginStatus());
                   } else {
                     var userId = realm.Uuid.fromString(_userId);
@@ -166,6 +162,13 @@ class _MyPageState extends State<MyPage> {
                         builder: (context) => SpinningPage(),
                       ));
                   break;
+                case "小六壬排盘":
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => XiaoLiuRenPage(),
+                      ));
+                  break;
                 case "备份设置":
                   break;
                 case "关于软件":
@@ -184,9 +187,10 @@ class _MyPageState extends State<MyPage> {
   }
 
   final List<String> _settings = [
-    '我的信息',
+    "我的信息",
     "卦象转盘",
-    //  '备份设置',
-    '关于软件'
+    "小六壬排盘",
+    //  "备份设置",
+    "关于软件"
   ];
 }
