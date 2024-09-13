@@ -10,7 +10,7 @@ enum XiaoLiuRen {
   kongwang("空亡", "失去 虚伪 空想", "土", TraditionalDirection.middle, "玉皇", 6),
   bingfu("病符", "病态 异常 治疗", "金", TraditionalDirection.southwest, "后土", 7),
   taohua("桃花", "欲望 牵绊 异性", "土", TraditionalDirection.northeast, "城隍", 8),
-  tiande("天德", "贵人 上司 高选", "金", TraditionalDirection.northwest, "紫薇", 9);
+  tiande("天德", "贵人 上司 高选", "金", TraditionalDirection.northwest, "紫微", 9);
 
   final String name;
   final String description;
