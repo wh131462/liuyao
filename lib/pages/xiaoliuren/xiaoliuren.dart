@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:liuyao/components/video_player.dart';
 import 'package:liuyao/constants/liuren.const.dart';
 import 'package:lunar/lunar.dart';
 
@@ -53,15 +54,22 @@ class _XiaoLiuRen extends State<StatefulWidget> {
           "${lunar.getYearInGanZhi()}年 ${lunar.getMonthInGanZhi()}月 ${lunar.getHour() == 23 ? nextDayLunar.getDayInGanZhi() : lunar.getDayInGanZhi()}日 ${lunar.getTimeInGanZhi()}时 (${lunar.getHour().toString().padLeft(2, '0')}:${lunar.getMinute().toString().padLeft(2, '0')}:${lunar.getSecond().toString().padLeft(2, '0')})";
     });
   }
+
   // 获取农历时间数字
-  List<int> getNumByLunar(){
+  List<int> getNumByLunar() {
     Lunar lunar = Lunar.fromDate(DateTime.now());
     Lunar nextDayLunar =
-    Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
-    return [LunarUtil.MONTH.indexOf(lunar.getMonthInChinese()) ,lunar.getHour()!=23? LunarUtil.DAY.indexOf(lunar.getDayInChinese()) :LunarUtil.DAY.indexOf(nextDayLunar.getDayInChinese()),lunar.getTimeZhiIndex()+1];
+        Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
+    return [
+      LunarUtil.MONTH.indexOf(lunar.getMonthInChinese()),
+      lunar.getHour() != 23
+          ? LunarUtil.DAY.indexOf(lunar.getDayInChinese())
+          : LunarUtil.DAY.indexOf(nextDayLunar.getDayInChinese()),
+      lunar.getTimeZhiIndex() + 1
+    ];
   }
 
-  void _onTime(){
+  void _onTime() {
     List<int> numList = getNumByLunar();
     setState(() {
       _num1Controller.text = "${numList[0]}";
@@ -69,6 +77,7 @@ class _XiaoLiuRen extends State<StatefulWidget> {
       _num3Controller.text = "${numList[2]}";
     });
   }
+
   // 排盘按钮点击事件
   void _onPaiPan() {
     _isNum1Valid = _num1Controller.text.isNotEmpty;
@@ -119,6 +128,44 @@ class _XiaoLiuRen extends State<StatefulWidget> {
               color: Colors.white,
             ),
           ),
+          actions: [
+            IconButton(onPressed: (){
+              showDialog(context: context,builder: (context){
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // 圆角边框
+                  ),
+                  actionsAlignment: MainAxisAlignment.center,
+                  title: Center(
+                    child: Text(
+                      "请看视频",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  content: SingleChildScrollView(
+                    child: VideoPlayerWidget(videoUrl: "assets/videos/xiaoliuren.mp4",isLocal: true,)
+                  ),
+                  actions: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // 圆角按钮
+                        ),
+                      ),
+                      child: Text(
+                        '确定',
+                        style: TextStyle(fontSize: 16), // 增加按钮字体大小
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // 关闭弹窗
+                      },
+                    ),
+                  ],
+                );
+              });
+            }, icon: Icon(color: Colors.white,Icons.help_outline),)
+          ],
           backgroundColor: Colors.teal, // 修改AppBar背景颜色
         ),
         body: Padding(
@@ -244,69 +291,133 @@ class _XiaoLiuRen extends State<StatefulWidget> {
 
   // 构建每个宫位的卡片展示，增加高亮效果
   Widget _buildGridItem(XiaoLiuRen xiang, bool isSelected, int selectionIndex) {
-    return Card(
-      elevation: isSelected ? 10.0 : 4.0, // 选中的卡片增加阴影
-      color: isSelected ? Colors.teal[100] : Colors.white, // 选中时背景颜色变化
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0), // 设置圆角
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Stack(
-          children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center, // 垂直居中对齐
-                children: [
-                  Text(
-                    xiang.name,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: isSelected ? Colors.teal : Colors.black,
+    return GestureDetector(
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // 圆角边框
+                  ),
+                  actionsAlignment: MainAxisAlignment.center,
+                  title: Center(
+                    child: Text(
+                      "其他信息",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(height: 4.0), // 控制不同文本之间的间距
-                  Text(
-                    xiang.direction.gua?.name ?? '',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.grey[700],
+                  content: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start, // 左对齐
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0), // 添加上下间距
+                          child: Text(
+                            "方位: ${xiang.direction.name}",
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: Text(
+                            "属性: ${xiang.property}",
+                            style: TextStyle(fontSize: 16, color: Colors.grey[700]), // 改变颜色和字体大小
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4.0),
+                          child: Text(
+                            "神灵: ${xiang.shen}",
+                            style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 4.0),
-                  Text(
-                    xiang.description,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
+                  actions: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8), // 圆角按钮
+                        ),
+                      ),
+                      child: Text(
+                        '确定',
+                        style: TextStyle(fontSize: 16), // 增加按钮字体大小
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // 关闭弹窗
+                      },
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
-            // 选中的宫位在右上角显示序号
-            if (isSelected)
-              Positioned(
-                right: -4,
-                top: -4,
-                child: CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Colors.teal,
-                  child: Text(
-                    '$selectionIndex',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                    ),
+                  ],
+                );
+              });
+        },
+        child: Card(
+          elevation: isSelected ? 10.0 : 4.0, // 选中的卡片增加阴影
+          color: isSelected ? Colors.teal[100] : Colors.white, // 选中时背景颜色变化
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0), // 设置圆角
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center, // 垂直居中对齐
+                    children: [
+                      Text(
+                        xiang.name,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: isSelected ? Colors.teal : Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 4.0), // 控制不同文本之间的间距
+                      Text(
+                        xiang.direction.gua?.name ?? '',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                      SizedBox(height: 4.0),
+                      Text(
+                        xiang.description,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey[600],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
-              ),
-          ],
-        ),
-      ),
-    );
+                // 选中的宫位在右上角显示序号
+                if (isSelected)
+                  Positioned(
+                    right: -4,
+                    top: -4,
+                    child: CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Colors.teal,
+                      child: Text(
+                        '$selectionIndex',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ));
   }
 }
