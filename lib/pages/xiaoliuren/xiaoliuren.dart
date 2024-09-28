@@ -49,9 +49,14 @@ class _XiaoLiuRen extends State<StatefulWidget> {
     setState(() {
       Lunar lunar = Lunar.fromDate(DateTime.now());
       Lunar nextDayLunar =
-          Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
+      Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
       lunarInfo =
-          "${lunar.getYearInGanZhi()}年 ${lunar.getMonthInGanZhi()}月 ${lunar.getHour() == 23 ? nextDayLunar.getDayInGanZhi() : lunar.getDayInGanZhi()}日 ${lunar.getTimeInGanZhi()}时 (${lunar.getHour().toString().padLeft(2, '0')}:${lunar.getMinute().toString().padLeft(2, '0')}:${lunar.getSecond().toString().padLeft(2, '0')})";
+      "${lunar.getYearInGanZhi()}年 ${lunar.getMonthInGanZhi()}月 ${lunar
+          .getHour() == 23 ? nextDayLunar.getDayInGanZhi() : lunar
+          .getDayInGanZhi()}日 ${lunar.getTimeInGanZhi()}时 (${lunar.getHour()
+          .toString()
+          .padLeft(2, '0')}:${lunar.getMinute().toString().padLeft(
+          2, '0')}:${lunar.getSecond().toString().padLeft(2, '0')})";
     });
   }
 
@@ -59,7 +64,7 @@ class _XiaoLiuRen extends State<StatefulWidget> {
   List<int> getNumByLunar() {
     Lunar lunar = Lunar.fromDate(DateTime.now());
     Lunar nextDayLunar =
-        Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
+    Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
     return [
       LunarUtil.MONTH.indexOf(lunar.getMonthInChinese()),
       lunar.getHour() != 23
@@ -117,132 +122,135 @@ class _XiaoLiuRen extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            '小六壬',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back), color: Colors.white, onPressed: () {
+          Navigator.of(context).pop();
+        }),
+        title: Text(
+          '小六壬',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
-          actions: [
-            IconButton(onPressed: (){
-              showDialog(context: context,builder: (context){
-                return AlertDialog(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // 圆角边框
+        ),
+        actions: [
+          IconButton(onPressed: () {
+            showDialog(context: context, builder: (context) {
+              return AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12), // 圆角边框
+                ),
+                actionsAlignment: MainAxisAlignment.center,
+                title: Center(
+                  child: Text(
+                    "请看视频",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  actionsAlignment: MainAxisAlignment.center,
-                  title: Center(
-                    child: Text(
-                      "请看视频",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                content: SingleChildScrollView(
+                    child: VideoPlayerWidget(
+                      videoUrl: "assets/videos/xiaoliuren.mp4", isLocal: true,)
+                ),
+                actions: [
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8), // 圆角按钮
+                      ),
                     ),
+                    child: Text(
+                      '确定',
+                      style: TextStyle(fontSize: 16), // 增加按钮字体大小
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop(); // 关闭弹窗
+                    },
                   ),
-                  content: SingleChildScrollView(
-                    child: VideoPlayerWidget(videoUrl: "assets/videos/xiaoliuren.mp4",isLocal: true,)
-                  ),
-                  actions: [
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8), // 圆角按钮
-                        ),
+                ],
+              );
+            });
+          }, icon: Icon(color: Colors.white, Icons.help_outline),)
+        ],
+        backgroundColor: Colors.teal, // 修改AppBar背景颜色
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            // 干支信息展示
+            TextButton(
+              onPressed: _onTime,
+              child: Text(
+                lunarInfo,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            // 输入框和按钮
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    _buildNumberInput(_num1Controller, _isNum1Valid),
+                    if (_selectedXiaoLiuRen.length >= 3)
+                      Text(_selectedXiaoLiuRen.first.name)
+                  ],
+                ),
+                Column(
+                  children: [
+                    _buildNumberInput(_num2Controller, _isNum2Valid),
+                    if (_selectedXiaoLiuRen.length >= 3)
+                      Text(_selectedXiaoLiuRen[1].name)
+                  ],
+                ),
+                Column(
+                  children: [
+                    _buildNumberInput(_num3Controller, _isNum3Valid),
+                    if (_selectedXiaoLiuRen.length >= 3)
+                      Text(_selectedXiaoLiuRen.last.name)
+                  ],
+                ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: _onPaiPan,
+                      child: Text("排盘"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.teal, // 按钮颜色
                       ),
-                      child: Text(
-                        '确定',
-                        style: TextStyle(fontSize: 16), // 增加按钮字体大小
+                    ),
+                    ElevatedButton(
+                      onPressed: _onReset,
+                      child: Text("重置"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.teal, // 按钮颜色
                       ),
-                      onPressed: () {
-                        Navigator.of(context).pop(); // 关闭弹窗
-                      },
                     ),
                   ],
-                );
-              });
-            }, icon: Icon(color: Colors.white,Icons.help_outline),)
-          ],
-          backgroundColor: Colors.teal, // 修改AppBar背景颜色
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              // 干支信息展示
-              TextButton(
-                onPressed: _onTime,
-                child: Text(
-                  lunarInfo,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87,
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              // 输入框和按钮
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      _buildNumberInput(_num1Controller, _isNum1Valid),
-                      if (_selectedXiaoLiuRen.length >= 3)
-                        Text(_selectedXiaoLiuRen.first.name)
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      _buildNumberInput(_num2Controller, _isNum2Valid),
-                      if (_selectedXiaoLiuRen.length >= 3)
-                        Text(_selectedXiaoLiuRen[1].name)
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      _buildNumberInput(_num3Controller, _isNum3Valid),
-                      if (_selectedXiaoLiuRen.length >= 3)
-                        Text(_selectedXiaoLiuRen.last.name)
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ElevatedButton(
-                        onPressed: _onPaiPan,
-                        child: Text("排盘"),
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.teal, // 按钮颜色
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: _onReset,
-                        child: Text("重置"),
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.teal, // 按钮颜色
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(height: 20),
+                )
+              ],
+            ),
+            SizedBox(height: 20),
 
-              // 九宫格展示
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 3, // 每行3个宫位
-                  crossAxisSpacing: 10.0, // 网格项之间的水平间距
-                  mainAxisSpacing: 10.0, // 网格项之间的垂直间距
-                  children: _buildGongweiItems(),
-                ),
+            // 九宫格展示
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 3, // 每行3个宫位
+                crossAxisSpacing: 10.0, // 网格项之间的水平间距
+                mainAxisSpacing: 10.0, // 网格项之间的垂直间距
+                children: _buildGongweiItems(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -304,7 +312,8 @@ class _XiaoLiuRen extends State<StatefulWidget> {
                   title: Center(
                     child: Text(
                       "其他信息",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                   content: SingleChildScrollView(
@@ -312,24 +321,28 @@ class _XiaoLiuRen extends State<StatefulWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start, // 左对齐
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0), // 添加上下间距
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          // 添加上下间距
                           child: Text(
                             "方位: ${xiang.direction.name}",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Text(
                             "属性: ${xiang.property}",
-                            style: TextStyle(fontSize: 16, color: Colors.grey[700]), // 改变颜色和字体大小
+                            style: TextStyle(fontSize: 16, color: Colors
+                                .grey[700]), // 改变颜色和字体大小
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Text(
                             "神灵: ${xiang.shen}",
-                            style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                            style: TextStyle(fontSize: 16, color: Colors
+                                .grey[700]),
                           ),
                         ),
                       ],
@@ -338,7 +351,8 @@ class _XiaoLiuRen extends State<StatefulWidget> {
                   actions: [
                     TextButton(
                       style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        // 增加按钮内边距
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8), // 圆角按钮
                         ),

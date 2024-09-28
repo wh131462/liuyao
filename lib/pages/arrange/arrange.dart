@@ -58,7 +58,7 @@ class _ArrangePageState extends State<ArrangePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ArrangeHistory(), // 请确保你有实现 HistoryPage
+        builder: (context) => ArrangeHistory(),
       ),
     );
   }
