@@ -8,6 +8,7 @@ import 'package:liuyao/utils/logger.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart' as realm;
 
+import '../book/book_list.dart';
 import '../spinning/spinning_page.dart';
 
 class MyPage extends StatefulWidget {
@@ -169,6 +170,13 @@ class _MyPageState extends State<MyPage> {
                         builder: (context) => XiaoLiuRenPage(),
                       ));
                   break;
+                case "古籍阅读":
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookList(),
+                      ));
+                  break;
                 case "备份设置":
                   break;
                 case "关于软件":
@@ -191,6 +199,7 @@ class _MyPageState extends State<MyPage> {
     "卦象转盘",
     "小六壬排盘",
     //  "备份设置",
+    "古籍阅读",
     "关于软件"
   ];
 }
