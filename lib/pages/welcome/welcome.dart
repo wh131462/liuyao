@@ -1,78 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao/navigation/pages.const.dart';
-import 'package:liuyao/styles/iconfont.dart';
-import 'package:liuyao/utils/logger.dart';
-
-export "./welcome.dart";
+import '../../styles/iconfont.dart';
+import '../tools/tools_page.dart';
+import '../arrange/arrange.dart';
+import '../hexagrams/hexagrams_page.dart';
+import '../my/my.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({super.key});
+  const WelcomePage({Key? key}) : super(key: key);
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage>
-    with TickerProviderStateMixin {
-  // 定义page控制器
-  final PageController _pageController = PageController(initialPage: 0);
+class _WelcomePageState extends State<WelcomePage> {
   int _currentIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    logger.info("六爻通神: 项目已启动!");
-    // 初始化Tab控制器
-    _pageController.addListener(() {
-      setState(() {
-        _currentIndex = _pageController.page?.round() ?? 0;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    // 释放Tab控制器资源
-    _pageController.dispose();
-    super.dispose();
-  }
+  final List<Widget> _pages = [
+    const ArrangePage(), // 使用排盘页面作为首页
+    const ToolsPage(), // 工具页
+    HexagramsPage(), // 原有的六十四卦页面
+    const MyPage(), // 我的页面
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: getPages(),
-      ),
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(IconFont.arrange, size: 16.0, color: Colors.grey),
-            activeIcon:
-                Icon(IconFont.arrange, size: 16.0, color: Colors.blueAccent),
-            label: '排盘',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(IconFont.read, size: 18.0, color: Colors.grey),
-            activeIcon:
-                Icon(IconFont.read, size: 18.0, color: Colors.blueAccent),
-            label: '六十四卦',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(IconFont.my, size: 16.0, color: Colors.grey),
-            activeIcon: Icon(IconFont.my, size: 16.0, color: Colors.blueAccent),
-            label: '我的',
-          ),
-        ],
+        type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            _pageController.animateToPage(index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut);
           });
         },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(IconFont.arrange),
+            activeIcon: Icon(IconFont.arrange),
+            label: '首页',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help_outline),
+            activeIcon: Icon(Icons.help),
+            label: '工具',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(IconFont.read),
+            activeIcon: Icon(IconFont.read),
+            label: '六十四卦',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
+            label: '我的',
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
 
 class LiuYaoUtil {
@@ -52,10 +53,35 @@ class LiuYaoUtil {
   // region 本卦
   /// 获取本卦卦列表
   static List<Gua> getOriginalHexagramGuaListByNumber(List<int> numList) {
+    // 确保输入列表长度正确
+    if (numList.isEmpty) {
+      throw ArgumentError('输入数字列表不能为空');
+    }
+
+    // 确保有足够的数字来生成卦象
     List<Yao> yaoList = getYaoListByNumberDsc(numList);
-    Gua guaUp = Gua.getGuaByYaoList(yaoList.getRange(0, 3).toList());
-    Gua guaDown = Gua.getGuaByYaoList(yaoList.getRange(3, 6).toList());
-    return [guaUp, guaDown];
+    if (yaoList.length < 6) {
+      // 如果爻的数量不足，用阴爻补齐
+      while (yaoList.length < 6) {
+        yaoList.add(Yao.yin);
+      }
+    }
+
+    try {
+      // 获取上卦（前三爻）
+      List<Yao> upperYao = yaoList.sublist(0, 3);
+      Gua guaUp = Gua.getGuaByYaoList(upperYao);
+
+      // 获取下卦（后三爻）
+      List<Yao> lowerYao = yaoList.sublist(3, 6);
+      Gua guaDown = Gua.getGuaByYaoList(lowerYao);
+
+      return [guaUp, guaDown];
+    } catch (e) {
+      debugPrint('生成卦象失败: $e');
+      // 返回默认卦象（坤卦）
+      return [Gua.kun, Gua.kun];
+    }
   }
 
   /// 获取本卦卦象
@@ -169,7 +195,10 @@ class LiuYaoUtil {
   /// 生成六爻
   static List<int> generateLiuYao() {
     List<int> list = [];
-    list.fillRange(0, 5, generateYao());
+    // 生成6个爻
+    for (int i = 0; i < 6; i++) {
+      list.add(generateYao());
+    }
     return list;
   }
 // endregion

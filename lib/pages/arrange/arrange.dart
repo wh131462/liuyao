@@ -1,83 +1,121 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
 import 'package:liuyao/pages/arrange/arrange.detail.dart';
-import 'package:liuyao/store/schemas.dart';
 import 'package:liuyao/utils/liuyao.util.dart';
 import 'package:provider/provider.dart';
-import 'package:realm/realm.dart';
+import 'package:uuid/uuid.dart';
+import 'package:liuyao/core/file/file_manager.dart';
 
-import '../../store/store.dart';
 import '../calendar/calendar.dart';
 import 'arrange.history.dart';
 import 'divination.input.dart';
+import '../../models/history_item.dart';
+import '../../services/database_service.dart';
+import '../../store/store.dart';
 
 class ArrangePage extends StatefulWidget {
+  const ArrangePage({Key? key}) : super(key: key);
+
   @override
-  _ArrangePageState createState() => _ArrangePageState();
+  State<ArrangePage> createState() => _ArrangePageState();
 }
 
 class _ArrangePageState extends State<ArrangePage> {
-  final TextEditingController _numberEditingController = TextEditingController();
-  final TextEditingController _textEditingController = TextEditingController();
-  late StoreService storeService;
+  final _questionController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
+  String? _selectedImagePath;
 
-  String generateRandomNumber() {
-    const String possibleCharacters = '6789';
-    const int length = 6;
-    var random = Random();
-    return String.fromCharCodes(Iterable.generate(length, (_) {
-      return possibleCharacters.codeUnitAt(random.nextInt(possibleCharacters.length));
-    }));
+  @override
+  void dispose() {
+    _questionController.dispose();
+    super.dispose();
   }
 
-  void _navigateToResultPage() {
-    if (_numberEditingController.text.isNotEmpty) {
-      storeService.update<HistoryItem>(HistoryItem(Uuid.v4(), _textEditingController.text, _numberEditingController.text, 0, Uuid.v4(), DateTime.now().millisecondsSinceEpoch));
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ArrangeDetailPage(
-            question: _textEditingController.text,
-            answer: _numberEditingController.text,
-          ),
-        ),
+  Future<void> _handleSubmit() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() => _isLoading = true);
+
+    try {
+      final question = _questionController.text;
+      final answer = _generateAnswer(); // 生成卦象答案的方法
+      
+      // 创建新的历史记录
+      final historyItem = HistoryItem(
+        id: const Uuid().v4(),
+        question: question,
+        originAnswer: answer,
+        timestamp: DateTime.now().millisecondsSinceEpoch,
       );
+
+      // 保存到数据库
+      final storeService = context.read<StoreService>();
+      await storeService.insertHistory(historyItem);
+
+      // 清空输入
+      _questionController.clear();
+
+      // 导航到详情页
+      if (mounted) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArrangeDetailPage(
+              question: question,
+              answer: answer,
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('保存失败: $e')),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
-  void _cyberShake() {
-    setState(() {
-      _numberEditingController.text = generateRandomNumber();
-    });
+  String _generateAnswer() {
+    // TODO: 实现六爻卦象生成逻辑
+    // 这里应该实现实际的卦象生成算法
+    return "乾为天";
   }
 
-  void _viewHistory() {
-    // 处理查看历史记录的逻辑
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ArrangeHistory(),
-      ),
-    );
+  Future<void> _pickImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? file = await picker.pickImage(source: ImageSource.gallery);
+    
+    if (file != null) {
+      final savedFile = await FileManager.importFile(file.path, 'avatar');
+      if (savedFile != null) {
+        setState(() {
+          _selectedImagePath = savedFile.path;
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    storeService = context.watch<StoreService>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('六爻排盘'),
+        title: const Text('求问'),
         actions: [
           IconButton(
-            icon: Icon(Icons.calendar_today),
+            icon: const Icon(Icons.history),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => CalendarPage(),  // 跳转到日历页面
-                ),
+                MaterialPageRoute(builder: (context) => ArrangeHistory()),
               );
             },
           ),
@@ -85,57 +123,44 @@ class _ArrangePageState extends State<ArrangePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _textEditingController,
-              decoration: InputDecoration(
-                labelText: '何惑？',
-                labelStyle: TextStyle(fontSize: 18),
-                border: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                controller: _questionController,
+                decoration: const InputDecoration(
+                  labelText: '请输入您的问题',
+                  border: OutlineInputBorder(),
                 ),
+                maxLines: 3,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return '请输入问题';
+                  }
+                  return null;
+                },
               ),
-            ),
-            SizedBox(height: 20),
-            DivinationInput(numberEditingController: _numberEditingController,),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: _cyberShake,
-                  icon: Icon(Icons.shuffle),
-                  label: Text('赛博摇卦'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    textStyle: TextStyle(fontSize: 16),
-                  ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: _isLoading ? null : _handleSubmit,
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                ElevatedButton.icon(
-                  onPressed: _navigateToResultPage,
-                  icon: Icon(Icons.play_arrow),
-                  label: Text('开始排盘'),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    textStyle: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            ElevatedButton.icon(
-              onPressed: _viewHistory,
-              icon: Icon(Icons.history),
-              label: Text('查看历史记录'),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                textStyle: TextStyle(fontSize: 16),
+                child: _isLoading
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      )
+                    : const Text('开始求问'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

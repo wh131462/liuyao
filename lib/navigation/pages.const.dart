@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:liuyao/pages/arrange/arrange.dart';
-import 'package:liuyao/pages/hexagrams/hexagrams.dart';
+import 'package:liuyao/pages/hexagrams/hexagrams_page.dart';
 import 'package:liuyao/pages/my/my.dart';
 import 'package:liuyao/styles/iconfont.dart';
 

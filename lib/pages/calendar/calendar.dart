@@ -6,7 +6,8 @@ import 'package:lunar/lunar.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../store/schemas.dart';
+import '../../models/history_item.dart';
+import '../../services/database_service.dart';
 import '../../store/store.dart';
 import '../arrange/item.card.dart';
 
@@ -96,63 +97,65 @@ class _CalendarPageState extends State<CalendarPage>
     return GridView.builder(
       controller: _scrollController,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // 每行显示4个年份
-        mainAxisSpacing: 10.0, // 主轴方向间距
-        crossAxisSpacing: 10.0, // 交叉轴方向间距
-        childAspectRatio: 2, // 宽高比
+        crossAxisCount: 3,
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+        childAspectRatio: 2,
       ),
-      itemCount: null, // 设置为null表示无限制
+      itemCount: null,
       itemBuilder: (context, index) {
-        int year = 1970 + index; // 从当前年份的10年前开始显示
-        DateTime yearStart = DateTime(year);
-        DateTime yearEnd = DateTime(year + 1);
-        int dataCount = storeService
-            .query<HistoryItem>(
-                "timestamp >= ${yearStart.millisecondsSinceEpoch} AND timestamp < ${yearEnd.millisecondsSinceEpoch}")
-            .length;
-        return GestureDetector(
-            onTap: () {
-              setState(() {
-                _focusedDay = DateTime(year, 1, 1);
-              });
-              _tabController?.animateTo(1); // 切换到月视图
-            },
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '$year',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 16,
+        int year = 1970 + index;
+        return FutureBuilder<List<HistoryItem>>(
+          future: storeService.queryHistoryByYear(year),
+          builder: (context, snapshot) {
+            int dataCount = snapshot.hasData ? snapshot.data!.length : 0;
+            
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  _focusedDay = DateTime(year, 1, 1);
+                });
+                _tabController?.animateTo(1); // 切换到月视图
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '$year',
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
-                ),
-                if (dataCount > 0)
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 6, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          '$dataCount', // 显示数据量或空
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal),
+                  if (dataCount > 0)
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Text(
+                            '$dataCount',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-              ],
-            ));
+                ],
+              ),
+            );
+          },
+        );
       },
     );
   }
@@ -243,90 +246,92 @@ class _CalendarPageState extends State<CalendarPage>
       StoreService storeService, DateTime _focusedDay) {
     // 构建函数
     builder(context, DateTime day, DateTime focusedDay) {
-      Lunar lunarDate = Lunar.fromDate(day);
-      Solar solarDate = Solar.fromDate(day);
-      bool isToday = "${day.year}${day.month}${day.day}" ==
-          "${DateTime.now().year}${DateTime.now().month}${DateTime.now().day}";
-      // 检查是否是节假日
-      bool isHoliday = lunarDate.getFestivals().isNotEmpty ||
-          solarDate.getFestivals().isNotEmpty;
-      bool isLunarStart = lunarDate.getDayInChinese() == "初一"; // 判断是否是每月的开始
-      String lunarFestival = lunarDate.getFestivals().join();
-      String solarFestival = solarDate.getFestivals().join();
-      String holiday = isHoliday
-          ? (lunarFestival.isNotEmpty ? lunarFestival : solarFestival)
-          : "";
-      // 计算当天的数据量（示例）
-      int dataCount = storeService
-          .query<HistoryItem>(
-              "timestamp >= ${day.millisecondsSinceEpoch} AND timestamp < ${day.millisecondsSinceEpoch + 86400000}")
-          .length;
-      bool hasQuestion = dataCount > 0;
-      return Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  '${day.day}',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: isToday
-                        ? Colors.blueAccent // 今天的日期颜色
-                        : (day.month == _focusedDay.month
-                            ? Colors.black87
-                            : Colors.grey),
-                  ),
-                ),
-                SizedBox(height: 4),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    isHoliday
-                        ? holiday
-                        : isLunarStart
-                            ? lunarDate.getMonthInChinese() + "月"
-                            : lunarDate.getDayInChinese(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: isHoliday
-                          ? Colors.teal
-                          : (isToday
-                              ? Colors.blueAccent // 今天的日期颜色
-                              : (day.month == _focusedDay.month
-                                  ? Colors.black87
-                                  : Colors.grey)),
+      return FutureBuilder<List<HistoryItem>>(
+        future: storeService.queryHistoryByDate(day),
+        builder: (context, snapshot) {
+          int dataCount = snapshot.hasData ? snapshot.data!.length : 0;
+          bool hasQuestion = dataCount > 0;
+          
+          Lunar lunarDate = Lunar.fromDate(day);
+          Solar solarDate = Solar.fromDate(day);
+          bool isToday = "${day.year}${day.month}${day.day}" ==
+              "${DateTime.now().year}${DateTime.now().month}${DateTime.now().day}";
+          // 检查是否是节假日
+          bool isHoliday = lunarDate.getFestivals().isNotEmpty ||
+              solarDate.getFestivals().isNotEmpty;
+          bool isLunarStart = lunarDate.getDayInChinese() == "初一"; // 判断是否是每月的开始
+          String lunarFestival = lunarDate.getFestivals().join();
+          String solarFestival = solarDate.getFestivals().join();
+          String holiday = isHoliday
+              ? (lunarFestival.isNotEmpty ? lunarFestival : solarFestival)
+              : "";
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${day.day}',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: isToday
+                            ? Colors.blueAccent // 今天的日期颜色
+                            : (day.month == _focusedDay.month
+                                ? Colors.black87
+                                : Colors.grey),
+                      ),
                     ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          if (hasQuestion)
-            Positioned(
-              right: 2,
-              top: -4,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  // 节假日和普通数据标记的颜色区分
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: Text(
-                    '${dataCount > 0 ? dataCount : ''}', // 显示数据量或空
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.normal),
-                  ),
+                    SizedBox(height: 4),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        isHoliday
+                            ? holiday
+                            : isLunarStart
+                                ? lunarDate.getMonthInChinese() + "月"
+                                : lunarDate.getDayInChinese(),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: isHoliday
+                              ? Colors.teal
+                              : (isToday
+                                  ? Colors.blueAccent // 今天的日期颜色
+                                  : (day.month == _focusedDay.month
+                                      ? Colors.black87
+                                      : Colors.grey)),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-        ],
+              if (hasQuestion)
+                Positioned(
+                  right: 2,
+                  top: -4,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      // 节假日和普通数据标记的颜色区分
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        '${dataCount > 0 ? dataCount : ''}', // 显示数据量或空
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.normal),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          );
+        },
       );
     }
 
@@ -355,20 +360,20 @@ class DayDetailPage extends StatefulWidget {
 
 class _DayDetailPageState extends State<DayDetailPage> {
   late StoreService storeService;
-  late List<HistoryItem> todayQuestions;
+  List<HistoryItem> todayQuestions = [];
 
   @override
   void initState() {
     super.initState();
     storeService = context.read<StoreService>();
+    _loadTodayQuestions();
+  }
 
-    DateTime startOfDay =
-        DateTime(widget.date.year, widget.date.month, widget.date.day, 0, 0, 0);
-    DateTime endOfDay = DateTime(
-        widget.date.year, widget.date.month, widget.date.day, 23, 59, 59);
-
-    todayQuestions = storeService.query<HistoryItem>(
-        "timestamp >= ${startOfDay.millisecondsSinceEpoch} AND timestamp <= ${endOfDay.millisecondsSinceEpoch}");
+  Future<void> _loadTodayQuestions() async {
+    final questions = await storeService.queryHistoryByDate(widget.date);
+    setState(() {
+      todayQuestions = questions;
+    });
   }
 
   @override
@@ -392,7 +397,27 @@ class _DayDetailPageState extends State<DayDetailPage> {
           children: [
             _buildDateInfo(solar, lunar),
             SizedBox(height: 16),
-            _buildQuestionsList(todayQuestions),
+            Expanded(
+              child: FutureBuilder<List<HistoryItem>>(
+                future: storeService.queryHistoryByDate(widget.date),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  
+                  if (snapshot.hasError) {
+                    return Center(child: Text('加载失败: ${snapshot.error}'));
+                  }
+                  
+                  final questions = snapshot.data ?? [];
+                  if (questions.isEmpty) {
+                    return Center(child: Text('当日无求问记录'));
+                  }
+                  
+                  return _buildQuestionsList(questions);
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -467,60 +492,43 @@ class _DayDetailPageState extends State<DayDetailPage> {
   }
 
   Widget _buildQuestionsList(List<HistoryItem> questions) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '今日求问过的问题:',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 8),
-        questions.isEmpty
-            ? Text('当日无求问记录')
-            : Flexible(
-                fit: FlexFit.loose,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: questions.length,
-                  itemBuilder: (context, index) {
-                    final item = questions[index];
-                    return HistoryItemCard(
-                      item: item,
-                      onDelete: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('确认删除'),
-                              content: Text('你确定要删除这个条目吗？'),
-                              actions: [
-                                TextButton(
-                                  child: Text('取消'),
-                                  onPressed: () {
-                                    Navigator.of(context).pop(); // 关闭弹窗
-                                  },
-                                ),
-                                TextButton(
-                                  child: Text('删除'),
-                                  onPressed: () {
-                                    storeService.delete<HistoryItem>(item);
-                                    Navigator.of(context).pop(); // 关闭弹窗
-                                    setState(() {
-                                      questions.remove(item); // 从列表中移除该项
-                                    });
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: questions.length,
+      itemBuilder: (context, index) {
+        final item = questions[index];
+        return HistoryItemCard(
+          item: item,
+          onDelete: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('确认删除'),
+                  content: Text('你确定要删除这个条目吗？'),
+                  actions: [
+                    TextButton(
+                      child: Text('取消'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
                       },
-                    );
-                  },
-                ),
-              ),
-      ],
+                    ),
+                    TextButton(
+                      child: Text('删除'),
+                      onPressed: () async {
+                        final dbService = Provider.of<DatabaseService>(context, listen: false);
+                        await dbService.deleteHistory(item.id);
+                        Navigator.of(context).pop();
+                        _loadTodayQuestions(); // 重新加载数据
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        );
+      },
     );
   }
 }

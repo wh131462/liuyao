@@ -40,20 +40,36 @@ dependencies:
   url_launcher: ^6.3.0
   path_provider: ^2.1.3
   logger: ^2.3.0
-  realm: ^3.4.1
   provider: ^6.1.2
   table_calendar: ^3.1.2
   package_info_plus: ^8.0.2
-  shared_preferences: ^2.3.2
+  shared_preferences: ^2.3.4
   widget_spinning_wheel: ^0.0.5
   video_player: ^2.9.1
   flutter_pdfview: ^1.3.3
   flutter_epub_viewer: ^1.1.4
+  image_picker: ^1.0.7
+  image_cropper: ^8.1.0
+  dio: ^5.4.0
+  syncfusion_flutter_pdfviewer: ^28.1.36
+  file_picker: ^8.1.7
+  cached_network_image: ^3.3.1
+  path: ^1.8.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_filereader: ^3.0.0
+  connectivity_plus: ^6.1.1
+  sqflite: ^2.3.0
+  uuid: ^4.3.3
+  flutter_colorpicker: ^1.0.3
+  intl: ^0.19.0
+  archive: ^3.4.10
+  pdf_render: ^1.4.2
+
 dev_dependencies:
-  path: ^1.9.0
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.2
   yaml: ^3.1.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -61,7 +77,11 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
+  analyzer: 5.13.0
+
+dependency_overrides:
+  analyzer: 5.13.0
 
 flutter_icons:
   android: true
@@ -74,9 +94,7 @@ flutter_icons:
 flutter:
   assets:
     - assets/images/
-    - assets/images/xiang/
-    - assets/icon/
-    - assets/videos/
+    - assets/images/books/
     - assets/book/
   fonts:
     - family: IconFont
@@ -117,3 +135,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

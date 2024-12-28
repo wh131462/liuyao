@@ -3,7 +3,8 @@ import 'package:liuyao/constants/liuyao.const.dart';
 import 'package:liuyao/pages/arrange/arrange.detail.dart';
 import 'package:liuyao/utils/liuyao.util.dart';
 import 'package:flutter/material.dart';
-import 'package:liuyao/store/schemas.dart';
+
+import '../../models/history_item.dart';
 
 class HistoryItemCard extends StatelessWidget {
   final HistoryItem item;

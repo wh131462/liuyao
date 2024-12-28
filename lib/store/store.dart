@@ -1,126 +1,179 @@
-import 'package:liuyao/utils/logger.dart';
-import 'package:realm/realm.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'schemas.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+import '../models/history_item.dart';
+import '../models/user_info.dart';
+import '../services/database_service.dart';
 
 class StoreService {
-  late Realm realm;
-  late SharedPreferences sharedPreferences;
-  StoreService._internal(this.realm, this.sharedPreferences);
-  static Future<StoreService> initialize(List<SchemaObject> schemas) async {
-    final config = Configuration.local(schemas,
-        schemaVersion: 3,
-        migrationCallback: migrationCallback);
-    Realm realm = Realm(config);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    logger.info("初始化完成");
-    return StoreService._internal(realm, prefs);
+  final DatabaseService _db;
+  late Database _localDb;
+  
+  StoreService(this._db);
+
+  // 初始化本地存储数据库
+  Future<void> initializeLocal() async {
+    String path = join(await getDatabasesPath(), 'local_storage.db');
+    _localDb = await openDatabase(
+      path,
+      version: 1,
+      onCreate: (Database db, int version) async {
+        await db.execute('''
+          CREATE TABLE local_storage(
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL
+          )
+        ''');
+      },
+    );
   }
 
-  // region sharedPreferences
-  // 获取本地值
-  dynamic getLocal(String key){
-    if (sharedPreferences.containsKey(key)) {
-      return sharedPreferences.get(key);
-    }
-    return null;
-  }
-  // 设置本地缓存 根据传入类型设置存储
-  Future<dynamic> setLocal(String key, dynamic value) async{
-    if (value is String) {
-      await sharedPreferences.setString(key, value);
-    } else if (value is int) {
-      await sharedPreferences.setInt(key, value);
-    } else if (value is bool) {
-      await sharedPreferences.setBool(key, value);
-    } else if (value is double) {
-      await sharedPreferences.setDouble(key, value);
-    } else if (value is List<String>) {
-      await sharedPreferences.setStringList(key, value);
-    } else {
-      throw Exception("Unsupported value type");
-    }
-  }
-  // 删除key的数据
-  void deleteLocal(String key){
-    sharedPreferences.remove(key);
-  }
-
-  // endregion
-  // region realm
-  // 添加或更新对象
-  void update<T extends RealmObject>(T item) {
-    realm.write(() {
-      realm.add(item, update: true);
-    });
-  }
-
-  // 获取所有对象
-  List<T> getAll<T extends RealmObject>() {
-    return realm.all<T>().toList();
-  }
-
-  // 根据主键获取对象
-  T? getById<T extends RealmObject>(Uuid id) {
-    return realm.find<T>(id);
-  }
-
-  // 删除对象
-  void delete<T extends RealmObject>(T item) {
-    realm.write(() {
-      realm.delete(item);
-    });
-  }
-
-  // 根据主键删除对象
-  void deleteById<T extends RealmObject>(Uuid id) {
-    final item = getById<T>(id);
-    if (item != null) {
-      delete(item);
-    }
-  }
-
-  //删除全部数据
-  void deleteAll<T extends RealmObject>() {
-    realm.write(() {
-      realm.deleteAll<T>();
-    });
-  }
-
-  // 查询对象
-  List<T> query<T extends RealmObject>(String query) {
-    return realm.all<T>().query(query).toList();
-  }
-
-  // 关闭 Realm 实例
-  void close() {
-    realm.close();
-  }
-  // endregion
-}
-
-void migrationCallback(Migration migration, int oldSchemaVersion) {
-  final newRealm = migration.newRealm;
-  final oldRealm = migration.oldRealm;
-
-  // 0-1
-  if (oldSchemaVersion < 1) {
-    // 处理从版本 0 到版本 1 的迁移逻辑，例如将 DateTime 转为时间戳
-    final oldHistoryItems = oldRealm.all('HistoryItem');
-    for (var oldItem in oldHistoryItems) {
-      final newItem = newRealm.find<HistoryItem>(oldItem.dynamic.get('id'));
-      if (newItem != null && oldItem is HistoryItem) {
-        newItem.timestamp =
-            (oldItem.timestamp as DateTime).millisecondsSinceEpoch;
+  // 获取本地存储的值
+  Future<String?> getLocal(String key) async {
+    try {
+      final List<Map<String, dynamic>> maps = await _localDb.query(
+        'local_storage',
+        columns: ['value'],
+        where: 'key = ?',
+        whereArgs: [key],
+      );
+      if (maps.isNotEmpty) {
+        return maps.first['value'] as String;
       }
+      return null;
+    } catch (e) {
+      print('Error getting local storage value: $e');
+      return null;
     }
-    logger.info("处理数据库迁移升级");
   }
-  // 1-2
-  if (oldSchemaVersion < 2) {
-    // 不需要调整
+
+  // 设置本地存储的值
+  Future<void> setLocal(String key, String value) async {
+    try {
+      await _localDb.insert(
+        'local_storage',
+        {'key': key, 'value': value},
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    } catch (e) {
+      print('Error setting local storage value: $e');
+    }
   }
-  // 2-3
-  if (oldSchemaVersion < 3) {}
+
+  // 删除本地存储的值
+  Future<void> removeLocal(String key) async {
+    try {
+      await _localDb.delete(
+        'local_storage',
+        where: 'key = ?',
+        whereArgs: [key],
+      );
+    } catch (e) {
+      print('Error removing local storage value: $e');
+    }
+  }
+
+  // 获取所有历史记录
+  Future<List<HistoryItem>> getAllHistory() async {
+    return await _db.getAllHistory();
+  }
+
+  // 按时间范围查询历史记录
+  Future<List<HistoryItem>> queryHistoryByTimeRange(DateTime start, DateTime end) async {
+    final allHistory = await _db.getAllHistory();
+    return allHistory.where((item) {
+      return item.createdAt.isAfter(start) && 
+             item.createdAt.isBefore(end);
+    }).toList();
+  }
+
+  // 查询指定日期的历史记录
+  Future<List<HistoryItem>> queryHistoryByDate(DateTime date) async {
+    final startOfDay = DateTime(date.year, date.month, date.day);
+    final endOfDay = startOfDay.add(Duration(days: 1));
+    return queryHistoryByTimeRange(startOfDay, endOfDay);
+  }
+
+  // 按年份查询历史记录
+  Future<List<HistoryItem>> queryHistoryByYear(int year) async {
+    final startOfYear = DateTime(year);
+    final endOfYear = DateTime(year + 1);
+    return queryHistoryByTimeRange(startOfYear, endOfYear);
+  }
+
+  // 按月份查询历史记录
+  Future<List<HistoryItem>> queryHistoryByMonth(int year, int month) async {
+    final startOfMonth = DateTime(year, month);
+    final endOfMonth = DateTime(year, month + 1);
+    return queryHistoryByTimeRange(startOfMonth, endOfMonth);
+  }
+
+  Future<void> close() async {
+    await _localDb.close();
+    final database = await _db.database;
+    await database.close();
+  }
+
+  // 获取所有记录
+  List<HistoryItem> getAll<T>() {
+    if (T == HistoryItem) {
+      // 由于 getAllHistory 是异步的，我们需要先获取数据
+      List<HistoryItem> items = [];
+      _db.getAllHistory().then((value) {
+        items = value;
+      });
+      return items;
+    }
+    throw UnimplementedError('getAll not implemented for type $T');
+  }
+
+  // 删除记录
+  Future<void> delete<T>(T item) async {
+    if (T == HistoryItem && item is HistoryItem) {
+      await _db.deleteHistory(item.id);
+      return;
+    }
+    throw UnimplementedError('delete not implemented for type $T');
+  }
+
+  // 修改 ArrangeHistory 以使用异步方法
+  Future<List<HistoryItem>> getAllHistoryItems() async {
+    return await _db.getAllHistory();
+  }
+
+  // 添加新的历史记录
+  Future<String> insertHistory(HistoryItem item) async {
+    return await _db.insertHistory(item);
+  }
+
+  // 获取用户信息
+  Future<UserInfo?> getUserInfo(String userId) async {
+    return await _db.getUserInfo(userId);
+  }
+
+  // 更新用户信息
+  Future<int> updateUserInfo(UserInfo userInfo) async {
+    return await _db.updateUserInfo(userInfo);
+  }
+
+  // 插入新用户信息
+  Future<String> insertUserInfo(UserInfo userInfo) async {
+    return await _db.insertUserInfo(userInfo);
+  }
+
+  // 获取当前用户信息
+  Future<UserInfo?> getCurrentUser() async {
+    final userId = await getLocal('current_user_id');
+    if (userId == null) return null;
+    return await getUserInfo(userId);
+  }
+
+  // 设置当前用户
+  Future<void> setCurrentUser(String userId) async {
+    await setLocal('current_user_id', userId);
+  }
+
+  // 清除当前用户
+  Future<void> clearCurrentUser() async {
+    await removeLocal('current_user_id');
+  }
 }
