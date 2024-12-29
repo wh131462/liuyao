@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
-
 import '../../models/book.dart';
 
 class BookCover extends StatelessWidget {
@@ -18,51 +16,74 @@ class BookCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
+    return Stack(
+      children: [
+        Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: FutureBuilder<String?>(
-          future: book.getCoverUrl(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data != null) {
-              final coverUrl = snapshot.data!;
-              if (coverUrl.startsWith('assets/')) {
-                return Image.asset(
-                  coverUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
-                );
-              } else if (coverUrl.startsWith('/')) {
-                return Image.file(
-                  File(coverUrl),
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
-                );
-              } else {
-                return Image.network(
-                  coverUrl,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
-                );
-              }
-            }
-            return _buildDefaultCover();
-          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: FutureBuilder<String?>(
+              future: book.getCoverUrl(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data != null) {
+                  final coverUrl = snapshot.data!;
+                  if (coverUrl.startsWith('assets/')) {
+                    return Image.asset(
+                      coverUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
+                    );
+                  } else if (coverUrl.startsWith('/')) {
+                    return Image.file(
+                      File(coverUrl),
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
+                    );
+                  } else {
+                    return Image.network(
+                      coverUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => _buildDefaultCover(),
+                    );
+                  }
+                }
+                return _buildDefaultCover();
+              },
+            ),
+          ),
         ),
-      ),
+        Positioned(
+          top: 8,
+          right: 8,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: _getFileTypeColor(book.path),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(
+              _getFileType(book.path),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -83,5 +104,23 @@ class BookCover extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getFileType(String? path) {
+    if (path == null) return '';
+    if (path.toLowerCase().endsWith('.pdf')) return 'PDF';
+    if (path.toLowerCase().endsWith('.epub')) return 'EPUB';
+    return path.split('.').last.toUpperCase();
+  }
+
+  Color _getFileTypeColor(String? path) {
+    if (path == null) return Colors.grey;
+    if (path.toLowerCase().endsWith('.pdf')) {
+      return Colors.red.shade700;
+    }
+    if (path.toLowerCase().endsWith('.epub')) {
+      return Colors.blue.shade700;
+    }
+    return Colors.grey;
   }
 } 
