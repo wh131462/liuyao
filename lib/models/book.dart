@@ -1,82 +1,53 @@
+import 'dart:io';
 import '../constants/book.list.dart';
 import '../utils/book_cover_extractor.dart';
 import '../core/file/file_manager.dart';
 
 class Book {
-  final String id;
-  final String title;
-  final String? coverUrl;
-  final String? author;
-  final String? description;
   final String? path;
-  final String? name;
-  final DateTime addedDate;
-  String? _extractedCoverPath;
+  final String name;
+  final double size;  // 文件大小（MB）
+  final DateTime? lastRead;  // 最后阅读时间
+  final double progress;  // 阅读进度 (0.0 - 1.0)
 
   Book({
-    required this.id,
-    required this.title,
-    this.coverUrl,
-    this.author,
-    this.description,
     this.path,
-    this.name,
-    DateTime? addedDate,
-  }) : addedDate = addedDate ?? DateTime.now();
+    required this.name,
+    this.size = 0.0,
+    this.lastRead,
+    this.progress = 0.0,
+  });
 
+  // 从 BookDicItem 创建 Book 对象
   factory Book.fromBookDicItem(BookDicItem item) {
     return Book(
-      id: item.path,
-      title: item.name,
-      path: FileManager.getBookPath(item.path),
+      path: item.path,
       name: item.name,
+      size: 0.0,  // 转换为 MB
     );
   }
 
-  factory Book.fromJson(Map<String, dynamic> json) {
+  // 从 Map 创建 Book 对象
+  factory Book.fromMap(Map<String, dynamic> map) {
     return Book(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      coverUrl: json['coverUrl'] as String?,
-      author: json['author'] as String?,
-      description: json['description'] as String?,
-      path: json['path'] as String?,
-      name: json['name'] as String?,
-      addedDate: json['addedDate'] != null 
-          ? DateTime.parse(json['addedDate'] as String)
+      path: map['path'] as String?,
+      name: map['name'] as String,
+      size: (map['size'] as num?)?.toDouble() ?? 0.0,
+      lastRead: map['lastRead'] != null 
+          ? DateTime.parse(map['lastRead'] as String) 
           : null,
+      progress: (map['progress'] as num?)?.toDouble() ?? 0.0,
     );
   }
 
-  Map<String, dynamic> toJson() {
+  // 转换为 Map
+  Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'title': title,
-      'coverUrl': coverUrl,
-      'author': author,
-      'description': description,
       'path': path,
       'name': name,
-      'addedDate': addedDate.toIso8601String(),
+      'size': size,
+      'lastRead': lastRead?.toIso8601String(),
+      'progress': progress,
     };
-  }
-
-  Future<String?> getCoverUrl() async {
-    if (coverUrl != null && coverUrl!.isNotEmpty) {
-      return coverUrl;
-    }
-    
-    // 如果已经提取过封面，直接返回
-    if (_extractedCoverPath != null) {
-      return _extractedCoverPath;
-    }
-
-    // 尝试从文件中提取封面
-    if (path != null && path!.isNotEmpty) {
-      _extractedCoverPath = await BookCoverExtractor.extractCover(path!);
-      return _extractedCoverPath;
-    }
-
-    return null;
   }
 } 

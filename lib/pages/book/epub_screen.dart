@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:liuyao/utils/logger.dart';
 import 'package:vocsy_epub_viewer/epub_viewer.dart';
-import 'dart:io';
-import 'package:path_provider/path_provider.dart';
-import 'package:flutter/services.dart';
-import 'package:path/path.dart' as path;
+import 'package:liuyao/core/reading/reading_settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class EPUBScreen extends StatefulWidget {
   final String path;
@@ -19,138 +19,123 @@ class EPUBScreen extends StatefulWidget {
   State<EPUBScreen> createState() => _EPUBScreenState();
 }
 
-class _EPUBScreenState extends State<EPUBScreen> {
-  bool _isLoading = true;
-  String? _error;
+class _EPUBScreenState extends State<EPUBScreen> with WidgetsBindingObserver{
+  static const String _progressKeyPrefix = 'epub_progress_';
+  bool _hasOpened = false;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _loadEpub();
-    });
+    _loadSettings();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  void _navigateToBookList() {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      '/book',
+          (route) => false,
+    );
+  }
+
+  Future<void> _loadSettings() async {
+    if (_hasOpened) return;
+
+    final darkMode = await ReadingSettings.getDarkMode();
+    final lastLocation = await _getLastLocation();
+
+    // 配置阅读器
+    VocsyEpub.setConfig(
+      themeColor: Theme.of(context).primaryColor,
+      identifier: widget.path,
+      scrollDirection: EpubScrollDirection.VERTICAL,
+      allowSharing: false,
+      enableTts: false,
+      nightMode: darkMode ?? false,
+    );
+
+    _openEpub(lastLocation);
+  }
+
+  Future<EpubLocator?> _getLastLocation() async {
+    final prefs = await SharedPreferences.getInstance();
+    final locationJson = prefs.getString('$_progressKeyPrefix${widget.path}');
+    if (locationJson == null) return null;
+
+    try {
+      final Map<String, dynamic> locationMap = json.decode(locationJson);
+      return EpubLocator.fromJson(locationMap);
+    } catch (e) {
+      print('Error parsing saved location: $e');
+      return null;
+    }
+  }
+
+  Future<void> _saveLastLocation(String locationJson) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('$_progressKeyPrefix${widget.path}', locationJson);
+  }
+
+  Future<void> _openEpub([EpubLocator? lastLocation]) async {
+    if (_hasOpened) return;
+    _hasOpened = true;
+
+    try {
+      // 打开电子书
+      if (widget.path.startsWith('assets/')) {
+        await VocsyEpub.openAsset(
+          widget.path,
+          lastLocation: lastLocation,
+        );
+      } else {
+        VocsyEpub.open(
+          widget.path,
+          lastLocation: lastLocation,
+        );
+      }
+
+      // 监听阅读位置
+      VocsyEpub.locatorStream.listen((locator) {
+        if (locator != null) {
+          _saveLastLocation(locator);
+        }
+      });
+
+    } catch (e) {
+      print('Error loading EPUB: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('打开失败: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        _navigateToBookList();
+      }
+    }
+  }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      _navigateToBookList();
+    }
+  }
+
+  @override
+  void dispose() {
+    _hasOpened = true;
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+    return PopScope(
+      canPop: true,
+      child: Scaffold(
+        body: Center(
+          child: TextButton(onPressed: _navigateToBookList, child: Text('看到这个页面是不正常的,请点击关闭'))
         ),
-        title: Text(widget.name),
       ),
-      body: _buildBody(),
     );
-  }
-
-  Widget _buildBody() {
-    if (_error != null) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.error_outline,
-              size: 48,
-              color: Colors.red,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              '加载失败: $_error',
-              style: const TextStyle(color: Colors.red),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _loadEpub,
-              child: const Text('重试'),
-            ),
-          ],
-        ),
-      );
-    }
-
-    if (_isLoading) {
-      return const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
-            Text('正在加载...'),
-          ],
-        ),
-      );
-    }
-
-    return const SizedBox.shrink();
-  }
-
-  Future<String> _prepareEpubFile() async {
-    final isAsset = widget.path.startsWith('assets/');
-    if (!isAsset) {
-      return widget.path;
-    }
-
-    // 如果是 asset 文件，需要先复制到本地
-    final tempDir = await getTemporaryDirectory();
-    final fileName = path.basename(widget.path);
-    final localPath = path.join(tempDir.path, fileName);
-
-    // 检查文件是否已存在
-    final file = File(localPath);
-    if (!await file.exists()) {
-      // 从 asset 复制文件
-      final data = await rootBundle.load(widget.path);
-      final bytes = data.buffer.asUint8List();
-      await file.writeAsBytes(bytes);
-    }
-
-    return localPath;
-  }
-
-  Future<void> _loadEpub() async {
-    if (!mounted) return;
-
-    setState(() {
-      _isLoading = true;
-      _error = null;
-    });
-
-    try {
-      final filePath = await _prepareEpubFile();
-      final file = File(filePath);
-      if (!await file.exists()) {
-        throw '文件不存在';
-      }
-
-      // 配置阅读器
-      VocsyEpub.setConfig(
-        themeColor: Theme.of(context).primaryColor,
-        identifier: "epub_reader",
-        scrollDirection: EpubScrollDirection.HORIZONTAL,
-        allowSharing: true,
-        enableTts: false,
-      );
-      
-      // 打开电子书
-      if (!mounted) return;
-      await VocsyEpub.openAsset(filePath);
-      
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _error = e.toString();
-          _isLoading = false;
-        });
-      }
-    }
   }
 }

@@ -17,7 +17,7 @@ class SettingsPage extends StatelessWidget {
             title: const Text('主题设置'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
-              Navigator.pushNamed(context, '/reader_settings');
+              Navigator.pushNamed(context, '/theme_setting');
             },
           ),
           ListTile(

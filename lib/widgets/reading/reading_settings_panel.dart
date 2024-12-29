@@ -21,6 +21,81 @@ class ReadingSettingsPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget buildScrollModeSelector() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '阅读模式',
+            style: TextStyle(color: textColor),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: ScrollMode.values.map((mode) {
+              final isSelected = mode == currentScrollMode;
+              return ChoiceChip(
+                label: Text(mode.label),
+                selected: isSelected,
+                onSelected: (selected) {
+                  if (selected) onScrollModeChanged(mode);
+                },
+                selectedColor: Theme.of(context).primaryColor,
+                labelStyle: TextStyle(
+                  color: isSelected ? Colors.white : textColor,
+                ),
+                backgroundColor: isDarkMode ? Colors.grey[800] : null,
+              );
+            }).toList(),
+          ),
+        ],
+      );
+    }
+
+    Widget buildBrightnessControl() {
+      return Row(
+        children: [
+          Icon(Icons.brightness_medium, color: textColor),
+          const SizedBox(width: 8),
+          Expanded(
+            child: SliderTheme(
+              data: SliderTheme.of(context).copyWith(
+                activeTrackColor: Theme.of(context).primaryColor,
+                thumbColor: Theme.of(context).primaryColor,
+                inactiveTrackColor: isDarkMode ? Colors.grey[600] : Colors.grey[300],
+                overlayColor: Theme.of(context).primaryColor.withOpacity(0.12),
+                thumbShape: const RoundSliderThumbShape(
+                  enabledThumbRadius: 8,
+                  pressedElevation: 8,
+                ),
+                overlayShape: const RoundSliderOverlayShape(
+                  overlayRadius: 16,
+                ),
+                trackHeight: 4,
+              ),
+              child: Slider(
+                value: currentBrightness,
+                min: 0.0,
+                max: 1.0,
+                divisions: 100,
+                onChanged: onBrightnessChanged,
+                onChangeStart: (value) => onBrightnessChanged(value),
+                onChangeEnd: (value) => onBrightnessChanged(value),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 40,
+            child: Text(
+              '${(currentBrightness * 100).round()}%',
+              style: TextStyle(color: textColor),
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ],
+      );
+    }
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -42,66 +117,12 @@ class ReadingSettingsPanel extends StatelessWidget {
           const SizedBox(height: 16),
           
           // 翻页模式
-          Text('翻页模式', style: TextStyle(color: textColor)),
-          const SizedBox(height: 8),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: ScrollMode.values.map((mode) {
-                return Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: ChoiceChip(
-                    label: Text(
-                      mode.label,
-                      style: TextStyle(
-                        color: currentScrollMode == mode 
-                            ? Colors.white 
-                            : textColor,
-                      ),
-                    ),
-                    selected: currentScrollMode == mode,
-                    selectedColor: Theme.of(context).primaryColor,
-                    backgroundColor: isDarkMode ? Colors.grey[800] : null,
-                    onSelected: (selected) {
-                      if (selected) {
-                        onScrollModeChanged(mode);
-                      }
-                    },
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
+          buildScrollModeSelector(),
 
           const SizedBox(height: 16),
           
           // 亮度调节
-          Row(
-            children: [
-              Icon(Icons.brightness_medium, color: textColor),
-              const SizedBox(width: 8),
-              Expanded(
-                child: SliderTheme(
-                  data: SliderTheme.of(context).copyWith(
-                    activeTrackColor: Theme.of(context).primaryColor,
-                    thumbColor: Theme.of(context).primaryColor,
-                    inactiveTrackColor: isDarkMode ? Colors.grey[600] : Colors.grey[300],
-                  ),
-                  child: Slider(
-                    value: currentBrightness,
-                    min: 0.0,
-                    max: 1.0,
-                    divisions: 100,
-                    onChanged: onBrightnessChanged,
-                  ),
-                ),
-              ),
-              Text(
-                '${(currentBrightness * 100).round()}%',
-                style: TextStyle(color: textColor),
-              ),
-            ],
-          ),
+          buildBrightnessControl(),
         ],
       ),
     );

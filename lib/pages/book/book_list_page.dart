@@ -29,34 +29,15 @@ class BookListPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final bookDicItem = bookList[index];
           final book = Book.fromBookDicItem(bookDicItem);
-          return InkWell(
-            onTap: () => _openBook(context, book),
-            child: Column(
-              children: [
-                BookCover(
-                  book: book,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  book.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+          return SizedBox(
+            height: 240,
+            child: BookCover(
+              book: book,
+              onTap: () => _openBook(context, book),
             ),
           );
         },
         itemCount: bookList.length,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _showImportDialog(context),
-        child: const Icon(Icons.add),
-        tooltip: '导入新书',
       ),
     );
   }
@@ -128,15 +109,44 @@ class BookListPage extends StatelessWidget {
   }
 
   void _openBook(BuildContext context, Book book) {
-    if (book.path != null && book.path!.isNotEmpty) {
+    if (book.path == null || book.path!.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('无法打开文件：路径为空')),
+      );
+      return;
+    }
+
+    try {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => book.path!.endsWith("pdf") 
-              ? PDFScreen(path: book.path!, name: book.name ?? book.title)
-              : EPUBScreen(path: book.path!, name: book.name ?? book.title),
+              ? PDFScreen(path: book.path!, name: book.name)
+              : EPUBScreen(path: book.path!, name: book.name),
         ),
       );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('打开文件失败：$e')),
+      );
     }
+  }
+
+  Widget _buildBookItem(BuildContext context, Book book) {
+    return ListTile(
+      onTap: () {
+        if (book.path == null) return;
+        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => book.path!.toLowerCase().endsWith('.pdf')
+              ? PDFScreen(path: book.path!, name: book.name)
+              : EPUBScreen(path: book.path!, name: book.name),
+          ),
+        );
+      },
+      // ... 其他代码保持不变
+    );
   }
 } 
