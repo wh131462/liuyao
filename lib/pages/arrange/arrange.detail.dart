@@ -1,204 +1,188 @@
 import 'package:flutter/material.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
 import 'package:liuyao/pages/hexagrams/hexagram.detail.dart';
 import 'package:liuyao/utils/liuyao.util.dart';
+import 'package:liuyao/models/divination_result.dart';
 
 class ArrangeDetailPage extends StatefulWidget {
   final String question;
   final String answer;
+  final DateTime dateTime;
+  final List<int> yaoValues;
 
-  // 通过构造函数传递解析结果
-  ArrangeDetailPage({super.key, required this.question, required this.answer});
+  const ArrangeDetailPage({
+    Key? key,
+    required this.question,
+    required this.answer,
+    required this.dateTime,
+    required this.yaoValues,
+  }) : super(key: key);
 
   @override
   _ArrangeDetailPageState createState() => _ArrangeDetailPageState();
 }
 
 class _ArrangeDetailPageState extends State<ArrangeDetailPage> {
-  Map<Hexagram, Xiang>? _hexagrams;
-  bool _isLoading = true;
-  String? _error;
-  List<int>? _generatedNumbers;
-
+  late DivinationResult _result;
+  
   @override
   void initState() {
     super.initState();
+    _initializeResult();
   }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_isLoading) {
-      _initializeHexagrams();
-    }
-  }
-
-  Future<void> _initializeHexagrams() async {
-    try {
-      // 生成六个随机数（6、7、8、9）
-      _generatedNumbers = LiuYaoUtil.generateLiuYao();
-      
-      // 根据生成的数字创建卦象
-      final hexagrams = {
-        Hexagram.original: LiuYaoUtil.getOriginalHexagramByNumber(_generatedNumbers!),
-        Hexagram.transformed: LiuYaoUtil.getTransformedHexagramByNumber(_generatedNumbers!),
-        Hexagram.mutual: LiuYaoUtil.getMutualHexagramByNumber(_generatedNumbers!),
-        Hexagram.reversed: LiuYaoUtil.getReversedHexagramByNumber(_generatedNumbers!),
-        Hexagram.opposite: LiuYaoUtil.getOppositeHexagramByNumber(_generatedNumbers!),
-      };
-      
-      if (mounted) {
-        setState(() {
-          _hexagrams = hexagrams;
-          _isLoading = false;
-          _error = null;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _error = '生成卦象失败: $e';
-          _isLoading = false;
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(_error!)),
-        );
-      }
-    }
+  
+  void _initializeResult() {
+    final hexagrams = LiuYaoUtil.getHexagramsByText(widget.yaoValues.join());
+    _result = DivinationResult(
+      question: widget.question,
+      dateTime: widget.dateTime,
+      yaoValues: widget.yaoValues,
+      hexagrams: hexagrams,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
-    }
-
-    if (_error != null || _hexagrams == null) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('错误'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(_error ?? '未知错误'),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    _isLoading = true;
-                    _error = null;
-                  });
-                  _initializeHexagrams();
-                },
-                child: const Text('重试'),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('排卦结果'),
-        actions: [
-          // 添加重新生成按钮
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () {
-              setState(() {
-                _isLoading = true;
-              });
-              _initializeHexagrams();
-            },
-          ),
-        ],
-      ),
+    return PageScaffold(
+      title: '排盘详情',
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            // 显示问题
-            Text(
-              "求问: ${widget.question}",
-              style: const TextStyle(
-                fontSize: 32,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-            
-            // 显示生成的数字
-            if (_generatedNumbers != null) ...[
-              Text(
-                "生成数字: ${_generatedNumbers!.join(', ')}",
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-              ),
-              const SizedBox(height: 24),
-            ],
-
-            // 显示各种卦象
-            _buildHexagramSection("本卦", Hexagram.original),
-            _buildHexagramSection("变卦", Hexagram.transformed),
-            _buildHexagramSection("错卦", Hexagram.reversed),
-            _buildHexagramSection("互卦", Hexagram.mutual),
-            _buildHexagramSection("综卦", Hexagram.opposite),
+          children: [
+            _buildQuestionSection(),
+            const Divider(),
+            _buildTimeSection(),
+            const Divider(),
+            _buildHexagramSection(),
+            const Divider(),
+            _buildAnalysisSection(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildHexagramSection(String label, Hexagram type) {
-    final hexagram = _hexagrams![type]!;
+  Widget _buildQuestionSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        getTextButton(context, label, hexagram),
         Text(
-          type.description,
-          style: const TextStyle(
-            fontSize: 18,
-            color: Colors.blueAccent,
-            fontWeight: FontWeight.bold,
-          ),
+          '求测事项',
+          style: Theme.of(context).textTheme.titleLarge,
         ),
-        Text(hexagram.getGuaProps().originalHexagram),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
+        Text(widget.question),
       ],
     );
   }
 
-  /// 获取跳转文本按钮
-  GestureDetector getTextButton(BuildContext context, String label, Xiang hexagram) {
-    return GestureDetector(
-      child: Text(
-        '$label: ${hexagram.getGuaProps().name}',
-        style: const TextStyle(
-          fontSize: 32,
-          color: Colors.blue,
-          fontWeight: FontWeight.bold,
+  Widget _buildTimeSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '时间信息',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 8),
+        Text('公历：${_result.solar.toFullString()}'),
+        Text('农历：${_result.lunar.toFullString()}'),
+        Text('节气：${_result.solarTerm}'),
+        Text('空亡：${_result.emptyGods}'),
+        Text('神煞：${_result.spirits.join("、")}'),
+      ],
+    );
+  }
+
+  Widget _buildHexagramSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '卦象信息',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 8),
+        _buildHexagramDetail(Hexagram.original, '本卦'),
+        _buildHexagramDetail(Hexagram.transformed, '变卦'),
+        _buildHexagramDetail(Hexagram.mutual, '互卦'),
+        _buildHexagramDetail(Hexagram.reversed, '错卦'),
+        _buildHexagramDetail(Hexagram.opposite, '综卦'),
+      ],
+    );
+  }
+
+  Widget _buildHexagramDetail(Hexagram type, String label) {
+    final xiang = _result.hexagrams[type];
+    if (xiang == null) return const SizedBox();
+    
+    return Card(
+      child: ListTile(
+        title: Text('$label：${xiang.getGuaProps().name}'),
+        subtitle: Text(xiang.getGuaProps().description),
+        onTap: () {
+          // TODO: 导航到卦象详情页
+        },
+      ),
+    );
+  }
+
+  Widget _buildAnalysisSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '卦象分析',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 8),
+        _buildYaoAnalysis(),
+        const SizedBox(height: 16),
+        _buildWorldResponseAnalysis(),
+      ],
+    );
+  }
+
+  Widget _buildYaoAnalysis() {
+    return Column(
+      children: List.generate(6, (index) {
+        final yaoValue = widget.yaoValues[5 - index];
+        return ListTile(
+          title: Text('第${index + 1}爻'),
+          subtitle: Text(_getYaoDescription(yaoValue)),
+          trailing: Text(_result.getSixRelative(index)),
+        );
+      }),
+    );
+  }
+
+  String _getYaoDescription(int value) {
+    switch (value) {
+      case 6: return '老阴 ⚋ 变阳';
+      case 7: return '少阳 ⚊';
+      case 8: return '少阴 ⚋';
+      case 9: return '老阳 ⚊ 变阴';
+      default: return '未知';
+    }
+  }
+
+  Widget _buildWorldResponseAnalysis() {
+    final worldResponse = _result.getWorldResponse();
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('世应分析', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Text('世爻：第${worldResponse['world']}爻'),
+            Text('应爻：第${worldResponse['response']}爻'),
+          ],
         ),
       ),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HexagramDetailPage(hexagram: hexagram),
-          ),
-        );
-      },
     );
   }
 }

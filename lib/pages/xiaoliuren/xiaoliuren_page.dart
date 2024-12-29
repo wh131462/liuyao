@@ -2,19 +2,20 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:liuyao/components/video_player.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import 'package:liuyao/constants/liuren.const.dart';
 import 'package:lunar/lunar.dart';
 
 import '../../utils/logger.dart';
 
 class XiaoLiuRenPage extends StatefulWidget {
+  const XiaoLiuRenPage({Key? key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() {
-    return _XiaoLiuRen();
-  }
+  State<XiaoLiuRenPage> createState() => _XiaoLiuRen();
 }
 
-class _XiaoLiuRen extends State<StatefulWidget> {
+class _XiaoLiuRen extends State<XiaoLiuRenPage> {
   // 用于输入的三个数字
   final TextEditingController _num1Controller = TextEditingController();
   final TextEditingController _num2Controller = TextEditingController();
@@ -34,7 +35,7 @@ class _XiaoLiuRen extends State<StatefulWidget> {
   void initState() {
     super.initState();
     setLunarInfo();
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setLunarInfo();
     });
   }
@@ -42,6 +43,9 @@ class _XiaoLiuRen extends State<StatefulWidget> {
   @override
   void dispose() {
     _timer?.cancel();
+    _num1Controller.dispose();
+    _num2Controller.dispose();
+    _num3Controller.dispose();
     super.dispose();
   }
 
@@ -49,7 +53,7 @@ class _XiaoLiuRen extends State<StatefulWidget> {
     setState(() {
       Lunar lunar = Lunar.fromDate(DateTime.now());
       Lunar nextDayLunar =
-      Lunar.fromDate(DateTime.now().add(Duration(seconds: 24 * 60 * 60)));
+      Lunar.fromDate(DateTime.now().add(const Duration(seconds: 24 * 60 * 60)));
       lunarInfo =
       "${lunar.getYearInGanZhi()}年 ${lunar.getMonthInGanZhi()}月 ${lunar
           .getHour() == 23 ? nextDayLunar.getDayInGanZhi() : lunar
@@ -122,61 +126,55 @@ class _XiaoLiuRen extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back), color: Colors.white, onPressed: () {
-          Navigator.of(context).pop();
-        }),
-        title: Text(
-          '小六壬',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        actions: [
-          IconButton(onPressed: () {
-            showDialog(context: context, builder: (context) {
-              return AlertDialog(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12), // 圆角边框
-                ),
-                actionsAlignment: MainAxisAlignment.center,
-                title: Center(
-                  child: Text(
-                    "请看视频",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return PageScaffold(
+      title: '小六壬',
+      canBack: true,
+      actions: [
+        IconButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                ),
-                content: SingleChildScrollView(
-                    child: VideoPlayerWidget(
-                      videoUrl: "assets/videos/xiaoliuren.mp4", isLocal: true,)
-                ),
-                actions: [
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(horizontal: 20), // 增加按钮内边距
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8), // 圆角按钮
-                      ),
-                    ),
+                  actionsAlignment: MainAxisAlignment.center,
+                  title: const Center(
                     child: Text(
-                      '确定',
-                      style: TextStyle(fontSize: 16), // 增加按钮字体大小
+                      "请看视频",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop(); // 关闭弹窗
-                    },
                   ),
-                ],
-              );
-            });
-          }, icon: Icon(color: Colors.white, Icons.help_outline),)
-        ],
-        backgroundColor: Colors.teal, // 修改AppBar背景颜色
-      ),
+                  content: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: const VideoPlayerWidget(
+                      videoUrl: "assets/videos/xiaoliuren.mp4",
+                      isLocal: true,
+                      autoPlay: true,
+                      showControls: true,
+                    ),
+                  ),
+                  actions: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text('确定', style: TextStyle(fontSize: 16)),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          icon: const Icon(Icons.help_outline, color: Colors.black),
+        ),
+      ],
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -351,13 +349,13 @@ class _XiaoLiuRen extends State<StatefulWidget> {
                   actions: [
                     TextButton(
                       style: TextButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         // 增加按钮内边距
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8), // 圆角按钮
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         '确定',
                         style: TextStyle(fontSize: 16), // 增加按钮字体大小
                       ),
@@ -435,3 +433,4 @@ class _XiaoLiuRen extends State<StatefulWidget> {
         ));
   }
 }
+

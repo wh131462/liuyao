@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import 'package:liuyao/constants/liuyao.const.dart';
 import 'package:liuyao/constants/xiang.dictionary.dart';
 import 'package:liuyao/utils/logger.dart';
@@ -18,21 +19,19 @@ class _HexagramsPageState extends State<HexagramsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('六十四卦'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              showSearch(
-                context: context,
-                delegate: HexagramSearchDelegate(_allHexagrams),
-              );
-            },
-          ),
-        ],
-      ),
+    return PageScaffold(
+      title: "六十四卦",
+      actions: [
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {
+            showSearch(
+              context: context,
+              delegate: HexagramSearchDelegate(_allHexagrams),
+            );
+          },
+        ),
+      ],
       body: HexagramGrid(hexagrams: _allHexagrams),
     );
   }
@@ -86,7 +85,7 @@ class HexagramCard extends StatelessWidget {
                         fontSize: 14,
                         height: 0.9))),
             Text(hexagram.name),
-            Text("(${hexagram.getGuaProps().fullName})"),
+            Text("(${hexagram.getGuaProps().name})"),
           ],
         ),
       ),
@@ -152,7 +151,7 @@ class HexagramSearchDelegate extends SearchDelegate {
       }else{
         final isName = hexagram.name.contains(query);
         final props = hexagram.getGuaProps();
-        final isFull = props.getFullText().contains(query);
+        final isFull = props.description.contains(query);
         return isName || isFull;
       }
     }).toList();

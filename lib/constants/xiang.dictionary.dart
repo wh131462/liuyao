@@ -3,103 +3,48 @@ import 'package:liuyao/components/image_rich_text.dart';
 import 'package:liuyao/constants/xiangs/index.dart';
 
 class XiangDicItem {
-  // 象名称
-  String name;
+  final String name;
+  final String description;
+  final String? judgment;
+  final String? image;
+  final String? element;
+  final String? nature;
+  final String? attribute;
+  final String? luck;
+  final List<String>? yaoTexts;
 
-  // 象全名
-  String fullName;
+  const XiangDicItem({
+    required this.name,
+    required this.description,
+    this.judgment,
+    this.image,
+    this.element,
+    this.nature,
+    this.attribute,
+    this.luck,
+    this.yaoTexts,
+  });
 
-  // 象简述
-  String simpleDescription;
+  getFullRichText() {
+    return '''
+$name
 
-  // 象的本卦原文
-  String originalHexagram;
+卦辞：$description
 
-  // 象的初爻
-  String initialLine;
+${judgment != null ? '彖辞：$judgment\n' : ''}
+${image != null ? '象辞：$image\n' : ''}
+${element != null ? '五行：$element\n' : ''}
+${nature != null ? '性质：$nature\n' : ''}
+${attribute != null ? '特质：$attribute\n' : ''}
+${luck != null ? '吉凶：$luck\n' : ''}
 
-  // 象的二爻
-  String secondLine;
-
-  // 象的三爻
-  String thirdLine;
-
-  // 象的四爻
-  String fourthLine;
-
-  // 象的五爻
-  String fifthLine;
-
-  // 象的上爻
-  String uppermostLine;
-
-  XiangDicItem(
-      this.name,
-      this.fullName,
-      this.simpleDescription,
-      this.originalHexagram,
-      this.initialLine,
-      this.secondLine,
-      this.thirdLine,
-      this.fourthLine,
-      this.fifthLine,
-      this.uppermostLine);
-
-  /// 获取全文
-  String getFullText() {
-    return '''$name卦($fullName)\n$simpleDescription\n\n$originalHexagram\n\n$initialLine\n\n$secondLine\n\n$thirdLine\n\n$fourthLine\n\n$fifthLine\n\n$uppermostLine\n\n}''';
-  }
-
-  /// 获取全文富文本
-  RichText getFullRichText() {
-    TextStyle nameStyle =
-        const TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0);
-    TextStyle titleStyle =
-        const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold);
-    TextStyle commonStyle = const TextStyle(fontSize: 16.0);
-    return RichText(
-        softWrap: true,
-        text: TextSpan(
-          style: const TextStyle(color: Colors.black),
-          children: <TextSpan>[
-            // 标题样式
-            TextSpan(
-              text: '$name卦($fullName)\n\n',
-              style: nameStyle,
-            ),
-            // 简单描述样式
-            TextSpan(
-              text: '$simpleDescription\n\n',
-              style: commonStyle,
-            ),
-            // 原始卦象样式
-            TextSpan(
-              text: '$originalHexagram\n\n',
-              style: commonStyle,
-            ),
-            ...[
-              initialLine,
-              secondLine,
-              thirdLine,
-              fourthLine,
-              fifthLine,
-              uppermostLine
-            ].map((line) {
-              return TextSpan(
-                children: [
-                  TextSpan(
-                    text: '${line.split("\n").first}\n\n',
-                    style: titleStyle,
-                  ),
-                  TextSpan(
-                    children: getTextSpanWithMixedImages('${line.split("\n").skip(1).join("\n")}\n\n') ,
-                    style: commonStyle,
-                  )
-                ],
-              );
-            }),
-          ],
-        ));
+爻辞：
+${yaoTexts?.asMap().entries.map((entry) {
+    int index = entry.key;
+    String text = entry.value;
+    return '第${index + 1}爻：$text';
+  }).join('\n') ?? ''}
+''';
   }
 }
 
@@ -114,58 +59,58 @@ Map<String, XiangDicItem> xiangDictionary = {
   "遁": tianShanDun,
   "否": tianDiPi,
   "夬": zeTianGuai,
-  "兑": duiWeiZe,
+  "兑": zeZeDui,
   "革": zeHuoGe,
-  "随": zeLeiSui,
+  "随": zeleiSui,
   "大过": zeFengDaGuo,
   "困": zeShuiKun,
   "咸": zeShanXian,
-  "萃": zeDiCui,
+  "萃": zeZiCui,
   "大有": tianHuoDaYou,
-  "睽": huoZeKui,
-  "离": liWeiHuo,
-  "噬嗑": huoLeiSHiKe,
+  "睽": zeHuoKui,
+  "离": liLiLi,
+  "噬嗑": huoLeiShiHe,
   "鼎": huoFengDing,
-  "未济": huoShuiWeiJi,
+  "未济": liKanWeiJi,
   "旅": huoShanLv,
   "晋": huoDiJin,
   "大壮": leiTianDaZhuang,
   "归妹": leiZeGuiMei,
-  "丰": leiHuoFeng,
-  "震": zhenWeiLei,
+  "丰": zhenZeFeng,
+  "震": zhenZhen,
   "恒": leiFengHeng,
   "解": leiShuiJie,
-  "小过": leiShanXiaoGuo,
+  "小过": leiFengXiaoGuo,
   "豫": leiDiYu,
-  "小畜": fengTianXiaoChu,
-  "中孚": fengZeZhongFu,
+  "小畜": fengTianXiaoXu,
+  "中孚": fengLeiZhongFu,
   "家人": fengHuoJiaRen,
   "益": fengLeiYi,
-  "巽": xunWeiFeng,
-  "涣": fengShuiHuan,
+  "巽": xunXun,
+  "涣": fengZeHuan,
   "渐": fengShanJian,
   "观": fengDiGuan,
   "需": shuiTianXu,
-  "节": shuiZeJie,
-  "既济": shuiHuoJiJi,
+  "节": zeFengJie,
+  "既济": kanLiJiJi,
   "屯": shuiLeiZhun,
   "井": shuiFengJing,
-  "坎": kanWeiShui,
-  "蹇": shuiShanJian,
+  "坎": kanKanXiKan,
+  "蹇": shanShuiJian,
   "比": shuiDiBi,
-  "大畜": shanTianDaChu,
+  "大畜": shanTianDaXu,
   "损": shanZeSun,
-  "贲": shanHuoBen,
+  "贲": shanHuoBi,
   "颐": shanLeiYi,
   "蛊": shanFengGu,
   "蒙": shanShuiMeng,
-  "艮": genWeiShan,
+  "艮": genGen,
   "剥": shanDiBo,
   "泰": diTianTai,
   "临": diZeLin,
   "明夷": diHuoMingYi,
   "复": diLeiFu,
-  "升": diFengSheng,
+  "升": diZeSheng,
   "师": diShuiShi,
   "谦": diShanQian,
   "坤": kunWeiDi

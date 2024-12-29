@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import '../../providers/theme_provider.dart';
@@ -29,16 +30,14 @@ class ThemeSettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('主题设置'),
-      ),
+    return PageScaffold(
+      title: "主题设置",
+      canBack: true,
       body: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
-          final isCustomColor = !colorOptions.any(
-            (option) => option['color'].value == themeProvider.primaryColor.value
-          );
-          
+          final isCustomColor = !colorOptions.any((option) =>
+              option['color'].value == themeProvider.primaryColor.value);
+
           return ListView(
             children: [
               _buildThemeModeSection(context, themeProvider),
@@ -57,7 +56,8 @@ class ThemeSettingsPage extends StatelessWidget {
       children: [
         const Padding(
           padding: EdgeInsets.all(16),
-          child: Text('主题模式', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          child: Text('主题模式',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
         ),
         RadioListTile<ThemeMode>(
           title: const Text('跟随系统'),
@@ -81,7 +81,8 @@ class ThemeSettingsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildColorSection(BuildContext context, ThemeProvider provider, bool isCustomColor) {
+  Widget _buildColorSection(
+      BuildContext context, ThemeProvider provider, bool isCustomColor) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -90,7 +91,8 @@ class ThemeSettingsPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('主题颜色', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text('主题颜色',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               Text(
                 _getColorName(provider.primaryColor, context),
                 style: TextStyle(color: Theme.of(context).hintColor),
@@ -105,11 +107,11 @@ class ThemeSettingsPage extends StatelessWidget {
             runSpacing: 16,
             children: [
               ...colorOptions.map((option) => _buildColorButton(
-                context,
-                provider,
-                option['color'],
-                option['name'],
-              )),
+                    context,
+                    provider,
+                    option['color'],
+                    option['name'],
+                  )),
               _buildCustomColorButton(context, provider, isCustomColor),
             ],
           ),
@@ -125,7 +127,7 @@ class ThemeSettingsPage extends StatelessWidget {
     String name,
   ) {
     final isSelected = provider.primaryColor.value == color.value;
-    
+
     return Tooltip(
       message: name,
       child: GestureDetector(
@@ -154,7 +156,8 @@ class ThemeSettingsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomColorButton(BuildContext context, ThemeProvider provider, bool isCustomColor) {
+  Widget _buildCustomColorButton(
+      BuildContext context, ThemeProvider provider, bool isCustomColor) {
     return Tooltip(
       message: '自定义颜色',
       child: GestureDetector(
@@ -207,4 +210,4 @@ class ThemeSettingsPage extends StatelessWidget {
       ),
     );
   }
-} 
+}

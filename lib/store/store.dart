@@ -10,7 +10,7 @@ class StoreService {
   
   StoreService(this._db);
 
-  // 初始化本地存储数据库
+  // 初始化
   Future<void> initializeLocal() async {
     String path = join(await getDatabasesPath(), 'local_storage.db');
     _localDb = await openDatabase(
@@ -18,13 +18,28 @@ class StoreService {
       version: 1,
       onCreate: (Database db, int version) async {
         await db.execute('''
-          CREATE TABLE local_storage(
+          CREATE TABLE IF NOT EXISTS local_storage(
             key TEXT PRIMARY KEY,
             value TEXT NOT NULL
           )
         ''');
       },
     );
+
+    // 确保历史记录表存在
+    final db = await _db.database;
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS history(
+        id TEXT PRIMARY KEY,
+        question TEXT NOT NULL,
+        origin_answer TEXT NOT NULL,
+        note TEXT,
+        timestamp INTEGER NOT NULL,
+        analysis TEXT,
+        conclusion TEXT,
+        tags TEXT
+      )
+    ''');
   }
 
   // 获取本地存储的值
@@ -88,16 +103,32 @@ class StoreService {
 
   // 查询指定日期的历史记录
   Future<List<HistoryItem>> queryHistoryByDate(DateTime date) async {
-    final startOfDay = DateTime(date.year, date.month, date.day);
-    final endOfDay = startOfDay.add(Duration(days: 1));
-    return queryHistoryByTimeRange(startOfDay, endOfDay);
+    final startTime = DateTime(date.year, date.month, date.day).millisecondsSinceEpoch;
+    final endTime = DateTime(date.year, date.month, date.day + 1).millisecondsSinceEpoch;
+
+    final result = await _db.query(
+      'history',
+      where: 'timestamp >= ? AND timestamp < ?',
+      whereArgs: [startTime, endTime],
+      orderBy: 'timestamp DESC',
+    );
+
+    return result.map((item) => HistoryItem.fromMap(item)).toList();
   }
 
   // 按年份查询历史记录
   Future<List<HistoryItem>> queryHistoryByYear(int year) async {
-    final startOfYear = DateTime(year);
-    final endOfYear = DateTime(year + 1);
-    return queryHistoryByTimeRange(startOfYear, endOfYear);
+    final startTime = DateTime(year).millisecondsSinceEpoch;
+    final endTime = DateTime(year + 1).millisecondsSinceEpoch;
+
+    final result = await _db.query(
+      'history',
+      where: 'timestamp >= ? AND timestamp < ?',
+      whereArgs: [startTime, endTime],
+      orderBy: 'timestamp DESC',
+    );
+
+    return result.map((item) => HistoryItem.fromMap(item)).toList();
   }
 
   // 按月份查询历史记录
@@ -175,5 +206,55 @@ class StoreService {
   // 清除当前用户
   Future<void> clearCurrentUser() async {
     await removeLocal('current_user_id');
+  }
+
+  // 分页获取历史记录
+  Future<List<HistoryItem>> getHistoryItems({
+    required int page,
+    required int pageSize,
+  }) async {
+    final offset = (page - 1) * pageSize;
+    
+    try {
+      final result = await _db.query(
+        'history',
+        orderBy: 'timestamp DESC',
+        limit: pageSize,
+        offset: offset,
+      );
+
+      return result.map((item) => HistoryItem.fromMap(item)).toList();
+    } catch (e) {
+      print('Error getting history items: $e');
+      return [];
+    }
+  }
+
+  // 获取历史记录总数
+  Future<int> getHistoryCount() async {
+    final result = await _db.query('history');
+    return result.length;
+  }
+
+  // 按关键词搜索历史记录
+  Future<List<HistoryItem>> searchHistory(String keyword) async {
+    final result = await _db.query(
+      'history',
+      where: 'question LIKE ? OR origin_answer LIKE ? OR note LIKE ? OR analysis LIKE ? OR conclusion LIKE ? OR tags LIKE ?',
+      whereArgs: List.filled(6, '%$keyword%'),
+      orderBy: 'timestamp DESC',
+    );
+
+    return result.map((item) => HistoryItem.fromMap(item)).toList();
+  }
+
+  // 更新历史记录
+  Future<void> updateHistory(HistoryItem item) async {
+    await _db.update(
+      'history',
+      item.toMap(),
+      where: 'id = ?',
+      whereArgs: [item.id],
+    );
   }
 }

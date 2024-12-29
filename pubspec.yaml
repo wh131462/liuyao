@@ -96,6 +96,8 @@ flutter:
   assets:
     - assets/images/
     - assets/book/
+    - assets/videos/
+    - assets/videos/xiaoliuren.mp4
   fonts:
     - family: IconFont
       fonts:

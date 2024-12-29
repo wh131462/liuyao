@@ -181,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                   // 忘记密码按钮
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/forgot_password');
+                      Navigator.pushNamed(context, '/forget');
                     },
                     child: const Text('忘记密码？'),
                   ),

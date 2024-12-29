@@ -39,6 +39,8 @@ class HistoryItemCard extends StatelessWidget {
             builder: (context) => ArrangeDetailPage(
               question: item.question,
               answer: item.originAnswer,
+              dateTime: DateTime.fromMillisecondsSinceEpoch(item.timestamp),
+              yaoValues: [], // 需要从历史记录中获取爻值
             ),
           ),
         );

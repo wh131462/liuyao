@@ -41,9 +41,9 @@ class _WelcomePageState extends State<WelcomePage> {
             label: '首页',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.help_outline),
-            activeIcon: Icon(Icons.help),
-            label: '工具',
+            icon: Icon(IconFont.tool),
+            activeIcon: Icon(IconFont.tool),
+            label: '工具箱',
           ),
           BottomNavigationBarItem(
             icon: Icon(IconFont.read),
@@ -51,8 +51,8 @@ class _WelcomePageState extends State<WelcomePage> {
             label: '六十四卦',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
+            icon: Icon(IconFont.my),
+            activeIcon: Icon(IconFont.my),
             label: '我的',
           ),
         ],

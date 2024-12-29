@@ -1,30 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:liuyao/pages/book/book_list_page.dart';
-import 'package:liuyao/pages/spinning/spinning_page.dart';
-import 'package:liuyao/pages/welcome/welcome.dart';
-import 'package:liuyao/pages/xiaoliuren/xiaoliuren_page.dart';
+import 'package:liuyao/navigation/route.dart';
 import 'package:provider/provider.dart';
-import 'package:liuyao/core/config/app_config.dart';
 import 'package:liuyao/core/file/file_manager.dart';
-import 'package:liuyao/providers/user_profile_provider.dart';
 import 'package:liuyao/providers/theme_provider.dart';
 import 'package:liuyao/providers/reader_provider.dart';
-import 'dart:io';
 import 'package:liuyao/services/database_service.dart';
 import 'package:liuyao/store/store.dart';
-import 'package:liuyao/pages/history/history_page.dart';
-import 'package:liuyao/pages/settings/settings_page.dart';
-import 'package:liuyao/pages/about/about_page.dart';
-import 'pages/login/login.dart';
-import 'pages/register/register.dart';
-import 'pages/my/my.dart';
-import 'pages/about/about_page.dart';
-import 'pages/settings/theme_settings_page.dart';
-import 'pages/settings/reader_settings_page.dart';
-import 'pages/arrange/arrange.dart';
-import 'pages/arrange/arrange.history.dart';
-import 'pages/userinfo/userinfo.dart';
-import 'pages/password/forgot_password.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,44 +52,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       themeMode: context.watch<ThemeProvider>().themeMode,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const WelcomePage(),
-        '/history': (context) => const HistoryPage(),
-        '/settings': (context) => const SettingsPage(),
-        '/theme_setting': (context) => const ThemeSettingsPage(),
-        '/about': (context) => const AboutPage(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => const RegisterPage(),
-        '/forgot_password': (context) => const ForgotPasswordPage(),
-        '/my': (context) => const MyPage(),
-        '/arrange': (context) => const ArrangePage(),
-        '/arrange_history': (context) => ArrangeHistory(),
-        '/xiaoliuren': (context) => XiaoLiuRenPage(),
-        '/spinning': (context) => SpinningPage(),
-        '/book': (context) => BookListPage(),
-      },
-      onUnknownRoute: (settings) {
-        return MaterialPageRoute(
-          builder: (context) => Scaffold(
-            appBar: AppBar(
-              title: const Text('页面未找到'),
-            ),
-            body: const Center(
-              child: Text('抱歉，请求的页面不存在'),
-            ),
-          ),
-        );
-      },
-      onGenerateRoute: (settings) {
-        if (settings.name == '/userinfo') {
-          final args = settings.arguments as String;
-          return MaterialPageRoute(
-            builder: (context) => UserInfoPage(userId: args),
-          );
-        }
-        return null;
-      },
+      initialRoute: AppRoute.welcome,
+      routes: AppRoute.routes,
+      onGenerateRoute: AppRoute.onGenerateRoute,
+      onUnknownRoute: AppRoute.onUnknownRoute,
     );
   }
 }

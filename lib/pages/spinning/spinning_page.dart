@@ -140,7 +140,7 @@ class _SpinningPageState extends State<SpinningPage> with SingleTickerProviderSt
                   duration: const Duration(milliseconds: 300),
                   child: Text(
                     guaList.length >= 2 
-                      ? Xiang.getXiangByYaoList(guaList).getGuaProps().fullName 
+                      ? Xiang.getXiangByYaoList(guaList).getGuaProps().name
                       : '',
                     key: ValueKey('${guaList[0].name}-${guaList[1].name}'), // 添加key以触发动画
                     style: const TextStyle(

@@ -5,6 +5,8 @@ class IconFont {
   static const String _kFontFam = 'IconFont';
   // 排盘
   static const IconData arrange = const IconData(0xe612, fontFamily: _kFontFam);
+  // 工具箱
+  static const IconData tool = const IconData(0xe64f, fontFamily: _kFontFam);
   // 阅读 - 六十四卦
   static const IconData read = const IconData(0xe61c, fontFamily: _kFontFam);
   // 我的

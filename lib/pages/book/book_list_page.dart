@@ -55,7 +55,10 @@ class BookListPage extends StatelessWidget {
               title: const Text('从网址导入'),
               onTap: () {
                 Navigator.pop(context);
-                _importFromUrl(context);
+                // _importFromUrl(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("开发中,敬请期待~")),
+                );
               },
             ),
             ListTile(
@@ -63,7 +66,10 @@ class BookListPage extends StatelessWidget {
               title: const Text('从本地文件导入'),
               onTap: () {
                 Navigator.pop(context);
-                _importFromFile(context);
+                // _importFromFile(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("开发中,敬请期待~")),
+                );
               },
             ),
           ],

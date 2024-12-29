@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
 import '../../store/store.dart';
@@ -11,7 +12,8 @@ class MyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PageScaffold(
+      title: "我的",
       body: CustomScrollView(
         slivers: [
           // 顶部背景和头像区域
@@ -32,7 +34,7 @@ class MyPage extends StatelessWidget {
       children: [
         // 顶部背景图
         Container(
-          height: 200,
+          height: 300,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: const AssetImage('assets/images/wall.jpg'),
@@ -68,8 +70,8 @@ class MyPage extends StatelessWidget {
         return GestureDetector(
           onTap: () => _handleAvatarTap(context, user),
           child: Container(
-            width: 100,
-            height: 100,
+            width: 80,
+            height: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 3),
@@ -106,7 +108,7 @@ class MyPage extends StatelessWidget {
               Text(
                 user?.username ?? '点击登录',
                 style: const TextStyle(
-                  fontSize: 24,
+                  fontSize: 18,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   shadows: [
