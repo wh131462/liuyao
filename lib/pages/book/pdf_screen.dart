@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:liuyao/utils/logger.dart';
-import 'package:logger/logger.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:intl/intl.dart';
@@ -11,7 +9,6 @@ import '../../core/reading/reading_progress.dart';
 import '../../core/reading/reading_settings.dart';
 import '../../widgets/reading/reading_settings_panel.dart';
 import '../../widgets/reading/reading_drawer.dart';
-import '../../widgets/reading/outline_panel.dart';
 import 'package:syncfusion_flutter_pdf/src/pdf/implementation/pdf_document/outlines/pdf_outline.dart';
 
 class PDFScreen extends StatefulWidget {
@@ -1034,9 +1031,8 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
             Column(
               children: [
                 // 顶部信息条 (当控制栏隐藏时显示)
-                if (!_showControls) 
-                  _buildMinimalInfoBar(),
-                
+                if (!_showControls) _buildMinimalInfoBar(),
+
                 // PDF 查看器
                 Expanded(
                   child: GestureDetector(
@@ -1053,7 +1049,8 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
                             onPageChanged: _handlePageChanged,
                             scrollDirection:
                                 _scrollMode == ScrollMode.singleHorizontal ||
-                                        _scrollMode == ScrollMode.continuousHorizontal
+                                        _scrollMode ==
+                                            ScrollMode.continuousHorizontal
                                     ? PdfScrollDirection.horizontal
                                     : PdfScrollDirection.vertical,
                             pageLayoutMode:
@@ -1078,7 +1075,8 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
                             onPageChanged: _handlePageChanged,
                             scrollDirection:
                                 _scrollMode == ScrollMode.singleHorizontal ||
-                                        _scrollMode == ScrollMode.continuousHorizontal
+                                        _scrollMode ==
+                                            ScrollMode.continuousHorizontal
                                     ? PdfScrollDirection.horizontal
                                     : PdfScrollDirection.vertical,
                             pageLayoutMode:
@@ -1112,16 +1110,14 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
 
   Widget _buildMinimalInfoBar() {
     final currentBookmark = _getCurrentChapterTitle();
-    
+
     return Container(
       height: 48 + MediaQuery.of(context).padding.top,
       decoration: BoxDecoration(
-        color: _isDarkMode 
-            ? const Color(0xFF1A1A1A)
-            : Colors.white,
+        color: _isDarkMode ? const Color(0xFF1A1A1A) : Colors.white,
         border: Border(
           bottom: BorderSide(
-            color: _isDarkMode 
+            color: _isDarkMode
                 ? Colors.white.withOpacity(0.12)
                 : Colors.black.withOpacity(0.06),
           ),
@@ -1149,7 +1145,7 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              
+
               // 进度和时间
               Text(
                 '${((_currentPage + 1) / (_totalPages ?? 1) * 100).toStringAsFixed(1)}% · ${DateFormat('HH:mm').format(_currentTime)}',
@@ -1292,7 +1288,8 @@ class _PDFScreenState extends State<PDFScreen> with TickerProviderStateMixin {
                                       ),
                                       // 分隔符
                                       Container(
-                                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 8),
                                         width: 1,
                                         height: 12,
                                         color: Colors.white.withOpacity(0.2),

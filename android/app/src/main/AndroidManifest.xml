@@ -1,6 +1,7 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.eternalheart.liuyao">
     <application
-        android:label="liuyao"
+        android:label="六爻通神"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

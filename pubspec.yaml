@@ -56,7 +56,6 @@ dependencies:
   path: ^1.8.3
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  flutter_filereader: ^3.0.0
   connectivity_plus: ^6.1.1
   sqflite: ^2.3.0
   uuid: ^4.3.3
@@ -96,6 +95,7 @@ flutter:
   assets:
     - assets/images/
     - assets/book/
+    - assets/icon/
     - assets/videos/
     - assets/videos/xiaoliuren.mp4
   fonts:
