@@ -95,7 +95,6 @@ flutter:
   assets:
     - assets/images/
     - assets/book/
-    - assets/icon/
     - assets/videos/
     - assets/videos/xiaoliuren.mp4
   fonts:
@@ -137,4 +136,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
 

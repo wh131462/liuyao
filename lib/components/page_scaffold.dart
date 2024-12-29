@@ -24,7 +24,7 @@ class PageScaffold extends StatelessWidget {
             ? IconButton(
                 icon: const Icon(Icons.arrow_back),
                 color: Colors.black,
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => Navigator.of(context).canPop()?Navigator.of(context).pop():Navigator.of(context).pushNamed('/'),
               )
             : null,
         title: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liuyao/components/page_scaffold.dart';
 import '../../constants/book.list.dart';
 import '../../models/book.dart';
 import 'book_cover.dart';
@@ -8,16 +9,15 @@ import 'pdf_screen.dart';
 class BookListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('书籍列表'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () => _showImportDialog(context),
-          ),
-        ],
-      ),
+    return PageScaffold(
+      canBack: true,
+      title: '书籍列表',
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.add),
+          onPressed: () => _showImportDialog(context),
+        ),
+      ],
       body: GridView.builder(
         padding: const EdgeInsets.all(16),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

@@ -32,7 +32,7 @@ class _EPUBScreenState extends State<EPUBScreen> with WidgetsBindingObserver{
 
   void _navigateToBookList() {
     Navigator.of(context).pushNamedAndRemoveUntil(
-      '/book',
+      '/books',
           (route) => false,
     );
   }
